@@ -37,11 +37,6 @@ public class User {
     private LocalDateTime registered = LocalDateTime.now();
     @NotBlank
     private boolean active;
-//    @NotBlank
-//    @Enumerated(EnumType.STRING)
-//    @OneToOne
-//    @JoinColumn(name = "role_id", referencedColumnName = "id")
-//    private Role role;
 
     @Enumerated(EnumType.STRING)
     private Role role;

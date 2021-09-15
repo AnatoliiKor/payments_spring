@@ -3,13 +3,13 @@ package com.kor.payments.domain;
 import javax.persistence.*;
 
 @Entity
-@Table
 public class CreditCard {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "card_number_generator")
-    @SequenceGenerator(name="card_number_generator", sequenceName = "card_number_seq")
-    private Long id;
+    private long id;
+    @Column(unique = true)
+    private long cardNumber;
 
     @OneToOne(mappedBy = "card")
     private Account account;

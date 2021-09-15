@@ -5,7 +5,6 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 @Entity
-@Table
 public class Transaction {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
@@ -19,6 +18,7 @@ public class Transaction {
     private LocalDateTime registered = LocalDateTime.now();
     private String destination;
     private int amount;
+    private int balanceAfter;
 
 //    @Enumerated(EnumType.STRING)
 //    @OneToOne(cascade = CascadeType.ALL)
