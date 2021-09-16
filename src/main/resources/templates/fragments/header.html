@@ -49,9 +49,19 @@
                     </button>
                 </form>
 
+
+                <form th:action="@{/logout}" method="post">
+                    <button type="submit" class="btn-outline-secondary" th:text="#{logout}"></button>
+                    <!--                        <input type="submit" value="Sign Out"/>-->
+                </form>
+
+
                 <div th:if=" ${user_auth !=null}">
                     <a class="btn btn-outline-secondary mx-2" href="/wallet/user" role="button"
                        th:text="#{profile_nav}"></a>
+
+
+
                     <a class="btn btn-outline-secondary" href="/logout" role="button">${user_auth.lastName}.<span
                             th:text="#{logout}"></span>/></a>
                 </div>

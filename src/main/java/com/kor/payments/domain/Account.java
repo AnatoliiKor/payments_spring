@@ -1,14 +1,20 @@
 package com.kor.payments.domain;
 
+import lombok.Data;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import javax.persistence.*;
-import javax.validation.constraints.Positive;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import javax.validation.constraints.PositiveOrZero;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 @Entity
+@NoArgsConstructor
+@Getter
+@Setter
 public class Account {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
@@ -21,6 +27,7 @@ public class Account {
     @ManyToOne
     @JoinColumn(name = "user_id", referencedColumnName = "id")
     private User user;
+    @PositiveOrZero
     private long balance;
     private String accountName;
 
@@ -39,10 +46,6 @@ public class Account {
 
     @OneToMany(mappedBy = "payer", fetch = FetchType.LAZY)
     private List<Transaction> payment;
-
-
-    public Account() {
-    }
 
 
     public String getFormatedDate() {

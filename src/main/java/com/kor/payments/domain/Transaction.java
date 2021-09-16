@@ -1,10 +1,17 @@
 package com.kor.payments.domain;
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 @Entity
+@NoArgsConstructor
+@Getter
+@Setter
 public class Transaction {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
@@ -20,10 +27,6 @@ public class Transaction {
     private int amount;
     private int balanceAfter;
 
-//    @Enumerated(EnumType.STRING)
-//    @OneToOne(cascade = CascadeType.ALL)
-//    @JoinColumn(name = "currency_id", referencedColumnName = "id")
-//    private Currency currency;
     @Enumerated(EnumType.STRING)
     private Currency currency;
 

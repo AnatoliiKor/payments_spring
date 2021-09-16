@@ -1,8 +1,15 @@
 package com.kor.payments.domain;
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import javax.persistence.*;
 
 @Entity
+@NoArgsConstructor
+@Getter
+@Setter
 public class CreditCard {
 
     @Id
@@ -13,9 +20,6 @@ public class CreditCard {
 
     @OneToOne(mappedBy = "card")
     private Account account;
-
-    public CreditCard() {
-    }
 
 
     //    public String getCardNumberSpaces() {

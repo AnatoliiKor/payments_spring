@@ -1,5 +1,8 @@
 package com.kor.payments.domain;
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.*;
@@ -11,6 +14,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
+@NoArgsConstructor
+@Getter
+@Setter
 @Table(name= "usr")
 public class User {
     @Id
@@ -30,12 +36,12 @@ public class User {
     @Email
     @Column(unique = true)
     private String email;
-    @NotBlank
+//    @NotBlank
     @Column(unique = true)
     private long phoneNumber;
-    @NotBlank
+//    @NotBlank
     private LocalDateTime registered = LocalDateTime.now();
-    @NotBlank
+//    @NotBlank
     private boolean active;
 
     @Enumerated(EnumType.STRING)
@@ -44,92 +50,44 @@ public class User {
     @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
     private List<Account> accountNumbers = new ArrayList<>();
 
-    public User() {
-    }
-
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getMiddleName() {
-        return middleName;
-    }
-
-    public void setMiddleName(String middleName) {
-        this.middleName = middleName;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public long getPhoneNumber() {
-        return phoneNumber;
-    }
-
-    public void setPhoneNumber(long phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
-
-    public LocalDateTime getRegistered() {
-        return registered;
-    }
-
-    public void setRegistered(LocalDateTime registered) {
-        this.registered = registered;
-    }
-
-    public boolean isActive() {
-        return active;
-    }
-
     public void setActive(boolean active) {
         this.active = active;
-    }
-
-    public Role getRole() {
-        return role;
     }
 
     public void setRole(Role role) {
         this.role = role;
     }
 
-    public List<Account> getAccountNumbers() {
-        return accountNumbers;
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public void setMiddleName(String middleName) {
+        this.middleName = middleName;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setPhoneNumber(long phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public void setRegistered(LocalDateTime registered) {
+        this.registered = registered;
     }
 
     public void setAccountNumbers(List<Account> accountNumbers) {
