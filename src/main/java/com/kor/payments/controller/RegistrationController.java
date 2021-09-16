@@ -20,19 +20,13 @@ public class RegistrationController {
     private UserService userService;
 
     @GetMapping("/registration")
-    public String registration() {
+    public String registration(@RequestParam(required = false) String warn, Model model) {
+        model.addAttribute("warn", warn);
         return "registration";
     }
 
 //    @PostMapping("/registration")
 //    public String addUser(
-//            @RequestParam(name="", required = false) String last_name,
-//            @RequestParam String name,
-//            @RequestParam(required = false) String middle_name,
-//            @RequestParam long phone_number ,
-//            @RequestParam String last_name,
-//            @RequestParam String last_name,
-//            @RequestParam String last_name,
 //            Model model) {
 //        if (bindingResult.hasErrors()) {
 //            Map<String, String> errorMap = ControllerUtils.getErrors(bindingResult);
@@ -49,9 +43,10 @@ public class RegistrationController {
 //    }
 
     @PostMapping("/registration")
-    public String addUser(User user,
-                          Model model){
-       userService.addUser(user);
+    public String addUser(User user){
+       if (!userService.addUser(user)) {
+           return "redirect:registration?warn=registration_user_exist";
+       }
        return "redirect:login";
     }
 

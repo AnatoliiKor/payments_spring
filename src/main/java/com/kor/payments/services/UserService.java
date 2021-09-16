@@ -18,6 +18,7 @@ import java.util.stream.Collectors;
 public class UserService {
     @Autowired
     private UserRepository userRepository;
+
 //    @Autowired
 //    private PasswordEncoder passwordEncoder;
 
@@ -26,12 +27,25 @@ public class UserService {
 //        this.passwordEncoder = passwordEncoder;
 //    }
 
+    public boolean addUser(User user){
+        if(userRepository.findByEmail(user.getEmail()) !=null) {
+            return false;
+        }
+        user.setActive(true);
+        user.setRole(Role.CLIENT);
+        userRepository.save(user);
+        return true;
+    }
+
+
+
 //    @Override
 //    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 //        User user = userRepository.findByUsername(username);
 //        if (user == null) {
 //            throw new UsernameNotFoundException("User not found");
 //        }
+
 //        return user;
 //    }
 
@@ -42,15 +56,14 @@ public class UserService {
     public User findById (Long id) {
         return userRepository.findById(id).orElse(null);
     }
-
 //    public User findByUsername (String username) {
 //        return userRepository.findByUsername(username);
+
 //    }
 
     public void deleteUser(Long id) {
         userRepository.deleteById(id);
     }
-
 //    public void save(User user, Map<String, String> form) {
 //        Set<String> roles = Arrays.stream(Role.values())
 //                .map(Role::name)
@@ -64,20 +77,8 @@ public class UserService {
 //            }
 //        }
 //        userRepository.save(user);
-//    }
 
-    public boolean addUser(User user){
-//        User userFromDb = userRepository.findByUsername(user.getUsername());
-//        if(userFromDb !=null) {
-//            return false;
-//        }
-        user.setActive(true);
-//        user.setRegistrationDate();
-        user.setRole(Role.CLIENT);
-//        user.setPassword("1");
-        userRepository.save(user);
-        return true;
-    }
+//    }
 
 //    public void setPassword(User user) {
 //        user.setPassword(passwordEncoder.encode(user.getPassword()));
@@ -88,5 +89,8 @@ public class UserService {
         userRepository.save(user);
     }
 
+    public List<User> findAllUsers() {
+        return userRepository.findAll();
+    }
 }
 

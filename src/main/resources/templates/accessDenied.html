@@ -1,0 +1,17 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:insert="~{fragments/header :: head}"/>
+
+<body class="index">
+
+<div class="container mt-5">
+
+    <h2>Sorry, you do not have permission to view this page.</h2>
+
+    <div><a class="btn btn-outline-success m-2" th:href="@{/login}" th:text="#{login_in}">login</a></div>
+    <div><a class="btn btn-outline-primary m-2" th:href="@{/registration}" th:text="#{registration}">registration</a></div>
+
+</div>
+</body>
+</html>

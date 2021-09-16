@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:insert="~{fragments/header :: head}"/>
+
+<body class="users_list">
+
+<div th:insert="~{fragments/header :: navbar}"></div>
+<div th:insert="~{fragments/messages :: messages}"></div>
+
+<div class="container mt-5">
+    <h1 th:text="#{users_list}"></h1><br/>
+    <div th:unless="${users.size() == 0}">
+    <table class="table table-striped auto__table table-condensed text-center">
+        <thead>
+        <tr>
+<!--            <th>#</th>-->
+            <th th:text="#{last_name}"></th>
+            <th th:text="#{name}"></th>
+            <th th:text="#{middle_name}"></th>
+            <th th:text="#{email}"></th>
+            <th th:text="#{phone_number}"></th>
+            <th th:text="#{registered}"></th>
+            <th th:text="#{role}"><</th>
+            <th th:text="#{is_active}"></th>
+            <th></th>
+            <th></th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="user : ${users}">
+            <td th:text="${user.lastName}"></td>
+            <td th:text="${user.name}"></td>
+            <td th:text="${user.middleName}"></td>
+            <td th:text="${user.email}"></td>
+            <td th:text="${user.phoneNumber}"></td>
+            <td th:text="${user.getFormatedDate()}"></td>
+            <td th:text="${user.role}"></td>
+            <td th:text="${user.active}? #{is_active} : #{blocked}"></td>
+        </tr>
+        </tbody>
+    </table>
+    </div>
+    <p th:if="${users.size() == 0}" th:text="#{no_accounts}"></p>
+    <br/>
+    <a href="/" th:text="#{home_page}"></a>
+</body>
+</html>

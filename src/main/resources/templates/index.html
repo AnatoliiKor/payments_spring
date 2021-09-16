@@ -9,9 +9,11 @@
 
 <div class="container mt-5">
 
-    <a th:href="@{/login}" th:text="#{login_in}">login</a>
-    <a th:href="@{/accounts}" th:text="#{accounts}">Accounts</a>
-    <a th:href="@{/registration}" th:text="#{registration}">registration</a>
+    <div><a class="btn btn-outline-success m-2" th:href="@{/login}" th:text="#{login_in}">login</a></div>
+    <div><a class="btn btn-outline-success m-2" th:href="@{/accounts}" th:text="#{accounts}">Accounts</a></div>
+    <div><a class="btn btn-outline-primary m-2" th:href="@{/registration}" th:text="#{registration}">registration</a></div>
+    <div><a class="btn btn-outline-warning m-2" th:href="@{/users}" th:text="#{users_list}">users list</a></div>
+
 
     <div class="row">
         <div class="col">

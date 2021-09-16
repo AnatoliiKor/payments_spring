@@ -16,6 +16,7 @@ public class AccountService {
 
     public List<Account> findAllAccounts () {
         return accountRepository.findAll();
+
     }
 
 }
