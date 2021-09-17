@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" lang="${#locale.language}">
+<head>
+    <meta charset="UTF-8">
+    <title>Cards</title>
+</head>
+<body>
+<div th:fragment="cards">
+    <div th:if="${cards != null and !cards.empty}">
+        <div class="card text-dark bg-light border-info mb-2  height: 200px;" style="width: 20rem;" th:each="card : ${cards}">
+            <div class="card-header text-info fw-bold" th:text="#{credit_card} + ':' + ${account.getCardNumberSpaces()"></div>
+    <div class="card-body">
+        <h6 class="card-title lh-1" th:text="${account.balance/100} + ${account.currency}"></h6>
+        <div class="card-text lh-1" th:text="${account.accountName} + ' UA' + ${account.number}"></div>
+    </div>
+</div>
+</div>
+<h3 th:if="${cards == null or cards.empty}">You have no cards</h3>
+</div>
+</body>
+</html>

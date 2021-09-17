@@ -53,7 +53,7 @@ public class User implements UserDetails {
     private Role role;
 
     @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
-    private List<Account> accountNumbers = new ArrayList<>();
+    private List<Account> accounts = new ArrayList<>();
 
     public String getFormatedDate() {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy, HH:mm");
@@ -88,6 +88,14 @@ public class User implements UserDetails {
     @Override
     public boolean isEnabled() {
         return isActive();
+    }
+
+    public Role getRole() {
+        return role;
+    }
+
+    public String getName() {
+        return name;
     }
 }
 

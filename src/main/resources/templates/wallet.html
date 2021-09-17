@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:insert="~{fragments/header :: head}">
+
+<body class="wallet">
+
+<div th:insert="~{fragments/header :: navbar}"> </div>
+<div th:insert="~{fragments/messages :: messages}"></div>
+
+<div class="container mt-5">
+
+    <div class="row">
+        <div class="col">
+            <div th:insert="~{account/cards :: cards}"></div>
+        </div>
+
+        <div class="col-sm-3">
+            <div><a class="btn btn-success m-2" th:href="@{/wallet/payment?user_id=${user_auth.id}}" th:text="#{make_payment}"></a></div>
+            <div><a class="btn btn-outline-success m-2" th:href="@{/wallet/transactions?user_id=${user_auth.id}&account_type=payer}" th:text="#{payments}"></a></div>
+            <div><a class="btn btn-outline-success m-2" th:href="@{/wallet/transactions?user_id=${user_auth.id}&account_type=receiver}" th:text="#{inflows}"></a></div>
+            <div><a class="btn btn-outline-primary m-2" th:href="@{/accounts}" th:text="#{my_accounts}"></a></div>
+
+            <div>
+                <button class="btn btn-outline-primary m-2" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseNewAccount" aria-expanded="false" aria-controls="collapseNewAccount" th:text="#{new_account}">
+                </button>
+                <div class="collapse collapse-horizontal" id="collapseNewAccount">
+                    <div class="card card-body" style="width: 300px;">
+                        <form method="post" action="#" th:action="@{/wallet/new_account}">
+
+                            <label th:text="#{account_name}"></label> <input type="text" name="account_name"  required>
+                            <br/>
+                            <div class="m-1" th:text="#{currency}"></div>
+                            <select name="currency" size="1" required>
+                                <option value="UAH" th:text="#{uah}" selected></option>
+                                <option value="USD" th:text="#{usd}"></option>
+                                <option value="EURO" th:text="#{euro}"></option>
+                            </select>
+                            <br/>
+                            <button class="mt-1" type="submit" th:text="#{send_request}"></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+        </div>
+    </div>
+
+</div>
+</body>
+</html>
