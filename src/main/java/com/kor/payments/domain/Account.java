@@ -17,13 +17,10 @@ import java.util.List;
 @Setter
 public class Account {
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "number_generator")
+    @SequenceGenerator(name="number_generator", sequenceName = "number_seq", allocationSize = 1, initialValue = 1000000000)
     private Long id;
 
-    @Column(unique = true)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "number_generator")
-    @SequenceGenerator(name="number_generator", sequenceName = "number_seq", initialValue = 1000000000)
-    private Long accountNumber;
     @ManyToOne
     @JoinColumn(name = "user_id", referencedColumnName = "id")
     private User user;

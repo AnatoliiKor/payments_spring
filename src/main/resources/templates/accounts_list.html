@@ -27,7 +27,7 @@
         </thead>
         <tbody>
         <tr th:each="account : ${accounts}">
-            <td th:text="${account.accountNumber}"></td>
+            <td th:text="${account.id}"></td>
             <td th:text="${account.balance/100}"></td>
             <td th:text="${account.accountName}"></td>
             <td th:text="${account.currency}"></td>
@@ -39,5 +39,6 @@
     <p th:if="${accounts.size() == 0}" th:text="#{no_accounts}"></p>
     <br/>
     <a href="/" th:text="#{home_page}"></a>
+</div>
 </body>
 </html>

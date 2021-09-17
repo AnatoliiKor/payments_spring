@@ -1,40 +1,80 @@
-2021-09-17 19:34:33,646 INFO o.h.v.i.u.Version [background-preinit] HV000001: Hibernate Validator 6.1.7.Final
-2021-09-17 19:34:33,670 INFO o.s.b.StartupInfoLogger [restartedMain] Starting Application using Java 1.8.0_261 on A-PC with PID 20896 (D:\JAVA\Spring\payments-spring\target\classes started by Anatolii in D:\JAVA\Spring\payments-spring)
-2021-09-17 19:34:33,673 INFO o.s.b.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
-2021-09-17 19:34:33,735 INFO o.s.b.l.DeferredLog [restartedMain] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2021-09-17 19:34:33,735 INFO o.s.b.l.DeferredLog [restartedMain] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2021-09-17 19:34:34,213 INFO o.s.d.r.c.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2021-09-17 19:34:34,257 INFO o.s.d.r.c.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 38 ms. Found 2 JPA repository interfaces.
-2021-09-17 19:34:34,506 INFO o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [restartedMain] Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@5aca772e' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2021-09-17 19:34:34,509 INFO o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [restartedMain] Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2021-09-17 19:34:34,780 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8089 (http)
-2021-09-17 19:34:34,786 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-8089"]
-2021-09-17 19:34:34,786 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting service [Tomcat]
-2021-09-17 19:34:34,786 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.41]
-2021-09-17 19:34:34,849 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
-2021-09-17 19:34:34,849 INFO o.s.b.w.s.c.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 1113 ms
-2021-09-17 19:34:34,927 INFO c.z.h.HikariDataSource [restartedMain] HikariPool-1 - Starting...
-2021-09-17 19:34:35,152 INFO c.z.h.HikariDataSource [restartedMain] HikariPool-1 - Start completed.
-2021-09-17 19:34:35,183 INFO o.h.j.i.u.LogHelper [restartedMain] HHH000204: Processing PersistenceUnitInfo [name: default]
-2021-09-17 19:34:35,217 INFO o.h.Version [restartedMain] HHH000412: Hibernate ORM core version 5.4.27.Final
-2021-09-17 19:34:35,313 INFO o.h.a.c.r.j.JavaReflectionManager [restartedMain] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2021-09-17 19:34:35,406 INFO o.h.d.Dialect [restartedMain] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
-2021-09-17 19:34:36,371 INFO o.h.e.t.j.p.i.JtaPlatformInitiator [restartedMain] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2021-09-17 19:34:36,378 INFO o.s.o.j.AbstractEntityManagerFactoryBean [restartedMain] Initialized JPA EntityManagerFactory for persistence unit 'default'
-2021-09-17 19:34:36,483 WARN o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration [restartedMain] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2021-09-17 19:34:36,979 INFO o.s.s.w.DefaultSecurityFilterChain [restartedMain] Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@756d63f2, org.springframework.security.web.context.SecurityContextPersistenceFilter@b4e5840, org.springframework.security.web.header.HeaderWriterFilter@626eb117, org.springframework.security.web.csrf.CsrfFilter@4fb2614e, org.springframework.security.web.authentication.logout.LogoutFilter@155a6bf6, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@56c31e47, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6a398862, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@59cde01f, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@63b48800, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7ba41ca7, org.springframework.security.web.session.SessionManagementFilter@100ae991, org.springframework.security.web.access.ExceptionTranslationFilter@46c68a09, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@13f4c6d1]
-2021-09-17 19:34:37,096 INFO o.s.s.c.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
-2021-09-17 19:34:37,155 INFO o.s.b.a.w.s.WelcomePageHandlerMapping [restartedMain] Adding welcome page template: index
-2021-09-17 19:34:37,382 INFO o.s.b.d.a.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
-2021-09-17 19:34:37,402 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-8089"]
-2021-09-17 19:34:37,416 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat started on port(s): 8089 (http) with context path ''
-2021-09-17 19:34:37,428 INFO o.s.s.a.ScheduledAnnotationBeanPostProcessor [restartedMain] No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
-2021-09-17 19:34:37,435 INFO o.s.b.StartupInfoLogger [restartedMain] Started Application in 4.108 seconds (JVM running for 4.892)
-2021-09-17 19:34:46,448 INFO o.a.j.l.DirectJDKLog [http-nio-8089-exec-1] Error parsing HTTP request header
- Note: further occurrences of HTTP request parsing errors will be logged at DEBUG level.
-java.lang.IllegalArgumentException: Invalid character found in the request target [/wallet/transactions?user_id=${user_auth.id}&account_type=receiver]. The valid characters are defined in RFC 7230 and RFC 3986
-	at org.apache.coyote.http11.Http11InputBuffer.parseRequestLine(Http11InputBuffer.java:490) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
-	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:261) [tomcat-embed-core-9.0.41.jar:9.0.41]
+2021-09-17 20:16:45,455 INFO o.h.v.i.u.Version [background-preinit] HV000001: Hibernate Validator 6.1.7.Final
+2021-09-17 20:16:45,478 INFO o.s.b.StartupInfoLogger [restartedMain] Starting Application using Java 1.8.0_261 on A-PC with PID 17528 (D:\JAVA\Spring\payments-spring\target\classes started by Anatolii in D:\JAVA\Spring\payments-spring)
+2021-09-17 20:16:45,480 INFO o.s.b.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2021-09-17 20:16:45,517 INFO o.s.b.l.DeferredLog [restartedMain] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-09-17 20:16:45,518 INFO o.s.b.l.DeferredLog [restartedMain] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-09-17 20:16:46,016 INFO o.s.d.r.c.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-09-17 20:16:46,054 INFO o.s.d.r.c.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 33 ms. Found 2 JPA repository interfaces.
+2021-09-17 20:16:46,301 INFO o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [restartedMain] Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@1645849f' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-09-17 20:16:46,304 INFO o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [restartedMain] Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-09-17 20:16:46,574 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8089 (http)
+2021-09-17 20:16:46,579 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-8089"]
+2021-09-17 20:16:46,579 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2021-09-17 20:16:46,580 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.41]
+2021-09-17 20:16:46,641 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2021-09-17 20:16:46,642 INFO o.s.b.w.s.c.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 1122 ms
+2021-09-17 20:16:46,719 INFO c.z.h.HikariDataSource [restartedMain] HikariPool-1 - Starting...
+2021-09-17 20:16:46,938 INFO c.z.h.HikariDataSource [restartedMain] HikariPool-1 - Start completed.
+2021-09-17 20:16:46,969 INFO o.h.j.i.u.LogHelper [restartedMain] HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-09-17 20:16:47,003 INFO o.h.Version [restartedMain] HHH000412: Hibernate ORM core version 5.4.27.Final
+2021-09-17 20:16:47,094 INFO o.h.a.c.r.j.JavaReflectionManager [restartedMain] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-09-17 20:16:47,183 INFO o.h.d.Dialect [restartedMain] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2021-09-17 20:16:48,133 INFO o.h.e.t.j.p.i.JtaPlatformInitiator [restartedMain] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-09-17 20:16:48,141 INFO o.s.o.j.AbstractEntityManagerFactoryBean [restartedMain] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-09-17 20:16:48,238 WARN o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration [restartedMain] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-09-17 20:16:48,725 INFO o.s.s.w.DefaultSecurityFilterChain [restartedMain] Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4112d004, org.springframework.security.web.context.SecurityContextPersistenceFilter@2f428bd5, org.springframework.security.web.header.HeaderWriterFilter@2ce93e74, org.springframework.security.web.csrf.CsrfFilter@66780116, org.springframework.security.web.authentication.logout.LogoutFilter@4891923a, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@4fa440cd, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3b986eae, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@797034f0, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@1631162, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4cd635ea, org.springframework.security.web.session.SessionManagementFilter@931cfef, org.springframework.security.web.access.ExceptionTranslationFilter@e75710f, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@156bdc52]
+2021-09-17 20:16:48,850 INFO o.s.s.c.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
+2021-09-17 20:16:48,910 INFO o.s.b.a.w.s.WelcomePageHandlerMapping [restartedMain] Adding welcome page template: index
+2021-09-17 20:16:49,115 INFO o.s.b.d.a.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2021-09-17 20:16:49,136 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-8089"]
+2021-09-17 20:16:49,149 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat started on port(s): 8089 (http) with context path ''
+2021-09-17 20:16:49,159 INFO o.s.s.a.ScheduledAnnotationBeanPostProcessor [restartedMain] No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
+2021-09-17 20:16:49,165 INFO o.s.b.StartupInfoLogger [restartedMain] Started Application in 4.006 seconds (JVM running for 4.789)
+2021-09-17 20:16:52,100 INFO o.a.j.l.DirectJDKLog [http-nio-8089-exec-1] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-09-17 20:16:52,101 INFO o.s.w.s.FrameworkServlet [http-nio-8089-exec-1] Initializing Servlet 'dispatcherServlet'
+2021-09-17 20:16:52,101 INFO o.s.w.s.FrameworkServlet [http-nio-8089-exec-1] Completed initialization in 0 ms
+2021-09-17 20:16:52,155 INFO c.k.p.c.RequestResponseLoggingFilter [http-nio-8089-exec-2] Logging Request  GET : /login
+2021-09-17 20:16:52,457 INFO c.k.p.c.RequestResponseLoggingFilter [http-nio-8089-exec-2] Logging Response :text/html;charset=UTF-8
+2021-09-17 20:16:52,476 INFO c.k.p.c.RequestResponseLoggingFilter [http-nio-8089-exec-3] Logging Request  GET : /static/images/payments.png
+2021-09-17 20:16:52,492 INFO c.k.p.c.RequestResponseLoggingFilter [http-nio-8089-exec-3] Logging Response :image/png
+2021-09-17 20:16:55,388 ERROR o.a.j.l.DirectJDKLog [http-nio-8089-exec-4] Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception
+org.springframework.core.convert.ConversionFailedException: Failed to convert from type [java.lang.Object] to type [byte[]] for value 'SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=com.kor.payments.domain.User@140eda1f, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=a075164e-9fa8-48c8-b304-1b97fe012dd4], Granted Authorities=[CLIENT]]]'; nested exception is org.springframework.core.serializer.support.SerializationFailedException: Failed to serialize object using DefaultSerializer; nested exception is java.io.NotSerializableException: com.kor.payments.domain.Account
+	at org.springframework.core.convert.support.ConversionUtils.invokeConverter(ConversionUtils.java:47) ~[spring-core-5.3.3.jar:5.3.3]
+	at org.springframework.core.convert.support.GenericConversionService.convert(GenericConversionService.java:192) ~[spring-core-5.3.3.jar:5.3.3]
+	at org.springframework.session.jdbc.JdbcIndexedSessionRepository.serialize(JdbcIndexedSessionRepository.java:592) ~[spring-session-jdbc-2.4.1.jar:2.4.1]
+	at org.springframework.session.jdbc.JdbcIndexedSessionRepository.lambda$insertSessionAttributes$5(JdbcIndexedSessionRepository.java:487) ~[spring-session-jdbc-2.4.1.jar:2.4.1]
+	at org.springframework.jdbc.core.JdbcTemplate.lambda$update$2(JdbcTemplate.java:963) ~[spring-jdbc-5.3.3.jar:5.3.3]
+	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:651) ~[spring-jdbc-5.3.3.jar:5.3.3]
+	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:960) ~[spring-jdbc-5.3.3.jar:5.3.3]
+	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:1015) ~[spring-jdbc-5.3.3.jar:5.3.3]
+	at org.springframework.session.jdbc.JdbcIndexedSessionRepository.insertSessionAttributes(JdbcIndexedSessionRepository.java:484) ~[spring-session-jdbc-2.4.1.jar:2.4.1]
+	at org.springframework.session.jdbc.JdbcIndexedSessionRepository.access$1200(JdbcIndexedSessionRepository.java:131) ~[spring-session-jdbc-2.4.1.jar:2.4.1]
+	at org.springframework.session.jdbc.JdbcIndexedSessionRepository$JdbcSession.lambda$save$10(JdbcIndexedSessionRepository.java:820) ~[spring-session-jdbc-2.4.1.jar:2.4.1]
+	at org.springframework.transaction.support.TransactionOperations.lambda$executeWithoutResult$0(TransactionOperations.java:68) ~[spring-tx-5.3.3.jar:5.3.3]
+	at org.springframework.transaction.support.TransactionTemplate.execute(TransactionTemplate.java:140) ~[spring-tx-5.3.3.jar:5.3.3]
+	at org.springframework.transaction.support.TransactionOperations.executeWithoutResult(TransactionOperations.java:67) ~[spring-tx-5.3.3.jar:5.3.3]
+	at org.springframework.session.jdbc.JdbcIndexedSessionRepository$JdbcSession.save(JdbcIndexedSessionRepository.java:802) ~[spring-session-jdbc-2.4.1.jar:2.4.1]
+	at org.springframework.session.jdbc.JdbcIndexedSessionRepository$JdbcSession.access$200(JdbcIndexedSessionRepository.java:634) ~[spring-session-jdbc-2.4.1.jar:2.4.1]
+	at org.springframework.session.jdbc.JdbcIndexedSessionRepository.save(JdbcIndexedSessionRepository.java:410) ~[spring-session-jdbc-2.4.1.jar:2.4.1]
+	at org.springframework.session.jdbc.JdbcIndexedSessionRepository.save(JdbcIndexedSessionRepository.java:131) ~[spring-session-jdbc-2.4.1.jar:2.4.1]
+	at org.springframework.session.web.http.SessionRepositoryFilter$SessionRepositoryRequestWrapper.commitSession(SessionRepositoryFilter.java:225) ~[spring-session-core-2.4.1.jar:2.4.1]
+	at org.springframework.session.web.http.SessionRepositoryFilter$SessionRepositoryRequestWrapper.access$100(SessionRepositoryFilter.java:192) ~[spring-session-core-2.4.1.jar:2.4.1]
+	at org.springframework.session.web.http.SessionRepositoryFilter.doFilterInternal(SessionRepositoryFilter.java:144) ~[spring-session-core-2.4.1.jar:2.4.1]
+	at org.springframework.session.web.http.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:82) ~[spring-session-core-2.4.1.jar:2.4.1]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.3.jar:5.3.3]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.3.jar:5.3.3]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202) [tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) [tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542) [tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:143) [tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) [tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) [tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343) [tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:374) [tomcat-embed-core-9.0.41.jar:9.0.41]
 	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) [tomcat-embed-core-9.0.41.jar:9.0.41]
 	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:888) [tomcat-embed-core-9.0.41.jar:9.0.41]
 	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1597) [tomcat-embed-core-9.0.41.jar:9.0.41]
@@ -43,29 +83,354 @@ java.lang.IllegalArgumentException: Invalid character found in the request targe
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [?:1.8.0_261]
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.41.jar:9.0.41]
 	at java.lang.Thread.run(Thread.java:748) [?:1.8.0_261]
-2021-09-17 19:34:47,883 INFO o.a.j.l.DirectJDKLog [http-nio-8089-exec-2] Initializing Spring DispatcherServlet 'dispatcherServlet'
-2021-09-17 19:34:47,883 INFO o.s.w.s.FrameworkServlet [http-nio-8089-exec-2] Initializing Servlet 'dispatcherServlet'
-2021-09-17 19:34:47,884 INFO o.s.w.s.FrameworkServlet [http-nio-8089-exec-2] Completed initialization in 1 ms
-2021-09-17 19:34:47,945 INFO c.k.p.c.RequestResponseLoggingFilter [http-nio-8089-exec-3] Logging Request  GET : /login
-2021-09-17 19:34:48,228 INFO c.k.p.c.RequestResponseLoggingFilter [http-nio-8089-exec-3] Logging Response :text/html;charset=UTF-8
-2021-09-17 19:34:48,314 INFO c.k.p.c.RequestResponseLoggingFilter [http-nio-8089-exec-4] Logging Request  GET : /static/images/payments.png
-2021-09-17 19:34:48,329 INFO c.k.p.c.RequestResponseLoggingFilter [http-nio-8089-exec-4] Logging Response :image/png
-2021-09-17 19:34:52,428 INFO c.k.p.c.RequestResponseLoggingFilter [http-nio-8089-exec-6] Logging Request  GET : /
-2021-09-17 19:34:52,450 INFO c.k.p.c.RequestResponseLoggingFilter [http-nio-8089-exec-6] Logging Response :null
-2021-09-17 19:34:52,455 INFO c.k.p.c.RequestResponseLoggingFilter [http-nio-8089-exec-7] Logging Request  GET : /wallet
-2021-09-17 19:34:52,478 INFO c.k.p.c.RequestResponseLoggingFilter [http-nio-8089-exec-7] Logging Response :text/html;charset=UTF-8
-2021-09-17 19:34:54,425 INFO c.k.p.c.RequestResponseLoggingFilter [http-nio-8089-exec-8] Logging Request  GET : /accounts
-2021-09-17 19:34:54,476 INFO c.k.p.c.RequestResponseLoggingFilter [http-nio-8089-exec-8] Logging Response :text/html;charset=UTF-8
-2021-09-17 19:35:22,080 INFO c.k.p.c.RequestResponseLoggingFilter [http-nio-8089-exec-9] Logging Request  GET : /
-2021-09-17 19:35:22,087 INFO c.k.p.c.RequestResponseLoggingFilter [http-nio-8089-exec-9] Logging Response :null
-2021-09-17 19:35:22,092 INFO c.k.p.c.RequestResponseLoggingFilter [http-nio-8089-exec-10] Logging Request  GET : /wallet
-2021-09-17 19:35:22,103 INFO c.k.p.c.RequestResponseLoggingFilter [http-nio-8089-exec-10] Logging Response :text/html;charset=UTF-8
-2021-09-17 19:35:37,879 INFO c.k.p.c.RequestResponseLoggingFilter [http-nio-8089-exec-1] Logging Request  POST : /wallet/new_account
-2021-09-17 19:35:37,916 INFO c.k.p.s.AccountService [http-nio-8089-exec-1] Account spring is added to DB
-2021-09-17 19:35:37,919 INFO c.k.p.c.RequestResponseLoggingFilter [http-nio-8089-exec-1] Logging Response :null
-2021-09-17 19:35:37,924 INFO c.k.p.c.RequestResponseLoggingFilter [http-nio-8089-exec-2] Logging Request  GET : /accounts
-2021-09-17 19:35:37,946 INFO c.k.p.c.RequestResponseLoggingFilter [http-nio-8089-exec-2] Logging Response :text/html;charset=UTF-8
-2021-09-17 19:42:35,213 INFO o.s.s.c.ExecutorConfigurationSupport [SpringContextShutdownHook] Shutting down ExecutorService 'applicationTaskExecutor'
-2021-09-17 19:42:35,214 INFO o.s.o.j.AbstractEntityManagerFactoryBean [SpringContextShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
-2021-09-17 19:42:35,217 INFO c.z.h.HikariDataSource [SpringContextShutdownHook] HikariPool-1 - Shutdown initiated...
-2021-09-17 19:42:35,219 INFO c.z.h.HikariDataSource [SpringContextShutdownHook] HikariPool-1 - Shutdown completed.
+Caused by: org.springframework.core.serializer.support.SerializationFailedException: Failed to serialize object using DefaultSerializer; nested exception is java.io.NotSerializableException: com.kor.payments.domain.Account
+	at org.springframework.core.serializer.support.SerializingConverter.convert(SerializingConverter.java:64) ~[spring-core-5.3.3.jar:5.3.3]
+	at org.springframework.core.serializer.support.SerializingConverter.convert(SerializingConverter.java:33) ~[spring-core-5.3.3.jar:5.3.3]
+	at org.springframework.core.convert.support.GenericConversionService$ConverterAdapter.convert(GenericConversionService.java:386) ~[spring-core-5.3.3.jar:5.3.3]
+	at org.springframework.core.convert.support.ConversionUtils.invokeConverter(ConversionUtils.java:41) ~[spring-core-5.3.3.jar:5.3.3]
+	... 43 more
+Caused by: java.io.NotSerializableException: com.kor.payments.domain.Account
+	at java.io.ObjectOutputStream.writeObject0(ObjectOutputStream.java:1184) ~[?:1.8.0_261]
+	at java.io.ObjectOutputStream.writeObject(ObjectOutputStream.java:348) ~[?:1.8.0_261]
+	at java.util.ArrayList.writeObject(ArrayList.java:768) ~[?:1.8.0_261]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_261]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:1.8.0_261]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_261]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[?:1.8.0_261]
+	at java.io.ObjectStreamClass.invokeWriteObject(ObjectStreamClass.java:1155) ~[?:1.8.0_261]
+	at java.io.ObjectOutputStream.writeSerialData(ObjectOutputStream.java:1496) ~[?:1.8.0_261]
+	at java.io.ObjectOutputStream.writeOrdinaryObject(ObjectOutputStream.java:1432) ~[?:1.8.0_261]
+	at java.io.ObjectOutputStream.writeObject0(ObjectOutputStream.java:1178) ~[?:1.8.0_261]
+	at java.io.ObjectOutputStream.defaultWriteFields(ObjectOutputStream.java:1548) ~[?:1.8.0_261]
+	at java.io.ObjectOutputStream.writeSerialData(ObjectOutputStream.java:1509) ~[?:1.8.0_261]
+	at java.io.ObjectOutputStream.writeOrdinaryObject(ObjectOutputStream.java:1432) ~[?:1.8.0_261]
+	at java.io.ObjectOutputStream.writeObject0(ObjectOutputStream.java:1178) ~[?:1.8.0_261]
+	at java.io.ObjectOutputStream.defaultWriteFields(ObjectOutputStream.java:1548) ~[?:1.8.0_261]
+	at java.io.ObjectOutputStream.writeSerialData(ObjectOutputStream.java:1509) ~[?:1.8.0_261]
+	at java.io.ObjectOutputStream.writeOrdinaryObject(ObjectOutputStream.java:1432) ~[?:1.8.0_261]
+	at java.io.ObjectOutputStream.writeObject0(ObjectOutputStream.java:1178) ~[?:1.8.0_261]
+	at java.io.ObjectOutputStream.defaultWriteFields(ObjectOutputStream.java:1548) ~[?:1.8.0_261]
+	at java.io.ObjectOutputStream.writeSerialData(ObjectOutputStream.java:1509) ~[?:1.8.0_261]
+	at java.io.ObjectOutputStream.writeOrdinaryObject(ObjectOutputStream.java:1432) ~[?:1.8.0_261]
+	at java.io.ObjectOutputStream.writeObject0(ObjectOutputStream.java:1178) ~[?:1.8.0_261]
+	at java.io.ObjectOutputStream.defaultWriteFields(ObjectOutputStream.java:1548) ~[?:1.8.0_261]
+	at java.io.ObjectOutputStream.writeSerialData(ObjectOutputStream.java:1509) ~[?:1.8.0_261]
+	at java.io.ObjectOutputStream.writeOrdinaryObject(ObjectOutputStream.java:1432) ~[?:1.8.0_261]
+	at java.io.ObjectOutputStream.writeObject0(ObjectOutputStream.java:1178) ~[?:1.8.0_261]
+	at java.io.ObjectOutputStream.writeObject(ObjectOutputStream.java:348) ~[?:1.8.0_261]
+	at org.springframework.core.serializer.DefaultSerializer.serialize(DefaultSerializer.java:46) ~[spring-core-5.3.3.jar:5.3.3]
+	at org.springframework.core.serializer.Serializer.serializeToByteArray(Serializer.java:56) ~[spring-core-5.3.3.jar:5.3.3]
+	at org.springframework.core.serializer.support.SerializingConverter.convert(SerializingConverter.java:60) ~[spring-core-5.3.3.jar:5.3.3]
+	at org.springframework.core.serializer.support.SerializingConverter.convert(SerializingConverter.java:33) ~[spring-core-5.3.3.jar:5.3.3]
+	at org.springframework.core.convert.support.GenericConversionService$ConverterAdapter.convert(GenericConversionService.java:386) ~[spring-core-5.3.3.jar:5.3.3]
+	at org.springframework.core.convert.support.ConversionUtils.invokeConverter(ConversionUtils.java:41) ~[spring-core-5.3.3.jar:5.3.3]
+	... 43 more
+2021-09-17 20:16:55,417 ERROR o.t.TemplateEngine [http-nio-8089-exec-4] [THYMELEAF][http-nio-8089-exec-4] Exception processing template "error": Error resolving template [error], template might not exist or might not be accessible by any of the configured Template Resolvers
+org.thymeleaf.exceptions.TemplateInputException: Error resolving template [error], template might not exist or might not be accessible by any of the configured Template Resolvers
+	at org.thymeleaf.engine.TemplateManager.resolveTemplate(TemplateManager.java:869) ~[thymeleaf-3.0.12.RELEASE.jar:3.0.12.RELEASE]
+	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:607) ~[thymeleaf-3.0.12.RELEASE.jar:3.0.12.RELEASE]
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1098) [thymeleaf-3.0.12.RELEASE.jar:3.0.12.RELEASE]
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1072) [thymeleaf-3.0.12.RELEASE.jar:3.0.12.RELEASE]
+	at org.thymeleaf.spring5.view.ThymeleafView.renderFragment(ThymeleafView.java:366) [thymeleaf-spring5-3.0.12.RELEASE.jar:3.0.12.RELEASE]
+	at org.thymeleaf.spring5.view.ThymeleafView.render(ThymeleafView.java:190) [thymeleaf-spring5-3.0.12.RELEASE.jar:3.0.12.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1393) [spring-webmvc-5.3.3.jar:5.3.3]
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1138) [spring-webmvc-5.3.3.jar:5.3.3]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1077) [spring-webmvc-5.3.3.jar:5.3.3]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:962) [spring-webmvc-5.3.3.jar:5.3.3]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) [spring-webmvc-5.3.3.jar:5.3.3]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909) [spring-webmvc-5.3.3.jar:5.3.3]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:652) [tomcat-embed-core-9.0.41.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) [spring-webmvc-5.3.3.jar:5.3.3]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733) [tomcat-embed-core-9.0.41.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231) [tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:327) [spring-security-web-5.4.2.jar:5.4.2]
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:115) [spring-security-web-5.4.2.jar:5.4.2]
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:81) [spring-security-web-5.4.2.jar:5.4.2]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) [spring-security-web-5.4.2.jar:5.4.2]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:119) [spring-security-web-5.4.2.jar:5.4.2]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:113) [spring-security-web-5.4.2.jar:5.4.2]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) [spring-security-web-5.4.2.jar:5.4.2]
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:126) [spring-security-web-5.4.2.jar:5.4.2]
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:81) [spring-security-web-5.4.2.jar:5.4.2]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) [spring-security-web-5.4.2.jar:5.4.2]
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:105) [spring-security-web-5.4.2.jar:5.4.2]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) [spring-security-web-5.4.2.jar:5.4.2]
+	at org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter.doFilter(RememberMeAuthenticationFilter.java:101) [spring-security-web-5.4.2.jar:5.4.2]
+	at org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter.doFilter(RememberMeAuthenticationFilter.java:92) [spring-security-web-5.4.2.jar:5.4.2]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) [spring-security-web-5.4.2.jar:5.4.2]
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:149) [spring-security-web-5.4.2.jar:5.4.2]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) [spring-security-web-5.4.2.jar:5.4.2]
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63) [spring-security-web-5.4.2.jar:5.4.2]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) [spring-security-web-5.4.2.jar:5.4.2]
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:218) [spring-security-web-5.4.2.jar:5.4.2]
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:212) [spring-security-web-5.4.2.jar:5.4.2]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) [spring-security-web-5.4.2.jar:5.4.2]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:103) [spring-security-web-5.4.2.jar:5.4.2]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:89) [spring-security-web-5.4.2.jar:5.4.2]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) [spring-security-web-5.4.2.jar:5.4.2]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:103) [spring-web-5.3.3.jar:5.3.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) [spring-security-web-5.4.2.jar:5.4.2]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:103) [spring-web-5.3.3.jar:5.3.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) [spring-security-web-5.4.2.jar:5.4.2]
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:110) [spring-security-web-5.4.2.jar:5.4.2]
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:80) [spring-security-web-5.4.2.jar:5.4.2]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) [spring-security-web-5.4.2.jar:5.4.2]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:103) [spring-web-5.3.3.jar:5.3.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) [spring-security-web-5.4.2.jar:5.4.2]
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:211) [spring-security-web-5.4.2.jar:5.4.2]
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:183) [spring-security-web-5.4.2.jar:5.4.2]
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:358) [spring-web-5.3.3.jar:5.3.3]
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:271) [spring-web-5.3.3.jar:5.3.3]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) [spring-web-5.3.3.jar:5.3.3]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.3.3.jar:5.3.3]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:103) [spring-web-5.3.3.jar:5.3.3]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.springframework.session.web.http.SessionRepositoryFilter.doFilterInternal(SessionRepositoryFilter.java:141) [spring-session-core-2.4.1.jar:2.4.1]
+	at org.springframework.session.web.http.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:82) [spring-session-core-2.4.1.jar:2.4.1]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:103) [spring-web-5.3.3.jar:5.3.3]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:712) [tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.core.ApplicationDispatcher.processRequest(ApplicationDispatcher.java:461) [tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.core.ApplicationDispatcher.doForward(ApplicationDispatcher.java:384) [tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.core.ApplicationDispatcher.forward(ApplicationDispatcher.java:312) [tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.core.StandardHostValve.custom(StandardHostValve.java:398) [tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.core.StandardHostValve.status(StandardHostValve.java:257) [tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.core.StandardHostValve.throwable(StandardHostValve.java:352) [tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:177) [tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) [tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) [tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343) [tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:374) [tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) [tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:888) [tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1597) [tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.41.jar:9.0.41]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [?:1.8.0_261]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [?:1.8.0_261]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.41.jar:9.0.41]
+	at java.lang.Thread.run(Thread.java:748) [?:1.8.0_261]
+2021-09-17 20:16:55,421 ERROR o.a.j.l.DirectJDKLog [http-nio-8089-exec-4] Servlet.service() for servlet [dispatcherServlet] threw exception
+org.springframework.core.convert.ConversionFailedException: Failed to convert from type [java.lang.Object] to type [byte[]] for value 'SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=com.kor.payments.domain.User@140eda1f, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=a075164e-9fa8-48c8-b304-1b97fe012dd4], Granted Authorities=[CLIENT]]]'; nested exception is org.springframework.core.serializer.support.SerializationFailedException: Failed to serialize object using DefaultSerializer; nested exception is java.io.NotSerializableException: com.kor.payments.domain.Account
+	at org.springframework.core.convert.support.ConversionUtils.invokeConverter(ConversionUtils.java:47) ~[spring-core-5.3.3.jar:5.3.3]
+	at org.springframework.core.convert.support.GenericConversionService.convert(GenericConversionService.java:192) ~[spring-core-5.3.3.jar:5.3.3]
+	at org.springframework.session.jdbc.JdbcIndexedSessionRepository.serialize(JdbcIndexedSessionRepository.java:592) ~[spring-session-jdbc-2.4.1.jar:2.4.1]
+	at org.springframework.session.jdbc.JdbcIndexedSessionRepository.lambda$insertSessionAttributes$5(JdbcIndexedSessionRepository.java:487) ~[spring-session-jdbc-2.4.1.jar:2.4.1]
+	at org.springframework.jdbc.core.JdbcTemplate.lambda$update$2(JdbcTemplate.java:963) ~[spring-jdbc-5.3.3.jar:5.3.3]
+	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:651) ~[spring-jdbc-5.3.3.jar:5.3.3]
+	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:960) ~[spring-jdbc-5.3.3.jar:5.3.3]
+	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:1015) ~[spring-jdbc-5.3.3.jar:5.3.3]
+	at org.springframework.session.jdbc.JdbcIndexedSessionRepository.insertSessionAttributes(JdbcIndexedSessionRepository.java:484) ~[spring-session-jdbc-2.4.1.jar:2.4.1]
+	at org.springframework.session.jdbc.JdbcIndexedSessionRepository.access$1200(JdbcIndexedSessionRepository.java:131) ~[spring-session-jdbc-2.4.1.jar:2.4.1]
+	at org.springframework.session.jdbc.JdbcIndexedSessionRepository$JdbcSession.lambda$save$10(JdbcIndexedSessionRepository.java:820) ~[spring-session-jdbc-2.4.1.jar:2.4.1]
+	at org.springframework.transaction.support.TransactionOperations.lambda$executeWithoutResult$0(TransactionOperations.java:68) ~[spring-tx-5.3.3.jar:5.3.3]
+	at org.springframework.transaction.support.TransactionTemplate.execute(TransactionTemplate.java:140) ~[spring-tx-5.3.3.jar:5.3.3]
+	at org.springframework.transaction.support.TransactionOperations.executeWithoutResult(TransactionOperations.java:67) ~[spring-tx-5.3.3.jar:5.3.3]
+	at org.springframework.session.jdbc.JdbcIndexedSessionRepository$JdbcSession.save(JdbcIndexedSessionRepository.java:802) ~[spring-session-jdbc-2.4.1.jar:2.4.1]
+	at org.springframework.session.jdbc.JdbcIndexedSessionRepository$JdbcSession.access$200(JdbcIndexedSessionRepository.java:634) ~[spring-session-jdbc-2.4.1.jar:2.4.1]
+	at org.springframework.session.jdbc.JdbcIndexedSessionRepository.save(JdbcIndexedSessionRepository.java:410) ~[spring-session-jdbc-2.4.1.jar:2.4.1]
+	at org.springframework.session.jdbc.JdbcIndexedSessionRepository.save(JdbcIndexedSessionRepository.java:131) ~[spring-session-jdbc-2.4.1.jar:2.4.1]
+	at org.springframework.session.web.http.SessionRepositoryFilter$SessionRepositoryRequestWrapper.commitSession(SessionRepositoryFilter.java:225) ~[spring-session-core-2.4.1.jar:2.4.1]
+	at org.springframework.session.web.http.SessionRepositoryFilter$SessionRepositoryRequestWrapper.access$100(SessionRepositoryFilter.java:192) ~[spring-session-core-2.4.1.jar:2.4.1]
+	at org.springframework.session.web.http.SessionRepositoryFilter.doFilterInternal(SessionRepositoryFilter.java:144) ~[spring-session-core-2.4.1.jar:2.4.1]
+	at org.springframework.session.web.http.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:82) ~[spring-session-core-2.4.1.jar:2.4.1]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:103) ~[spring-web-5.3.3.jar:5.3.3]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:712) [tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.core.ApplicationDispatcher.processRequest(ApplicationDispatcher.java:461) [tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.core.ApplicationDispatcher.doForward(ApplicationDispatcher.java:384) [tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.core.ApplicationDispatcher.forward(ApplicationDispatcher.java:312) [tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.core.StandardHostValve.custom(StandardHostValve.java:398) [tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.core.StandardHostValve.status(StandardHostValve.java:257) [tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.core.StandardHostValve.throwable(StandardHostValve.java:352) [tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:177) [tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) [tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) [tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343) [tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:374) [tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) [tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:888) [tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1597) [tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.41.jar:9.0.41]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [?:1.8.0_261]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [?:1.8.0_261]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.41.jar:9.0.41]
+	at java.lang.Thread.run(Thread.java:748) [?:1.8.0_261]
+Caused by: org.springframework.core.serializer.support.SerializationFailedException: Failed to serialize object using DefaultSerializer; nested exception is java.io.NotSerializableException: com.kor.payments.domain.Account
+	at org.springframework.core.serializer.support.SerializingConverter.convert(SerializingConverter.java:64) ~[spring-core-5.3.3.jar:5.3.3]
+	at org.springframework.core.serializer.support.SerializingConverter.convert(SerializingConverter.java:33) ~[spring-core-5.3.3.jar:5.3.3]
+	at org.springframework.core.convert.support.GenericConversionService$ConverterAdapter.convert(GenericConversionService.java:386) ~[spring-core-5.3.3.jar:5.3.3]
+	at org.springframework.core.convert.support.ConversionUtils.invokeConverter(ConversionUtils.java:41) ~[spring-core-5.3.3.jar:5.3.3]
+	... 46 more
+Caused by: java.io.NotSerializableException: com.kor.payments.domain.Account
+	at java.io.ObjectOutputStream.writeObject0(ObjectOutputStream.java:1184) ~[?:1.8.0_261]
+	at java.io.ObjectOutputStream.writeObject(ObjectOutputStream.java:348) ~[?:1.8.0_261]
+	at java.util.ArrayList.writeObject(ArrayList.java:768) ~[?:1.8.0_261]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_261]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:1.8.0_261]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_261]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[?:1.8.0_261]
+	at java.io.ObjectStreamClass.invokeWriteObject(ObjectStreamClass.java:1155) ~[?:1.8.0_261]
+	at java.io.ObjectOutputStream.writeSerialData(ObjectOutputStream.java:1496) ~[?:1.8.0_261]
+	at java.io.ObjectOutputStream.writeOrdinaryObject(ObjectOutputStream.java:1432) ~[?:1.8.0_261]
+	at java.io.ObjectOutputStream.writeObject0(ObjectOutputStream.java:1178) ~[?:1.8.0_261]
+	at java.io.ObjectOutputStream.defaultWriteFields(ObjectOutputStream.java:1548) ~[?:1.8.0_261]
+	at java.io.ObjectOutputStream.writeSerialData(ObjectOutputStream.java:1509) ~[?:1.8.0_261]
+	at java.io.ObjectOutputStream.writeOrdinaryObject(ObjectOutputStream.java:1432) ~[?:1.8.0_261]
+	at java.io.ObjectOutputStream.writeObject0(ObjectOutputStream.java:1178) ~[?:1.8.0_261]
+	at java.io.ObjectOutputStream.defaultWriteFields(ObjectOutputStream.java:1548) ~[?:1.8.0_261]
+	at java.io.ObjectOutputStream.writeSerialData(ObjectOutputStream.java:1509) ~[?:1.8.0_261]
+	at java.io.ObjectOutputStream.writeOrdinaryObject(ObjectOutputStream.java:1432) ~[?:1.8.0_261]
+	at java.io.ObjectOutputStream.writeObject0(ObjectOutputStream.java:1178) ~[?:1.8.0_261]
+	at java.io.ObjectOutputStream.defaultWriteFields(ObjectOutputStream.java:1548) ~[?:1.8.0_261]
+	at java.io.ObjectOutputStream.writeSerialData(ObjectOutputStream.java:1509) ~[?:1.8.0_261]
+	at java.io.ObjectOutputStream.writeOrdinaryObject(ObjectOutputStream.java:1432) ~[?:1.8.0_261]
+	at java.io.ObjectOutputStream.writeObject0(ObjectOutputStream.java:1178) ~[?:1.8.0_261]
+	at java.io.ObjectOutputStream.defaultWriteFields(ObjectOutputStream.java:1548) ~[?:1.8.0_261]
+	at java.io.ObjectOutputStream.writeSerialData(ObjectOutputStream.java:1509) ~[?:1.8.0_261]
+	at java.io.ObjectOutputStream.writeOrdinaryObject(ObjectOutputStream.java:1432) ~[?:1.8.0_261]
+	at java.io.ObjectOutputStream.writeObject0(ObjectOutputStream.java:1178) ~[?:1.8.0_261]
+	at java.io.ObjectOutputStream.writeObject(ObjectOutputStream.java:348) ~[?:1.8.0_261]
+	at org.springframework.core.serializer.DefaultSerializer.serialize(DefaultSerializer.java:46) ~[spring-core-5.3.3.jar:5.3.3]
+	at org.springframework.core.serializer.Serializer.serializeToByteArray(Serializer.java:56) ~[spring-core-5.3.3.jar:5.3.3]
+	at org.springframework.core.serializer.support.SerializingConverter.convert(SerializingConverter.java:60) ~[spring-core-5.3.3.jar:5.3.3]
+	at org.springframework.core.serializer.support.SerializingConverter.convert(SerializingConverter.java:33) ~[spring-core-5.3.3.jar:5.3.3]
+	at org.springframework.core.convert.support.GenericConversionService$ConverterAdapter.convert(GenericConversionService.java:386) ~[spring-core-5.3.3.jar:5.3.3]
+	at org.springframework.core.convert.support.ConversionUtils.invokeConverter(ConversionUtils.java:41) ~[spring-core-5.3.3.jar:5.3.3]
+	... 46 more
+2021-09-17 20:16:55,422 ERROR o.a.j.l.DirectJDKLog [http-nio-8089-exec-4] Exception Processing ErrorPage[errorCode=0, location=/error]
+org.springframework.core.convert.ConversionFailedException: Failed to convert from type [java.lang.Object] to type [byte[]] for value 'SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=com.kor.payments.domain.User@140eda1f, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=a075164e-9fa8-48c8-b304-1b97fe012dd4], Granted Authorities=[CLIENT]]]'; nested exception is org.springframework.core.serializer.support.SerializationFailedException: Failed to serialize object using DefaultSerializer; nested exception is java.io.NotSerializableException: com.kor.payments.domain.Account
+	at org.springframework.core.convert.support.ConversionUtils.invokeConverter(ConversionUtils.java:47) ~[spring-core-5.3.3.jar:5.3.3]
+	at org.springframework.core.convert.support.GenericConversionService.convert(GenericConversionService.java:192) ~[spring-core-5.3.3.jar:5.3.3]
+	at org.springframework.session.jdbc.JdbcIndexedSessionRepository.serialize(JdbcIndexedSessionRepository.java:592) ~[spring-session-jdbc-2.4.1.jar:2.4.1]
+	at org.springframework.session.jdbc.JdbcIndexedSessionRepository.lambda$insertSessionAttributes$5(JdbcIndexedSessionRepository.java:487) ~[spring-session-jdbc-2.4.1.jar:2.4.1]
+	at org.springframework.jdbc.core.JdbcTemplate.lambda$update$2(JdbcTemplate.java:963) ~[spring-jdbc-5.3.3.jar:5.3.3]
+	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:651) ~[spring-jdbc-5.3.3.jar:5.3.3]
+	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:960) ~[spring-jdbc-5.3.3.jar:5.3.3]
+	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:1015) ~[spring-jdbc-5.3.3.jar:5.3.3]
+	at org.springframework.session.jdbc.JdbcIndexedSessionRepository.insertSessionAttributes(JdbcIndexedSessionRepository.java:484) ~[spring-session-jdbc-2.4.1.jar:2.4.1]
+	at org.springframework.session.jdbc.JdbcIndexedSessionRepository.access$1200(JdbcIndexedSessionRepository.java:131) ~[spring-session-jdbc-2.4.1.jar:2.4.1]
+	at org.springframework.session.jdbc.JdbcIndexedSessionRepository$JdbcSession.lambda$save$10(JdbcIndexedSessionRepository.java:820) ~[spring-session-jdbc-2.4.1.jar:2.4.1]
+	at org.springframework.transaction.support.TransactionOperations.lambda$executeWithoutResult$0(TransactionOperations.java:68) ~[spring-tx-5.3.3.jar:5.3.3]
+	at org.springframework.transaction.support.TransactionTemplate.execute(TransactionTemplate.java:140) ~[spring-tx-5.3.3.jar:5.3.3]
+	at org.springframework.transaction.support.TransactionOperations.executeWithoutResult(TransactionOperations.java:67) ~[spring-tx-5.3.3.jar:5.3.3]
+	at org.springframework.session.jdbc.JdbcIndexedSessionRepository$JdbcSession.save(JdbcIndexedSessionRepository.java:802) ~[spring-session-jdbc-2.4.1.jar:2.4.1]
+	at org.springframework.session.jdbc.JdbcIndexedSessionRepository$JdbcSession.access$200(JdbcIndexedSessionRepository.java:634) ~[spring-session-jdbc-2.4.1.jar:2.4.1]
+	at org.springframework.session.jdbc.JdbcIndexedSessionRepository.save(JdbcIndexedSessionRepository.java:410) ~[spring-session-jdbc-2.4.1.jar:2.4.1]
+	at org.springframework.session.jdbc.JdbcIndexedSessionRepository.save(JdbcIndexedSessionRepository.java:131) ~[spring-session-jdbc-2.4.1.jar:2.4.1]
+	at org.springframework.session.web.http.SessionRepositoryFilter$SessionRepositoryRequestWrapper.commitSession(SessionRepositoryFilter.java:225) ~[spring-session-core-2.4.1.jar:2.4.1]
+	at org.springframework.session.web.http.SessionRepositoryFilter$SessionRepositoryRequestWrapper.access$100(SessionRepositoryFilter.java:192) ~[spring-session-core-2.4.1.jar:2.4.1]
+	at org.springframework.session.web.http.SessionRepositoryFilter.doFilterInternal(SessionRepositoryFilter.java:144) ~[spring-session-core-2.4.1.jar:2.4.1]
+	at org.springframework.session.web.http.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:82) ~[spring-session-core-2.4.1.jar:2.4.1]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:103) ~[spring-web-5.3.3.jar:5.3.3]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:712) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.core.ApplicationDispatcher.processRequest(ApplicationDispatcher.java:461) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.core.ApplicationDispatcher.doForward(ApplicationDispatcher.java:384) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.core.ApplicationDispatcher.forward(ApplicationDispatcher.java:312) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.core.StandardHostValve.custom(StandardHostValve.java:398) [tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.core.StandardHostValve.status(StandardHostValve.java:257) [tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.core.StandardHostValve.throwable(StandardHostValve.java:352) [tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:177) [tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) [tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) [tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343) [tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:374) [tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) [tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:888) [tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1597) [tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.41.jar:9.0.41]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [?:1.8.0_261]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [?:1.8.0_261]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.41.jar:9.0.41]
+	at java.lang.Thread.run(Thread.java:748) [?:1.8.0_261]
+Caused by: org.springframework.core.serializer.support.SerializationFailedException: Failed to serialize object using DefaultSerializer; nested exception is java.io.NotSerializableException: com.kor.payments.domain.Account
+	at org.springframework.core.serializer.support.SerializingConverter.convert(SerializingConverter.java:64) ~[spring-core-5.3.3.jar:5.3.3]
+	at org.springframework.core.serializer.support.SerializingConverter.convert(SerializingConverter.java:33) ~[spring-core-5.3.3.jar:5.3.3]
+	at org.springframework.core.convert.support.GenericConversionService$ConverterAdapter.convert(GenericConversionService.java:386) ~[spring-core-5.3.3.jar:5.3.3]
+	at org.springframework.core.convert.support.ConversionUtils.invokeConverter(ConversionUtils.java:41) ~[spring-core-5.3.3.jar:5.3.3]
+	... 46 more
+Caused by: java.io.NotSerializableException: com.kor.payments.domain.Account
+	at java.io.ObjectOutputStream.writeObject0(ObjectOutputStream.java:1184) ~[?:1.8.0_261]
+	at java.io.ObjectOutputStream.writeObject(ObjectOutputStream.java:348) ~[?:1.8.0_261]
+	at java.util.ArrayList.writeObject(ArrayList.java:768) ~[?:1.8.0_261]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_261]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:1.8.0_261]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_261]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[?:1.8.0_261]
+	at java.io.ObjectStreamClass.invokeWriteObject(ObjectStreamClass.java:1155) ~[?:1.8.0_261]
+	at java.io.ObjectOutputStream.writeSerialData(ObjectOutputStream.java:1496) ~[?:1.8.0_261]
+	at java.io.ObjectOutputStream.writeOrdinaryObject(ObjectOutputStream.java:1432) ~[?:1.8.0_261]
+	at java.io.ObjectOutputStream.writeObject0(ObjectOutputStream.java:1178) ~[?:1.8.0_261]
+	at java.io.ObjectOutputStream.defaultWriteFields(ObjectOutputStream.java:1548) ~[?:1.8.0_261]
+	at java.io.ObjectOutputStream.writeSerialData(ObjectOutputStream.java:1509) ~[?:1.8.0_261]
+	at java.io.ObjectOutputStream.writeOrdinaryObject(ObjectOutputStream.java:1432) ~[?:1.8.0_261]
+	at java.io.ObjectOutputStream.writeObject0(ObjectOutputStream.java:1178) ~[?:1.8.0_261]
+	at java.io.ObjectOutputStream.defaultWriteFields(ObjectOutputStream.java:1548) ~[?:1.8.0_261]
+	at java.io.ObjectOutputStream.writeSerialData(ObjectOutputStream.java:1509) ~[?:1.8.0_261]
+	at java.io.ObjectOutputStream.writeOrdinaryObject(ObjectOutputStream.java:1432) ~[?:1.8.0_261]
+	at java.io.ObjectOutputStream.writeObject0(ObjectOutputStream.java:1178) ~[?:1.8.0_261]
+	at java.io.ObjectOutputStream.defaultWriteFields(ObjectOutputStream.java:1548) ~[?:1.8.0_261]
+	at java.io.ObjectOutputStream.writeSerialData(ObjectOutputStream.java:1509) ~[?:1.8.0_261]
+	at java.io.ObjectOutputStream.writeOrdinaryObject(ObjectOutputStream.java:1432) ~[?:1.8.0_261]
+	at java.io.ObjectOutputStream.writeObject0(ObjectOutputStream.java:1178) ~[?:1.8.0_261]
+	at java.io.ObjectOutputStream.defaultWriteFields(ObjectOutputStream.java:1548) ~[?:1.8.0_261]
+	at java.io.ObjectOutputStream.writeSerialData(ObjectOutputStream.java:1509) ~[?:1.8.0_261]
+	at java.io.ObjectOutputStream.writeOrdinaryObject(ObjectOutputStream.java:1432) ~[?:1.8.0_261]
+	at java.io.ObjectOutputStream.writeObject0(ObjectOutputStream.java:1178) ~[?:1.8.0_261]
+	at java.io.ObjectOutputStream.writeObject(ObjectOutputStream.java:348) ~[?:1.8.0_261]
+	at org.springframework.core.serializer.DefaultSerializer.serialize(DefaultSerializer.java:46) ~[spring-core-5.3.3.jar:5.3.3]
+	at org.springframework.core.serializer.Serializer.serializeToByteArray(Serializer.java:56) ~[spring-core-5.3.3.jar:5.3.3]
+	at org.springframework.core.serializer.support.SerializingConverter.convert(SerializingConverter.java:60) ~[spring-core-5.3.3.jar:5.3.3]
+	at org.springframework.core.serializer.support.SerializingConverter.convert(SerializingConverter.java:33) ~[spring-core-5.3.3.jar:5.3.3]
+	at org.springframework.core.convert.support.GenericConversionService$ConverterAdapter.convert(GenericConversionService.java:386) ~[spring-core-5.3.3.jar:5.3.3]
+	at org.springframework.core.convert.support.ConversionUtils.invokeConverter(ConversionUtils.java:41) ~[spring-core-5.3.3.jar:5.3.3]
+	... 46 more
+2021-09-17 20:17:37,234 INFO c.k.p.c.RequestResponseLoggingFilter [http-nio-8089-exec-6] Logging Request  GET : /login
+2021-09-17 20:17:37,245 INFO c.k.p.c.RequestResponseLoggingFilter [http-nio-8089-exec-6] Logging Response :text/html;charset=UTF-8
+2021-09-17 20:17:37,333 INFO c.k.p.c.RequestResponseLoggingFilter [http-nio-8089-exec-7] Logging Request  GET : /static/images/payments.png
+2021-09-17 20:17:37,338 INFO c.k.p.c.RequestResponseLoggingFilter [http-nio-8089-exec-7] Logging Response :image/png
+2021-09-17 20:17:40,454 INFO c.k.p.c.RequestResponseLoggingFilter [http-nio-8089-exec-9] Logging Request  GET : /
+2021-09-17 20:17:40,469 INFO c.k.p.c.RequestResponseLoggingFilter [http-nio-8089-exec-9] Logging Response :null
+2021-09-17 20:17:40,475 INFO c.k.p.c.RequestResponseLoggingFilter [http-nio-8089-exec-10] Logging Request  GET : /wallet
+2021-09-17 20:17:40,497 INFO c.k.p.c.RequestResponseLoggingFilter [http-nio-8089-exec-10] Logging Response :text/html;charset=UTF-8
+2021-09-17 20:17:45,150 INFO c.k.p.c.RequestResponseLoggingFilter [http-nio-8089-exec-1] Logging Request  POST : /wallet/new_account
+2021-09-17 20:17:45,197 INFO c.k.p.s.AccountService [http-nio-8089-exec-1] Account перший рахунок is added to DB
+2021-09-17 20:17:45,199 INFO c.k.p.c.RequestResponseLoggingFilter [http-nio-8089-exec-1] Logging Response :null
+2021-09-17 20:17:45,204 INFO c.k.p.c.RequestResponseLoggingFilter [http-nio-8089-exec-2] Logging Request  GET : /accounts
+2021-09-17 20:17:45,225 INFO c.k.p.c.RequestResponseLoggingFilter [http-nio-8089-exec-2] Logging Response :text/html;charset=UTF-8
+2021-09-17 20:17:47,673 INFO c.k.p.c.RequestResponseLoggingFilter [http-nio-8089-exec-4] Logging Request  GET : /login
+2021-09-17 20:17:47,683 INFO c.k.p.c.RequestResponseLoggingFilter [http-nio-8089-exec-4] Logging Response :text/html;charset=UTF-8
+2021-09-17 20:17:47,701 INFO c.k.p.c.RequestResponseLoggingFilter [http-nio-8089-exec-5] Logging Request  GET : /static/images/payments.png
+2021-09-17 20:17:47,705 INFO c.k.p.c.RequestResponseLoggingFilter [http-nio-8089-exec-5] Logging Response :image/png
+2021-09-17 20:17:51,036 INFO c.k.p.c.RequestResponseLoggingFilter [http-nio-8089-exec-7] Logging Request  GET : /
+2021-09-17 20:17:51,039 INFO c.k.p.c.RequestResponseLoggingFilter [http-nio-8089-exec-7] Logging Response :null
+2021-09-17 20:17:51,043 INFO c.k.p.c.RequestResponseLoggingFilter [http-nio-8089-exec-8] Logging Request  GET : /wallet
+2021-09-17 20:17:51,053 INFO c.k.p.c.RequestResponseLoggingFilter [http-nio-8089-exec-8] Logging Response :text/html;charset=UTF-8
+2021-09-17 20:17:56,433 INFO c.k.p.c.RequestResponseLoggingFilter [http-nio-8089-exec-9] Logging Request  POST : /wallet/new_account
+2021-09-17 20:17:56,435 INFO c.k.p.s.AccountService [http-nio-8089-exec-9] Account Dollar account is added to DB
+2021-09-17 20:17:56,438 INFO c.k.p.c.RequestResponseLoggingFilter [http-nio-8089-exec-9] Logging Response :null
+2021-09-17 20:17:56,443 INFO c.k.p.c.RequestResponseLoggingFilter [http-nio-8089-exec-10] Logging Request  GET : /accounts
+2021-09-17 20:17:56,456 INFO c.k.p.c.RequestResponseLoggingFilter [http-nio-8089-exec-10] Logging Response :text/html;charset=UTF-8
+2021-09-17 20:18:00,478 INFO c.k.p.c.RequestResponseLoggingFilter [http-nio-8089-exec-2] Logging Request  GET : /login
+2021-09-17 20:18:00,485 INFO c.k.p.c.RequestResponseLoggingFilter [http-nio-8089-exec-2] Logging Response :text/html;charset=UTF-8
+2021-09-17 20:18:00,503 INFO c.k.p.c.RequestResponseLoggingFilter [http-nio-8089-exec-3] Logging Request  GET : /static/images/payments.png
+2021-09-17 20:18:00,507 INFO c.k.p.c.RequestResponseLoggingFilter [http-nio-8089-exec-3] Logging Response :image/png
+2021-09-17 20:18:12,849 INFO o.s.s.c.ExecutorConfigurationSupport [SpringContextShutdownHook] Shutting down ExecutorService 'applicationTaskExecutor'
+2021-09-17 20:18:12,850 INFO o.s.o.j.AbstractEntityManagerFactoryBean [SpringContextShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-09-17 20:18:12,853 INFO c.z.h.HikariDataSource [SpringContextShutdownHook] HikariPool-1 - Shutdown initiated...
+2021-09-17 20:18:12,855 INFO c.z.h.HikariDataSource [SpringContextShutdownHook] HikariPool-1 - Shutdown completed.
