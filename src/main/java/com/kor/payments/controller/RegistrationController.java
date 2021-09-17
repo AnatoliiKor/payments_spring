@@ -20,8 +20,7 @@ public class RegistrationController {
     private UserService userService;
 
     @GetMapping("/registration")
-    public String registration(@RequestParam(required = false) String warn, Model model) {
-        model.addAttribute("warn", warn);
+    public String registration() {
         return "registration";
     }
 
@@ -43,9 +42,10 @@ public class RegistrationController {
 //    }
 
     @PostMapping("/registration")
-    public String addUser(User user){
+    public String addUser(User user, Model model){
        if (!userService.addUser(user)) {
-           return "redirect:registration?warn=registration_user_exist";
+           model.addAttribute("warn", "registration_user_exist");
+           return "registration";
        }
        return "redirect:login";
     }

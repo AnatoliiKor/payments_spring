@@ -1,5 +1,6 @@
 package com.kor.payments.config;
 
+import com.kor.payments.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -14,16 +15,13 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 
-import javax.sql.DataSource;
 
 @Configuration
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
-    private DataSource dataSource;
-//    @Autowired
-//    private UserService userService;
+    private UserService userService;
 //    @Autowired
 //    private PasswordEncoder passwordEncoder;
 
@@ -35,8 +33,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                    .antMatchers("/", "/registration", "/static/**",
-                        "/img/**", "/greeting", "/login/**").permitAll()
+                    .antMatchers( "/registration", "/static/**",
+//                                                "/img/**","/",
+                            "/login").permitAll()
                     .anyRequest().authenticated()
                 .and()
                     .formLogin()
@@ -54,11 +53,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.jdbcAuthentication()
-                .dataSource(dataSource)
-                .passwordEncoder(NoOpPasswordEncoder.getInstance())
-                .usersByUsernameQuery("select email, password, active from usr where email=?")
-                .authoritiesByUsernameQuery("select email, role from usr where email=?");
+        auth.userDetailsService(userService)
+                .passwordEncoder(NoOpPasswordEncoder.getInstance());
     }
 
 //    @Override
