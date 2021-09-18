@@ -4,6 +4,8 @@ import com.kor.payments.domain.User;
 import com.kor.payments.repository.UserRepository;
 import com.kor.payments.services.AccountService;
 import com.kor.payments.services.UserService;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -17,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 @RequestMapping("/wallet")
 public class WalletController {
+    private static final Logger log = LogManager.getLogger(WalletController.class);
     @Autowired
     private AccountService accountService;
     @Autowired
@@ -32,19 +35,6 @@ public class WalletController {
         return "wallet";
     }
 
-    @PostMapping("/new_account")
-    public String newAccount(
-            @AuthenticationPrincipal UserDetails userDetails,
-            @RequestParam(name = "account_name") String accountName,
-            @RequestParam String currency,
-            Model model) {
-        User user = (User) userDetails;
-        if (accountService.newAccount(accountName, currency, user)) {
-            return "redirect:/accounts";
-        } else {
-            model.addAttribute("warn", "account_not_opened");
-            return "/wallet";
-        }
-    }
+
 
 }

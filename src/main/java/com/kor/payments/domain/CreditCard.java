@@ -13,12 +13,12 @@ import javax.persistence.*;
 public class CreditCard {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "card_number_generator")
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     @Column(unique = true)
     private long cardNumber;
 
-    @OneToOne(mappedBy = "card")
+    @OneToOne(mappedBy = "card",fetch = FetchType.LAZY)
     private Account account;
 
 

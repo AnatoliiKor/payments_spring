@@ -28,7 +28,7 @@ public class UserService implements UserDetailsService{
 //    }
 
     public boolean addUser(User user){
-        if(userRepository.findByEmail(user.getEmail()) !=null) {
+        if(findUserByEmail(user.getEmail()) !=null) {
             return false;
         }
         user.setActive(true);
@@ -37,7 +37,9 @@ public class UserService implements UserDetailsService{
         return true;
     }
 
-
+    public User findUserByEmail(String email) {
+        return userRepository.findByEmail(email);
+    }
 
 //    @Override
 //    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {

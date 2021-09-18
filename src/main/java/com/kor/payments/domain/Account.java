@@ -42,7 +42,7 @@ public class Account {
     private CreditCard card;
 
     @OneToMany(mappedBy = "payer", fetch = FetchType.LAZY)
-    private List<Transaction> payment;
+    private List<Transaction> payments;
 
 
     public String getFormatedDate() {
