@@ -51,41 +51,9 @@ public class UserService implements UserDetailsService{
 //        return user;
 //    }
 
-    public List<User> findAll() {
-        return userRepository.findAll();
-    }
-
     public User findById (Long id) {
         return userRepository.findById(id).orElse(null);
     }
-//    public User findByUsername (String username) {
-//        return userRepository.findByUsername(username);
-
-//    }
-
-    public void deleteUser(Long id) {
-        userRepository.deleteById(id);
-    }
-//    public void save(User user, Map<String, String> form) {
-//        Set<String> roles = Arrays.stream(Role.values())
-//                .map(Role::name)
-//                .collect(Collectors.toSet());
-//        user.getRoles().clear();
-//        user.setActive(false);
-//        for (String key : form.keySet()) {
-//            if (key.equals("active")) user.setActive(true);
-//            if(roles.contains(key)) {
-//                user.getRoles().add(Role.valueOf(key));
-//            }
-//        }
-//        userRepository.save(user);
-
-//    }
-
-//    public void setPassword(User user) {
-//        user.setPassword(passwordEncoder.encode(user.getPassword()));
-//        userRepository.save(user);
-//    }
 
     public void setEmail(User user) {
         userRepository.save(user);

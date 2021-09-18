@@ -31,13 +31,13 @@ public class Account {
     @Enumerated(EnumType.STRING)
     private Currency currency;
 
-    @OneToOne(mappedBy = "account", fetch = FetchType.EAGER)
+    @OneToOne(cascade = CascadeType.REMOVE, mappedBy = "account", fetch = FetchType.EAGER)
     private AccountRequest accountRequest;
 
     private LocalDateTime registered = LocalDateTime.now();
     private boolean active;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.REMOVE)
     @JoinColumn(name = "card")
     private CreditCard card;
 

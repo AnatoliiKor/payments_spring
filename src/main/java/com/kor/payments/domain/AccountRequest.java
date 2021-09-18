@@ -5,6 +5,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 
 @Entity
 @NoArgsConstructor
@@ -21,6 +22,8 @@ public class AccountRequest {
 
     @Enumerated(EnumType.STRING)
     private Action action;
+
+    private LocalDateTime registered = LocalDateTime.now();
 
     public enum Action {
         BLOCK,

@@ -29,9 +29,8 @@ public class WalletController {
 
     @GetMapping
     public String getWallet(@AuthenticationPrincipal UserDetails userDetails, Model model) {
-//        User user = (User) userDetails;
-//        user.getAccounts();
-//        model.addAttribute("accounts", accountService.findAllAccounts());
+        User user = (User) userDetails;
+        model.addAttribute("accounts", accountService.findAccountsByUser(user));
         return "wallet";
     }
 

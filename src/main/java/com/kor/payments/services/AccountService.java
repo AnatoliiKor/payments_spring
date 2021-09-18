@@ -1,6 +1,7 @@
 package com.kor.payments.services;
 
 import com.kor.payments.domain.Account;
+import com.kor.payments.domain.AccountRequest;
 import com.kor.payments.domain.Currency;
 import com.kor.payments.domain.User;
 import com.kor.payments.repository.AccountRepository;
@@ -19,6 +20,8 @@ public class AccountService {
     private AccountRepository accountRepository;
     @Autowired
     private CreditCardService creditCardService;
+    @Autowired
+    private AccountRequestService accountRequestService;
 
 
     public List<Account> findAllAccounts () {
@@ -34,6 +37,7 @@ public class AccountService {
         account = accountRepository.save(account);
         account.setCard(creditCardService.getNewCard(account.getId()));
         accountRepository.save(account);
+        accountRequestService.newUnblockAccountRequest(account);
         return true;
     }
 

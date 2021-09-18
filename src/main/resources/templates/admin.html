@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:insert="~{fragments/header :: head}"/>
+
+<body class="admin">
+
+<div th:insert="~{fragments/header :: navbar}"></div>
+<div th:insert="~{fragments/messages :: messages}"></div>
+
+<div class="container mt-5">
+<!--    <h1 th:text="#{to_do}"></h1><br/>-->
+    <div th:unless="${requests == null and #lists.isEmpty(requests)}">
+    <table class="table table-striped auto__table table-condensed text-center">
+        <thead>
+        <tr>
+<!--            <th>#</th>-->
+            <th th:text="#{number}"><</th>
+            <th th:text="#{balance}"><</th>
+            <th th:text="#{currency}"><</th>
+            <th th:text="#{opened}"><</th>
+            <th th:text="#{is_active}"><</th>
+            <th></th>
+            <th></th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="request : ${requests}">
+            <td th:text="${request.account.id}"></td>
+            <td th:text="${request.account.balance/100}"></td>
+            <td th:text="${request.account.currency}"></td>
+            <td th:text="${T(com.kor.payments.domain.Utils).getFormatedDate(request.account.registered)}"></td>
+            <td th:text="${request.account.active}? #{is_active} : #{blocked}"></td>
+        </tr>
+        </tbody>
+    </table>
+    </div>
+    <p th:if="${requests == null or #lists.isEmpty(requests)}" th:text="#{no_accounts} + #{to_do}"></p>
+    <br/>
+    <a href="/" th:text="#{home_page}"></a>
+</div>
+</body>
+</html>

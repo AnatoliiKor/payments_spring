@@ -22,11 +22,11 @@ public class CreditCard {
     private Account account;
 
 
-    //    public String getCardNumberSpaces() {
-//        String number = String.valueOf(this.cardNumber);
-//        if (number == null) return null;
-//        char delimiter = ' ';
-//        return number.replaceAll(".{4}(?!$)", "$0" + delimiter);
-//    }
+        public String getCardNumberSpaces() {
+        String number = String.valueOf(this.cardNumber);
+        if (number == null) return "no card";
+        char delimiter = ' ';
+        return number.replaceAll(".{4}(?!$)", "$0" + delimiter);
+    }
 
 }

@@ -21,16 +21,10 @@ public class AccountController {
     @Autowired
     private AccountService accountService;
 
-    @GetMapping("/accounts")
-    public String getAllAccounts(Model model) {
-        model.addAttribute("accounts", accountService.findAllAccounts());
-        return "accounts_list";
-    }
-
     @GetMapping("/accounts/{user}")
     public String getUserAccounts(@PathVariable User user, Model model) {
-//        model.addAttribute("accounts", user.getAccounts() );
-        model.addAttribute("accounts", accountService.findAccountsByUser(user));
+        model.addAttribute("accounts", user.getAccounts() );
+//        model.addAttribute("accounts", accountService.findAccountsByUser(user));
         log.info("Accounts are requested by user {}", user.getId());
         return "accounts_list";
     }
@@ -44,8 +38,9 @@ public class AccountController {
         User user = (User) userDetails;
         if (accountService.newAccount(accountName, currency, user)) {
             log.info("Account {} is added to DB", accountName);
-            return "redirect:/accounts";
+            return "redirect:/";
         } else {
+            log.info("Account {} is not added to DB", accountName);
             model.addAttribute("warn", "account_not_opened");
             return "/wallet";
         }

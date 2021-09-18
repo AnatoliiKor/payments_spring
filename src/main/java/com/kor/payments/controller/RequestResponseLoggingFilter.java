@@ -26,13 +26,9 @@ public class RequestResponseLoggingFilter implements Filter {
 
         HttpServletRequest req = (HttpServletRequest) request;
         HttpServletResponse res = (HttpServletResponse) response;
-        logger.info(
-                "Logging Request  {} : {}", req.getMethod(),
-                req.getRequestURI());
+//        logger.info("Logging Request  {} : {}", req.getMethod(), req.getRequestURI());
         chain.doFilter(request, response);
-        logger.info(
-                "Logging Response :{}",
-                res.getContentType());
+//        logger.info("Logging Response :{}", res.getContentType());
     }
 
     @Override

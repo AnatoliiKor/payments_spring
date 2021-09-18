@@ -18,7 +18,7 @@ public class FirstController {
         session.setAttribute("user_auth", userDetails);
         User user = (User) userDetails;
         if (user.getRole().equals(Role.ADMIN)) {
-            return "redirect:users";
+            return "redirect:admin";
         } else {
             return "redirect:wallet";
         }
