@@ -6,8 +6,8 @@
 </head>
 <body>
 <div th:fragment="messages">
-    <div class="alert alert-warning" role="alert" th:if="${warn != null}" th:text="#{${warn}}"></div>
-    <div class="alert alert-info" role="alert" th:if="${message != null}" th:text="#{${mes}}"></div>
+    <div class="alert alert-warning text-center" role="alert" th:if="${warn != null}" th:text="#{${warn}}"></div>
+    <div class="alert alert-info text-center" role="alert" th:if="${message != null}" th:text="#{${message}}"></div>
 </div>
 </body>
 </html>

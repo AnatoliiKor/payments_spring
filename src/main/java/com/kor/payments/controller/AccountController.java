@@ -31,10 +31,12 @@ public class AccountController {
 
     @GetMapping("/accounts/{user}")
     public String getUserAccounts(@PathVariable User user, Model model) {
-        model.addAttribute("accounts", user.getAccounts());
-//        model.addAttribute("accounts", accountService.findAccountsByUser(user));
-        log.info("Accounts are requested by user {}", user.getId());
-        return "accounts_list";
+//        model.addAttribute("accounts", user.getAccounts());
+        model.addAttribute("accounts", accountService.findAccountsByUser(user));
+        String userDate = user.getLastName() + " " + user.getName() + " " + user.getMiddleName() + " (" + user.getEmail() + ")";
+        model.addAttribute("user_date", userDate);
+        log.info("Accounts are requested for user {}", user.getId());
+        return "users_accounts";
     }
 
     @GetMapping("/accounts")
@@ -47,7 +49,7 @@ public class AccountController {
         model.addAttribute("sort", sort);
         model.addAttribute("order", order);
         model.addAttribute("page", page);
-        if (accounts.size() < 5) {
+        if (accounts.size() < 10) {
             maxPage = page;
         }
         log.info("Accounts are requested by Admin, page {}, sort {}, order {}", page, sort, order);
@@ -55,7 +57,7 @@ public class AccountController {
     }
 
     @GetMapping("/accounts/page")
-    public String pageBikes(@RequestParam int p) {
+    public String pageAccounts(@RequestParam int p) {
         if (p >= 0) {
             page = p;
         }

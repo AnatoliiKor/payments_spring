@@ -32,7 +32,7 @@ public class AccountService {
     }
 
     public List<Account> findAllPage(int page, String sort, String order) {
-        return accountRepository.findAll(PageRequest.of(page, 5, Sort.by(Sort.Direction.valueOf(order), sort))).getContent();
+        return accountRepository.findAll(PageRequest.of(page, 10, Sort.by(Sort.Direction.valueOf(order), sort))).getContent();
     }
 
     @Transactional(rollbackFor = {SQLException.class})

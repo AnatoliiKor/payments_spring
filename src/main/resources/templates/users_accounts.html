@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:insert="~{fragments/header :: head}"/>
+
+<body class="accounts_list">
+
+<div th:insert="~{fragments/header :: navbar}"></div>
+<div th:insert="~{fragments/messages :: messages}"></div>
+
+<div class="container mt-5">
+    <h2 th:text="#{accounts}"></h2><br/>
+    <h3 th:text="${user_date}"></h3><br/>
+
+    <div th:unless="${accounts.size() == 0}">
+        <table class="table table-striped auto__table table-condensed text-center">
+            <thead>
+            <tr>
+                <!--            <th>#</th>-->
+                <th th:text="#{number}"><</th>
+                <th th:text="#{balance}"><</th>
+                <th th:text="#{account_name}"><</th>
+                <th th:text="#{currency}"><</th>
+                <th th:text="#{is_active}"><</th>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="account : ${accounts}">
+                <td th:text="${account.id}"></td>
+                <td th:text="${account.balance/100}"></td>
+                <td th:text="${account.accountName}"></td>
+                <td th:text="${account.currency}"></td>
+                <td th:text="${account.active}? #{is_active} : #{blocked}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <p th:if="${accounts.size() == 0}" th:text="#{no_accounts}"></p>
+    <br/>
+    <a href="/" th:text="#{home_page}"></a>
+</div>
+</body>
+</html>

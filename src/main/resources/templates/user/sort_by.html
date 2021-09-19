@@ -7,20 +7,17 @@
 <body>
 <div th:fragment="sort">
 
-    <form class="m-2" method="get" th:action="@{/accounts/sort}">
-<!--        <input type="hidden" name="user_id" value="${user_id}"/>-->
+    <form class="m-2" method="get" th:action="@{/admin/users/sort}">
 
         <div class="row">
         <div class="mx-2 mt-1" th:text="#{sort_by}"></div>
         <select name="sort" size="1" required>
             <option class="text-danger fw-bold" th:text="${sort}" selected></option>
 
-            <option value="id" th:text="#{account_number}" ></option>
-            <option value="accountName" th:text="#{account_name}"></option>
-            <option value="balance" th:text="#{balance}"></option>
-            <option value="currency" th:text="#{currency}"></option>
+            <option value="email" th:text="#{email}"></option>
+            <option value="lastName" th:text="#{last_name}"></option>
+            <option value="phoneNumber" th:text="#{phone_number}"></option>
             <option value="registered" th:text="#{registered}"></option>
-            <option value="user" th:text="#{user}"></option>
             <option value="active" th:text="#{is_active}"></option>
         </select>
 

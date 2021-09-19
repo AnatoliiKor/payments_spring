@@ -13,6 +13,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @Controller
 @PreAuthorize("hasAuthority('ADMIN')")
 @RequestMapping("/admin")
@@ -23,13 +25,46 @@ public class AdminController {
     private AccountRequestService accountRequestService;
     @Autowired
     private AccountService accountService;
+
     private final Logger log = LogManager.getLogger(AdminController.class);
+    int page = 0;
+    int maxPage = 1000;
+    String sort = "email";
+    String order = "ASC";
+    List<User> users;
 
     @GetMapping("/users")
     public String getAllUsers(Model model) {
-        model.addAttribute("users", userService.findAllUsers());
+        if (page > maxPage) {
+            --page;
+        }
+        users = userService.findAllPage(page, sort, order);
+        model.addAttribute("users", users);
+        model.addAttribute("sort", sort);
+        model.addAttribute("order", order);
+        model.addAttribute("page", page);
+
+        if (users.size() < 10) {
+            maxPage = page;
+        }
         log.info("user list requested by admin");
         return "users_list";
+    }
+
+    @GetMapping("/users/page")
+    public String pageUsers(@RequestParam int p) {
+        if (p >= 0) {
+            page = p;
+        }
+        return "redirect:/admin/users";
+    }
+
+    @GetMapping("/users/sort")
+    public String pageSort(@RequestParam String sort, @RequestParam String order) {
+        this.page = 0;
+        this.sort = sort;
+        this.order = order;
+        return "redirect:/admin/users";
     }
 
     @GetMapping("/accounts")
@@ -41,7 +76,6 @@ public class AdminController {
 
     @GetMapping
     public String adminPage(
-//            @RequestParam(required = false) String messaage,
             Model model
     ) {
         model.addAttribute("requests", accountRequestService.findAll());
@@ -50,14 +84,26 @@ public class AdminController {
     }
 
     @PostMapping("/action/{account}")
-    public String getUserAccounts(@PathVariable Account account, @RequestParam(name = "is_active") boolean action, Model model) {
+    public String changeAccountStatus(@PathVariable Account account, @RequestParam(name = "is_active") boolean action, Model model) {
         String message;
         if(accountService.setIsActive(account, action)) {
-            message = "message=updated";
+            message = "?message=updated";
+        } else {
+            message = "?warn=not_updated";
         }
-        message = "warn=not_updated";
         log.info("Action is changed for acount {}", account.getId());
         return "redirect:/admin" + message;
+    }
+
+    @PostMapping("/user_active/{user}")
+    public String changeUserStatus(@PathVariable User user, @RequestParam(name = "is_active") boolean action, Model model) {
+        String message;
+        if(userService.setIsActive(user, action)) {
+            message = "?message=updated";
+        } else {
+            message = "?warn=not_updated";
+        }
+        return "redirect:/admin/users" + message;
     }
 
 }

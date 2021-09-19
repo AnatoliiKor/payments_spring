@@ -9,12 +9,21 @@
 <div th:insert="~{fragments/messages :: messages}"></div>
 
 <div class="container mt-5">
-    <h1 th:text="#{users_list}"></h1><br/>
+    <h2 th:text="#{users_list}"></h2><br/>
+
+    <a th:href="@{users/page(p=${page}-1)}" th:text="#{previous_main}"></a>
+    <span class="mx-3" th:text="${page+1}"></span>
+    <a th:href="@{users/page(p=${page}+1)}" th:text="#{next_main}"></a>
+
+
     <div th:unless="${users.size() == 0}">
-    <table class="table table-striped auto__table table-condensed text-center">
+
+        <div th:insert="~{user/sort_by :: sort}"></div>
+
+        <table class="table table-striped auto__table table-condensed text-center">
         <thead>
         <tr>
-<!--            <th>#</th>-->
+            <th>#</th>
             <th th:text="#{last_name}"></th>
             <th th:text="#{name}"></th>
             <th th:text="#{middle_name}"></th>
@@ -29,15 +38,33 @@
         </tr>
         </thead>
         <tbody>
-        <tr th:each="user : ${users}">
-            <td th:text="${user.lastName}"></td>
+        <tr th:each="user,iter : ${users}">
+            <td th:text="${page}*10+${iter.index}+1"> </td>
+            <td th:attr="class=${sort.equals('lastName')? 'text-info fw-bold' : ''}" th:text="${user.lastName}"></td>
             <td th:text="${user.name}"></td>
             <td th:text="${user.middleName}"></td>
-            <td th:text="${user.email}"></td>
-            <td th:text="${user.phoneNumber}"></td>
-            <td th:text="${user.getFormatedDate()}"></td>
+            <td th:attr="class=${sort.equals('email')? 'text-info fw-bold' : ''}" th:text="${user.email}"></td>
+            <td th:attr="class=${sort.equals('phoneNumber')? 'text-info fw-bold' : ''}" th:text="'+38 0'+ ${user.phoneNumber}"></td>
+            <td th:attr="class=${sort.equals('registered')? 'text-info fw-bold' : ''}" th:text="${user.getFormatedDate()}"></td>
             <td th:text="${user.role}"></td>
-            <td th:text="${user.active}? #{is_active} : #{blocked}"></td>
+            <td th:attr="class=${sort.equals('active')? 'text-info fw-bold' : ''}" th:text="${user.active}? #{is_active} : #{blocked}"></td>
+            <td>
+                <a class="btn btn-outline-primary" th:href="@{/accounts/{path}(path=${user.id})}" th:text="#{accounts}"></a>
+            </td>
+            <td>
+                <form th:action="@{/admin/user_active/{path}(path=${user.id})}" method="post">
+                    <div th:if="${user.active}">
+                        <input type="hidden" name="is_active" value="false"/>
+                        <button class="btn btn-outline-danger "
+                                type="submit" th:text="#{block}"></button>
+                    </div>
+                    <div th:unless="${user.active}">
+                        <input type="hidden" name="is_active" value="true"/>
+                        <button class="btn btn-outline-success "
+                                type="submit" th:text="#{unblock}"></button>
+                    </div>
+                </form>
+            </td>
         </tr>
         </tbody>
     </table>
