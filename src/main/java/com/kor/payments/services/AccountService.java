@@ -1,7 +1,6 @@
 package com.kor.payments.services;
 
 import com.kor.payments.domain.Account;
-import com.kor.payments.domain.AccountRequest;
 import com.kor.payments.domain.Currency;
 import com.kor.payments.domain.User;
 import com.kor.payments.repository.AccountRepository;
@@ -56,6 +55,10 @@ public class AccountService {
     public boolean setIsActive(Account account, boolean isActive) {
         account.setActive(isActive);
         if (accountRepository.save(account).isActive() == isActive) {
+            if (account.getAccountRequest() == null) {
+                log.info("Action is changed to {} for account {}", isActive, account.getId());
+                return true;
+            }
             if (accountRequestService.removeRequest(account)) {
                 log.info("Action is changed to {} for account {}", isActive, account.getId());
                 return true;
@@ -76,5 +79,16 @@ public class AccountService {
 
     public List<Account> findAccountsByUser(User user) {
         return accountRepository.findAccountsByUser(user);
+    }
+
+    public boolean refill(Account account, int amount) {
+        account.setBalance(account.getBalance() + amount);
+        Account accountDB = accountRepository.save(account);
+        if (accountDB != null && account.getBalance() == accountDB.getBalance()) {
+            log.info("Account {} is refilled with {}", account.getId(), amount);
+            return true;
+        }
+        log.debug("Account {} is not refilled with {}", account.getId(), amount);
+        return false;
     }
 }

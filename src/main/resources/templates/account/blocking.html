@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" lang="${#locale.language}">
+<head>
+    <meta charset="UTF-8">
+    <title>Account</title>
+</head>
+<body>
+<div th:fragment="blocking">
+
+
+    <form th:action="@{/admin/action/{path}(path=${account.id})}" method="post">
+        <div th:unless="${account.active}">
+            <input type="hidden" name="is_active" value="true"/>
+            <button class="btn btn-outline-danger mt-2"
+                    type="submit" th:text="#{unblock}"></button>
+        </div>
+        <div th:if="${account.active}">
+            <input type="hidden" name="is_active" value="false"/>
+            <button class="btn btn-outline-success mt-2"
+                    type="submit" th:text="#{block}"></button>
+        </div>
+    </form>
+
+
+</div>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" lang="${#locale.language}">
+<head>
+    <meta charset="UTF-8">
+    <title>Account</title>
+</head>
+<body>
+<div th:fragment="account_table">
+    <table class="table table-striped auto__table table-condensed ">
+        <tbody>
+        <tr>
+            <td th:text="#{number}"></td>
+            <td th:text="'UA' + ${account.id}"></td>
+        </tr>
+        <tr>
+            <td th:text="#{account_name}"></td>
+            <td th:text="${account.accountName}"></td>
+        </tr>
+        <tr>
+            <td th:text="#{balance}"></td>
+            <td th:text="${account.balance}/100"></td>
+        </tr>
+        <tr>
+            <td th:text="#{currency}"></td>
+            <td th:text="${account.currency}"></td>
+        </tr>
+        <tr>
+            <td th:text="#{credit_card}"></td>
+            <td th:text="${account.card.getCardNumberSpaces()}"></td>
+        </tr>
+        <tr>
+            <td th:text="#{opened}"></td>
+            <td th:text="${T(com.kor.payments.domain.Utils).getFormatedDate(account.registered)}"></td>
+        </tr>
+        <tr>
+            <td th:text="#{is_active}"></td>
+            <td th:text="${account.active}? #{is_active} : #{blocked}"/></td>
+        </tr>
+        <tr th:if="${account.accountRequest != null}">
+            <td></td>
+            <td th:if="${account.accountRequest.action.equals('BLOCK')}" th:text="#{wait_to_block}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:insert="~{fragments/header :: head}"/>
+
+<body class="account">
+
+<div th:insert="~{fragments/header :: navbar}"></div>
+<div th:insert="~{fragments/messages :: messages}"></div>
+
+<div class="container mt-1">
+    <h4 th:text="#{account}"></h4><br/>
+
+    <div class="row">
+        <div class="col">
+            <div th:insert="~{account/account_table :: account_table}"></div>
+        </div>
+        <div class="col">
+            <div th:insert="~{account/refill :: refill}"></div>
+
+<!--            <%@include file="account/blocking.jsp" %>-->
+
+            <!--            <div><a class="btn btn-outline-success mt-4" href="wallet/transactions?account_number=${account.number}&account_type=payer"><fmt:message key="payments"/></a></div>-->
+            <!--            <div><a class="btn btn-outline-success mt-4" href="wallet/transactions?account_number=${account.number}&account_type=receiver"><fmt:message key="inflows"/></a></div>-->
+        </div>
+    </div>
+
+
+</div>
+</body>
+</html>

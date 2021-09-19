@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" lang="${#locale.language}">
+<head>
+    <meta charset="UTF-8">
+    <title>Account</title>
+</head>
+<body>
+<div th:fragment="refill">
+    <button class="btn btn-outline-primary mt-2" type="button" data-bs-toggle="collapse"
+            data-bs-target="#collapseRefillBalance" aria-expanded="false"
+            aria-controls="collapseRefillBalance" th:text="#{refill_balance}">
+    </button>
+    <div class="collapse collapse-horizontal mt-2" id="collapseRefillBalance">
+        <div class="card card-body" style="width: 250px;">
+            <div th:unless="${account.active}">
+                <div class="text-danger fw-bold" th:text="#{blocked}"></div>
+            </div>
+            <div th:if="${account.active}">
+                <form method="post" th:action="@{/account/refill/{path}(path=${account.id})}">
+                    <p th:text="#{amount} + ', ' + ${account.currency}"></p>
+                    <input type="number" step=".01" min="0.01" name="amount" required>
+                    <button class="mt-1" type="submit" th:text="#{refill_balance}"></button>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+</body>
+</html>

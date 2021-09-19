@@ -6,6 +6,7 @@ import com.kor.payments.services.AccountService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
@@ -30,8 +31,14 @@ public class AccountController {
     private AccountService accountService;
 
     @GetMapping("/accounts/{user}")
-    public String getUserAccounts(@PathVariable User user, Model model) {
+    public String getUserAccounts(
+            @AuthenticationPrincipal UserDetails userDetails,
+            @PathVariable User user,
+            Model model) {
 //        model.addAttribute("accounts", user.getAccounts());
+        if (!user.getEmail().equals(userDetails.getUsername())) {
+            return "accessDenied";
+        }
         model.addAttribute("accounts", accountService.findAccountsByUser(user));
         String userDate = user.getLastName() + " " + user.getName() + " " + user.getMiddleName() + " (" + user.getEmail() + ")";
         model.addAttribute("user_date", userDate);
@@ -40,6 +47,7 @@ public class AccountController {
     }
 
     @GetMapping("/accounts")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public String getAccounts(Model model) {
         if (page > maxPage) {
             --page;
@@ -72,7 +80,6 @@ public class AccountController {
         return "redirect:/accounts";
     }
 
-
     @PostMapping("/new_account")
     public String newAccount(
             @AuthenticationPrincipal UserDetails userDetails,
@@ -88,5 +95,21 @@ public class AccountController {
             model.addAttribute("warn", "account_not_opened");
             return "/wallet";
         }
+    }
+
+    @GetMapping("/account/{account}")
+    public String getAccount(@PathVariable Account account, Model model) {
+        model.addAttribute("account", account);
+        return "account";
+    }
+
+    @PostMapping("/account/refill/{account}")
+    public String refill(@PathVariable Account account, @RequestParam double amount) {
+//        amount = amount * 100;
+        int amountInt = (int) (amount * 100);
+        if (account.isActive() && amount > 0 && accountService.refill(account, amountInt)) {
+            return "redirect:/account/" + account.getId() + "?message=balance_refilled";
+        }
+        return "redirect:/account/" + account.getId() + "?warn=balance_not_refilled";
     }
 }

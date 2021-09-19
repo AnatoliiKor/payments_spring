@@ -8,9 +8,9 @@
 <div th:insert="~{fragments/header :: navbar}"></div>
 <div th:insert="~{fragments/messages :: messages}"></div>
 
-<div class="container mt-5">
-    <h2 th:text="#{accounts}"></h2><br/>
-    <h3 th:text="${user_date}"></h3><br/>
+<div class="container mt-1">
+    <h3 th:text="#{accounts}"></h3><br/>
+    <h4 th:text="${user_date}"></h4><br/>
 
     <div th:unless="${accounts.size() == 0}">
         <table class="table table-striped auto__table table-condensed text-center">
@@ -29,11 +29,15 @@
             </thead>
             <tbody>
             <tr th:each="account : ${accounts}">
-                <td th:text="${account.id}"></td>
-                <td th:text="${account.balance/100}"></td>
+                <td th:text="'UA' + ${account.id}"></td>
+                <td th:text="${account.balance}/100"></td>
                 <td th:text="${account.accountName}"></td>
                 <td th:text="${account.currency}"></td>
                 <td th:text="${account.active}? #{is_active} : #{blocked}"></td>
+                <td>
+                    <a class="btn btn-outline-primary mx-1" th:href="@{/account/{path}(path=${account.id})}"
+                       th:text="#{refill_balance}"></a>
+                </td>
             </tr>
             </tbody>
         </table>

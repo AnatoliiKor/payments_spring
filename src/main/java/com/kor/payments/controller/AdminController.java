@@ -88,6 +88,9 @@ public class AdminController {
         String message;
         if(accountService.setIsActive(account, action)) {
             message = "?message=updated";
+            if (account.getAccountRequest() == null) {
+                return "redirect:/accounts" + message;
+            }
         } else {
             message = "?warn=not_updated";
         }

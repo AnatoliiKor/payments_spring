@@ -50,9 +50,7 @@
         </tbody>
     </table>
     </div>
-    <h2 th:if="${requests == null or #lists.isEmpty(requests)}" th:text="#{no_accounts} + #{to_do}"></h2>
-<!--    <br/>-->
-<!--    <a href="/" th:text="#{home_page}"></a>-->
+    <h2 th:if="${requests == null or #lists.isEmpty(requests)}" th:text="#{no_accounts} + ' ' + #{to_do}"></h2>
 </div>
 </body>
 </html>

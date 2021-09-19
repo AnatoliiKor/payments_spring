@@ -12,7 +12,7 @@
         <div class="card text-dark bg-light border-info m-1  height: 200px;" style="width: 20rem;" th:each="account : ${accounts}">
             <div class="card-header text-info fw-bold" th:text="#{credit_card} + ': ' + ${account.card.getCardNumberSpaces()}"></div>
     <div class="card-body">
-        <h6 class="card-title lh-1" th:text="${account.balance/100} + ' '+ ${account.currency}"></h6>
+        <h6 class="card-title lh-1" th:text="${account.balance}/100 + ' '+ ${account.currency}"></h6>
         <div class="card-text lh-1" th:text="${account.accountName} + ', UA' + ${account.id}"></div>
     </div>
     </div>

@@ -8,11 +8,11 @@
 <div th:insert="~{fragments/header :: navbar}"></div>
 <div th:insert="~{fragments/messages :: messages}"></div>
 
-<div class="container mt-2">
-    <h2 class="my-1" th:text="#{accounts}"></h2><br/>
+<div class="container mt-1">
+    <h3 class="my-1" th:text="#{accounts}"></h3><br/>
 
     <a th:href="@{accounts/page(p=${page}-1)}" th:text="#{previous_main}"></a>
-    <span class="mx-3" th:text="${page}"></span>
+    <span class="mx-3" th:text="${page}+1"></span>
     <a th:href="@{accounts/page(p=${page}+1)}" th:text="#{next_main}"></a>
 
     <div class="mt-2" th:unless="${accounts.size() == 0}">
@@ -27,8 +27,8 @@
             <th th:text="#{balance}"><</th>
             <th th:text="#{account_name}"><</th>
             <th th:text="#{currency}"><</th>
-            <th th:text="#{is_active}"><</th>
             <th th:text="#{user}"></th>
+            <th th:text="#{is_active}"><</th>
             <th></th>
             <th></th>
         </tr>
@@ -36,12 +36,26 @@
         <tbody>
         <tr th:each="account,iter : ${accounts}">
             <td th:text="${page}*10+${iter.index}+1"> </td>
-            <td th:attr="class=${sort.equals('id')? 'text-info fw-bold' : ''}" th:text="${account.id}"></td>
-            <td th:attr="class=${sort.equals('balance')? 'text-info fw-bold' : ''}" th:text="${account.balance/100}"></td>
+            <td th:attr="class=${sort.equals('id')? 'text-info fw-bold' : ''}" th:text="'UA' + ${account.id}"></td>
+            <td th:attr="class=${sort.equals('balance')? 'text-info fw-bold' : ''}" th:text="${account.balance}/100"></td>
             <td th:attr="class=${sort.equals('accountName')? 'text-info fw-bold' : ''}" th:text="${account.accountName}"></td>
             <td th:attr="class=${sort.equals('currency')? 'text-info fw-bold' : ''}" th:text="${account.currency}"></td>
-            <td th:attr="class=${sort.equals('active')? 'text-info fw-bold' : ''}" th:text="${account.active}? #{is_active} : #{blocked}"></td>
             <td th:attr="class=${sort.equals('user')? 'text-info fw-bold' : ''}" th:text="${account.user.email}"></td>
+            <td th:attr="class=${sort.equals('active')? 'text-info fw-bold' : ''}" th:text="${account.active}? #{is_active} : #{blocked}"></td>
+            <td>
+                <form th:action="@{/admin/action/{path}(path=${account.id})}" method="post">
+                    <div th:unless="${account.active}">
+                        <input type="hidden" name="is_active" value="true"/>
+                        <button class="btn btn-outline-danger mt-2"
+                                type="submit" th:text="#{unblock}"></button>
+                    </div>
+                    <div th:if="${account.active}">
+                        <input type="hidden" name="is_active" value="false"/>
+                        <button class="btn btn-outline-success mt-2"
+                                type="submit" th:text="#{block}"></button>
+                    </div>
+                </form>
+            </td>
         </tr>
         </tbody>
     </table>
