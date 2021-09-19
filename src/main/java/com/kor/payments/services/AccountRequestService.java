@@ -16,7 +16,7 @@ public class AccountRequestService {
     @Autowired
     private AccountRequestRepository accountRequestRepository;
 
-    public boolean newUnblockAccountRequest (Account account) {
+    public boolean newUnblockAccountRequest(Account account) {
         AccountRequest accountRequest = new AccountRequest();
         accountRequest.setAccount(account);
         accountRequest.setAction(AccountRequest.Action.BLOCK);
@@ -29,4 +29,13 @@ public class AccountRequestService {
         return accountRequestRepository.findAll();
     }
 
+    public boolean removeRequest(Account account) {
+        AccountRequest accountRequest = account.getAccountRequest();
+        accountRequestRepository.delete(accountRequest);
+        if (accountRequestRepository.findById(accountRequest.getId()) != null) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

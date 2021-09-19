@@ -10,7 +10,7 @@
 
 <div class="container mt-5">
 <!--    <h1 th:text="#{to_do}"></h1><br/>-->
-    <div th:unless="${requests == null and #lists.isEmpty(requests)}">
+    <div th:if="${requests != null and not #lists.isEmpty(requests)}">
     <table class="table table-striped auto__table table-condensed text-center">
         <thead>
         <tr>
@@ -32,13 +32,27 @@
             <td th:text="${request.account.currency}"></td>
             <td th:text="${T(com.kor.payments.domain.Utils).getFormatedDate(request.account.registered)}"></td>
             <td th:text="${request.account.active}? #{is_active} : #{blocked}"></td>
+            <td>
+                <form th:action="@{/admin/action/{path}(path=${request.account.id})}" method="post">
+                    <div th:if="${request.action.name().equals('BLOCK')}">
+                        <input type="hidden" name="is_active" value="true"/>
+                        <button class="btn btn-outline-danger mt-2"
+                                type="submit" th:text="#{unblock}"></button>
+                    </div>
+                    <div th:if="${request.action.name().equals('UNBLOCK')}">
+                        <input type="hidden" name="is_active" value="false"/>
+                        <button class="btn btn-outline-success mt-2"
+                                type="submit" th:text="#{block}"></button>
+                    </div>
+                </form>
+            </td>
         </tr>
         </tbody>
     </table>
     </div>
-    <p th:if="${requests == null or #lists.isEmpty(requests)}" th:text="#{no_accounts} + #{to_do}"></p>
-    <br/>
-    <a href="/" th:text="#{home_page}"></a>
+    <h2 th:if="${requests == null or #lists.isEmpty(requests)}" th:text="#{no_accounts} + #{to_do}"></h2>
+<!--    <br/>-->
+<!--    <a href="/" th:text="#{home_page}"></a>-->
 </div>
 </body>
 </html>

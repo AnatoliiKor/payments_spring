@@ -31,9 +31,9 @@
                         <div th:switch="${session.user_auth.role.name()}">
                             <span th:case="'ADMIN'">
                                 <a class="btn btn-outline-primary mx-1" th:href="@{/admin}" th:text="#{admin_nav}"></a>
-                                <a class="btn btn-outline-primary mx-1" th:href="@{/users}" th:text="#{users_list}"></a>
-                                <a class="btn btn-outline-primary mx-1" th:href="@{accounts}" th:text="#{accounts}"></a>
-                                <a class="btn btn-outline-primary mx-1" th:href="@{transactions}"
+                                <a class="btn btn-outline-primary mx-1" th:href="@{/admin/users}" th:text="#{users_list}"></a>
+                                <a class="btn btn-outline-primary mx-1" th:href="@{/accounts/page(p=0)}" th:text="#{accounts}"></a>
+                                <a class="btn btn-outline-primary mx-1" th:href="@{/admin/transactions}"
                                    th:text="#{payments}"></a>
                             </span>
                             <span th:case="'CLIENT'">
