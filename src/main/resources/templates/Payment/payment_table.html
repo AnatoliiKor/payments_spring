@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" lang="${#locale.language}">
+<head>
+    <meta charset="UTF-8">
+    <title>Payment</title>
+</head>
+<body>
+<div th:fragment="payment_table">
+
+    <table class="table table-striped auto__table table-condensed ">
+        <tbody>
+        <tr>
+            <td th:text="#{receiver_account}"></td>
+            <td th:text="${'UA' + session.payment.receiver.id}"></td>
+        </tr>
+        <tr>
+            <td th:text="#{receiver}"></td>
+            <td th:text="${session.payment.receiver.user.name + ' ' + session.payment.receiver.user.lastName + ' ' + session.payment.receiver.user.middleName}"></td>
+        </tr>
+        <tr>
+            <td th:text="#{payment_amount}"></td>
+            <td th:text="${session.payment.amount}/100"></td>
+        </tr>
+        <tr>
+            <td th:text="#{currency}"></td>
+            <td th:text="${session.payment.currency}"></td>
+        </tr>
+        <tr>
+            <td th:text="#{payment_balance_after}"></td>
+            <td th:text="${session.payment.balanceAfter}/100"></td>
+        </tr>
+        <tr>
+            <td th:text="#{account_number}"></td>
+            <td th:text="${'UA' + session.payment.payer.id}"></td>
+        </tr>
+        <tr>
+            <td th:text="#{account_name}"></td>
+            <td th:text="${session.payment.payer.accountName}"></td>
+        </tr>
+        <tr>
+            <td th:text="#{payment_destination}"></td>
+            <td th:text="${session.payment.destination}"></td>
+        </tr>
+
+            <tr th:unless="payment.registered == null">
+                <td th:text="#{date}"></td>
+                <td th:text="${T(com.kor.payments.domain.Utils).getFormatedDate(session.payment.registered)}"></td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
+</body>
+</html>

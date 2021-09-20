@@ -30,6 +30,10 @@ public class AccountService {
         return accountRepository.findAll();
     }
 
+    public List<Account> findAllActiveAccountsByUser(User user) {
+        return accountRepository.findAccountsByActiveTrueAndUser(user);
+    }
+
     public List<Account> findAllPage(int page, String sort, String order) {
         return accountRepository.findAll(PageRequest.of(page, 10, Sort.by(Sort.Direction.valueOf(order), sort))).getContent();
     }
@@ -47,8 +51,8 @@ public class AccountService {
         return true;
     }
 
-    public Account findById(long accountId) {
-        return accountRepository.findById(accountId);
+    public Account findByNumberId(long numberId) {
+        return accountRepository.findById(numberId);
     }
 
     @Transactional(rollbackFor = {SQLException.class})

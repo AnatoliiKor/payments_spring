@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" lang="${#locale.language}">
+<head>
+    <meta charset="UTF-8">
+    <title>Payment</title>
+</head>
+<body>
+<div th:fragment="payment_form">
+
+    <form method="post" th:action="@{prepare/}">
+
+        UA<input class="m-2" type="tel" name="receiver" pattern="[0-9]{10}" minlength="10" maxlength="10"
+                 size="11" placeholder="0000000000" th:attr="value=${receiver != null ? receiver : ''}" required>
+        <label th:text="#{receiver_account}"></label>
+        <br/>
+
+        <div th:insert="~{payment/account_select :: account_select}"></div>
+
+        <br/>
+        <input class="my-2" type="number" step=".01" min="0.01" name="amount"
+               th:attr="value=${amount != null ? amount/100 : ''}" required>
+        <label th:text="#{payment_amount}"></label>
+        <br/>
+        <textarea name="destination" cols="40" rows="4" th:placeholder="#{payment_destination}"></textarea>
+        <br/>
+
+        <button class="btn btn-outline-success mt-2" type="submit" th:text="#{prepare_payment}"></button>
+    </form>
+</div>
+</body>
+</html>

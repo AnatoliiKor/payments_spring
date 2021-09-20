@@ -17,6 +17,9 @@ public interface AccountRepository extends JpaRepository<Account, Long> {
 
     List<Account> findAll ();
 
+    List<Account> findAccountsByActiveTrue ();
+    List<Account> findAccountsByActiveTrueAndUser (User user);
+
     Page<Account> findAll(Pageable pageable);
 
     List<Account> findAccountsByUser (User user);

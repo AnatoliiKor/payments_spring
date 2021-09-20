@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:insert="~{fragments/header :: head}"/>
+
+<body class="payment">
+
+<div th:insert="~{fragments/header :: navbar}"></div>
+<div th:insert="~{fragments/messages :: messages}"></div>
+
+<div class="container mt-1">
+<!--    <h4 th:text="#{make_payment}"></h4><br/>-->
+
+
+    <div class="container mt-3">
+        <div th:unless="${session.payment == null}">
+
+            <h2 th:text="#{confirm_payment}"></h2><br/>
+
+            <div th:insert="~{payment/payment_table :: payment_table}"></div>
+
+            <form method="post" th:action="@{/payment/confirm}">
+                <button class="btn btn-outline-success mt-2" type="submit" th:text="#{confirm_payment}"></button>
+            </form>
+
+            <form method="post" th:action="@{/payment/cancel}">
+                <button class="btn btn-outline-warning mt-2" type="submit" th:text="#{cancel_payment}"></button>
+            </form>
+
+        </div>
+
+        <div th:if="${session.payment == null}">
+            <h3 th:text="#{make_payment}"></h3>
+            <br/>
+            <div th:insert="~{payment/payment_form :: payment_form}"></div>
+
+            <div><a class="btn btn-outline-warning mt-2" th:href="@{/wallet}" th:text="#{cancel_payment}"></a></div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

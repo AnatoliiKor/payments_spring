@@ -16,7 +16,7 @@ import java.util.List;
 @NoArgsConstructor
 @Getter
 @Setter
-public class Account {
+public class Account implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "number_generator")
     @SequenceGenerator(name="number_generator", sequenceName = "number_seq", allocationSize = 1, initialValue = 1000000000)

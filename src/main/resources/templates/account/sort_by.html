@@ -8,8 +8,6 @@
 <div th:fragment="sort">
 
     <form class="m-2" method="get" th:action="@{/accounts/sort}">
-<!--        <input type="hidden" name="user_id" value="${user_id}"/>-->
-
         <div class="row">
         <div class="mx-2 mt-1" th:text="#{sort_by}"></div>
         <select name="sort" size="1" required>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" lang="${#locale.language}">
+<head>
+    <meta charset="UTF-8">
+    <title>Payment</title>
+</head>
+<body>
+<div th:fragment="account_select">
+
+    <p th:text="${#lists.isEmpty(accounts)}? #{no_accounts}"></p>
+
+    <div th:if="${accounts != null and not #lists.isEmpty(accounts)}">
+        <select name="payer" size="1" required>
+            <div th:each="account : ${accounts}">
+                <div th:if="account.active">
+                    <option th:value="${account.id}"
+                            th:text="${account.balance}/100 + ${account.currency} + ', ' + ${account.accountName} + ', UA' + ${account.id}">
+                    </option>
+                </div>
+            </div>
+        </select>
+    </div>
+</div>
+</body>
+</html>

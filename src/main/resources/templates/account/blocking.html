@@ -6,20 +6,27 @@
 </head>
 <body>
 <div th:fragment="blocking">
-
-    <div th:if="${account.accountRequest == null}">
-        <form th:action="@{/account/request/{path}(path=${account.id})}" method="post">
-            <div th:unless="${account.active}">
-                <input type="hidden" name="request" value="UNBLOCK"/>
-                <button class="btn btn-outline-success mt-2"
-                        type="submit" th:text="#{unblock} + ' - ' + #{send_request}"></button>
+    <button class="btn btn-outline-warning mt-5" type="button" data-bs-toggle="collapse"
+            data-bs-target="#collapseBlocking" aria-expanded="false"
+            aria-controls="collapseBlocking" th:text="#{send_request}">
+    </button>
+    <div class="collapse collapse-horizontal mt-2" id="collapseBlocking">
+        <div class="card card-body" style="width: 250px;">
+            <div th:if="${account.accountRequest == null}">
+                <form th:action="@{/account/request/{path}(path=${account.id})}" method="post">
+                    <div th:unless="${account.active}">
+                        <input type="hidden" name="request" value="UNBLOCK"/>
+                        <button class="btn btn-outline-success mt-2"
+                                type="submit" th:text="#{unblock} + ' - ' + #{send_request}"></button>
+                    </div>
+                    <div th:if="${account.active}">
+                        <input type="hidden" name="request" value="BLOCK"/>
+                        <button class="btn btn-outline-danger mt-2"
+                                type="submit" th:text="#{block} + ' - ' + #{send_request}"></button>
+                    </div>
+                </form>
             </div>
-            <div th:if="${account.active}">
-                <input type="hidden" name="request" value="BLOCK"/>
-                <button class="btn btn-outline-danger mt-2"
-                        type="submit" th:text="#{block} + ' - ' + #{send_request}"></button>
-            </div>
-        </form>
+        </div>
     </div>
 </div>
 </body>
