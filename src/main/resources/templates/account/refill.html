@@ -12,6 +12,11 @@
     </button>
     <div class="collapse collapse-horizontal mt-2" id="collapseRefillBalance">
         <div class="card card-body" style="width: 250px;">
+
+            <div class="my-2 text-danger" th:unless="${account.accountRequest == null}">
+                <div th:text="${'BLOCK'.equals(account.accountRequest.action.name())}? #{wait_to_block} : #{wait_to_unblock}"></div>
+            </div>
+
             <div th:unless="${account.active}">
                 <div class="text-danger fw-bold" th:text="#{blocked}"></div>
             </div>

@@ -16,12 +16,12 @@ public class AccountRequestService {
     @Autowired
     private AccountRequestRepository accountRequestRepository;
 
-    public boolean newUnblockAccountRequest(Account account) {
+    public boolean newAccountRequest(Account account, String request) {
         AccountRequest accountRequest = new AccountRequest();
         accountRequest.setAccount(account);
-        accountRequest.setAction(AccountRequest.Action.BLOCK);
+        accountRequest.setAction(AccountRequest.Action.valueOf(request));
         accountRequestRepository.save(accountRequest);
-        log.info("New request UNBLOCK for account {} is created", account.getId());
+        log.info("New request {} for account {} is created", request, account.getId());
         return true;
     }
 

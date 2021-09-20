@@ -9,7 +9,7 @@
 <div th:insert="~{fragments/messages :: messages}"></div>
 
 <div class="container mt-5">
-<!--    <h1 th:text="#{to_do}"></h1><br/>-->
+    <h3 th:text="#{to_do}"></h3><br/>
     <div th:if="${requests != null and not #lists.isEmpty(requests)}">
     <table class="table table-striped auto__table table-condensed text-center">
         <thead>
@@ -35,14 +35,14 @@
             <td>
                 <form th:action="@{/admin/action/{path}(path=${request.account.id})}" method="post">
                     <div th:if="${request.action.name().equals('BLOCK')}">
-                        <input type="hidden" name="is_active" value="true"/>
+                        <input type="hidden" name="is_active" value="false"/>
                         <button class="btn btn-outline-danger mt-2"
-                                type="submit" th:text="#{unblock}"></button>
+                                type="submit" th:text="#{block}"></button>
                     </div>
                     <div th:if="${request.action.name().equals('UNBLOCK')}">
-                        <input type="hidden" name="is_active" value="false"/>
+                        <input type="hidden" name="is_active" value="true"/>
                         <button class="btn btn-outline-success mt-2"
-                                type="submit" th:text="#{block}"></button>
+                                type="submit" th:text="#{unblock}"></button>
                     </div>
                 </form>
             </td>

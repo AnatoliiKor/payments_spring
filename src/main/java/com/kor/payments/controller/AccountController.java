@@ -2,6 +2,7 @@ package com.kor.payments.controller;
 
 import com.kor.payments.domain.Account;
 import com.kor.payments.domain.User;
+import com.kor.payments.services.AccountRequestService;
 import com.kor.payments.services.AccountService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -29,6 +30,8 @@ public class AccountController {
 
     @Autowired
     private AccountService accountService;
+    @Autowired
+    private AccountRequestService accountRequestService;
 
     @GetMapping("/accounts/{user}")
     public String getUserAccounts(
@@ -105,11 +108,20 @@ public class AccountController {
 
     @PostMapping("/account/refill/{account}")
     public String refill(@PathVariable Account account, @RequestParam double amount) {
-//        amount = amount * 100;
         int amountInt = (int) (amount * 100);
         if (account.isActive() && amount > 0 && accountService.refill(account, amountInt)) {
             return "redirect:/account/" + account.getId() + "?message=balance_refilled";
         }
         return "redirect:/account/" + account.getId() + "?warn=balance_not_refilled";
     }
+
+    @PostMapping("/account/request/{account}")
+    public String sendRequest(@PathVariable Account account, String request) {
+        if (accountRequestService.newAccountRequest(account, request)) {
+            return "redirect:/account/" + account.getId() + "?message=updated";
+        }
+        log.debug("New request {} for account {} is not created", request, account.getId());
+        return "redirect:/account/" + account.getId() + "?warn=not_updated";
+    }
+
 }

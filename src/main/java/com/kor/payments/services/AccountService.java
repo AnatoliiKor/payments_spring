@@ -43,7 +43,7 @@ public class AccountService {
         account = accountRepository.save(account);
         account.setCard(creditCardService.getNewCard(account.getId()));
         accountRepository.save(account);
-        accountRequestService.newUnblockAccountRequest(account);
+        accountRequestService.newAccountRequest(account, "UNBLOCK");
         return true;
     }
 
