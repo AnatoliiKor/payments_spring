@@ -13,11 +13,17 @@ import java.util.List;
 @Repository
 public interface TransactionRepository extends JpaRepository<Transaction, Long> {
 
-//    Account findAccountByAccountName(String name);
+    Page<Transaction> findAll(Pageable pageable);
 
-//    List<Account> findAll ();
+    //    Page<Transaction> findByReceiver(Pageable pageable);
+    List<Transaction> findByReceiver_User(User user);
 
-//    Page<Account> findAll(Pageable pageable);
+    Page<Transaction> findByReceiver_User(User user, Pageable pageable);
+
+    //    Page<Transaction> findByPayer(Pageable pageable);
+    Page<Transaction> findByPayer_User(User user, Pageable pageable);
+
+    List<Transaction> findByPayer_User(User user);
 
 //    List<Account> findAccountsByUser (User user);
 

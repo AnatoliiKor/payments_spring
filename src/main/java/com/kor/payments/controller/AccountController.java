@@ -1,6 +1,7 @@
 package com.kor.payments.controller;
 
 import com.kor.payments.domain.Account;
+import com.kor.payments.domain.Role;
 import com.kor.payments.domain.User;
 import com.kor.payments.services.AccountRequestService;
 import com.kor.payments.services.AccountService;
@@ -39,7 +40,7 @@ public class AccountController {
             @PathVariable User user,
             Model model) {
 //        model.addAttribute("accounts", user.getAccounts());
-        if (!user.getEmail().equals(userDetails.getUsername())) {
+        if (!user.getEmail().equals(userDetails.getUsername()) && !userDetails.getAuthorities().contains(Role.ADMIN)) {
             return "accessDenied";
         }
         model.addAttribute("accounts", accountService.findAccountsByUser(user));

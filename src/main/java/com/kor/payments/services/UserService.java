@@ -45,27 +45,11 @@ public class UserService implements UserDetailsService{
         return userRepository.findByEmail(email);
     }
 
-//    @Override
-//    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-//        User user = userRepository.findByUsername(username);
-//        if (user == null) {
-//            throw new UsernameNotFoundException("User not found");
-//        }
-
-//        return user;
-//    }
-
     public User findById (Long id) {
         return userRepository.findById(id).orElse(null);
     }
 
-    public void setEmail(User user) {
-        userRepository.save(user);
-    }
 
-    public List<User> findAllUsers() {
-        return userRepository.findAll();
-    }
 
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {

@@ -14,7 +14,7 @@
             <div th:each="account : ${accounts}">
                 <div th:if="account.active">
                     <option th:value="${account.id}"
-                            th:text="${account.balance}/100 + ${account.currency} + ', ' + ${account.accountName} + ', UA' + ${account.id}">
+                            th:text="${account.balance}/100 + ' '+ ${account.currency} + ', ' + ${account.accountName} + ', UA' + ${account.id}">
                     </option>
                 </div>
             </div>

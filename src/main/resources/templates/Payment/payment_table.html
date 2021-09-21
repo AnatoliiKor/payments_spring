@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" lang="${#locale.language}">
 <head>
     <meta charset="UTF-8">
-    <title>Payment</title>
+    <title>Payment details</title>
 </head>
 <body>
 <div th:fragment="payment_table">
@@ -30,6 +30,10 @@
             <td th:text="${session.payment.balanceAfter}/100"></td>
         </tr>
         <tr>
+            <td th:text="#{payer}"></td>
+            <td th:text="${session.payment.payer.user.name + ' ' + session.payment.payer.user.lastName + ' ' + session.payment.payer.user.middleName}"></td>
+        </tr>
+        <tr>
             <td th:text="#{account_number}"></td>
             <td th:text="${'UA' + session.payment.payer.id}"></td>
         </tr>
@@ -42,13 +46,8 @@
             <td th:text="${session.payment.destination}"></td>
         </tr>
 
-            <tr th:unless="payment.registered == null">
-                <td th:text="#{date}"></td>
-                <td th:text="${T(com.kor.payments.domain.Utils).getFormatedDate(session.payment.registered)}"></td>
-            </tr>
         </tbody>
     </table>
-
 </div>
 </body>
 </html>

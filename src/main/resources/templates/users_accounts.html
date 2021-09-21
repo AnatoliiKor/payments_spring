@@ -34,10 +34,31 @@
                 <td th:text="${account.accountName}"></td>
                 <td th:text="${account.currency}"></td>
                 <td th:text="${account.active}? #{is_active} : #{blocked}"></td>
-                <td>
+
+
+                <td th:unless="${session.user_auth.role.name().equals('ADMIN')}">
                     <a class="btn btn-outline-primary mx-1" th:href="@{/account/{path}(path=${account.id})}"
                        th:text="#{refill_balance}"></a>
                 </td>
+
+                <td th:if="${session.user_auth.role.name().equals('ADMIN')}">
+                    <form th:action="@{/admin/action/{path}(path=${account.id})}" method="post">
+                        <div th:unless="${account.active}">
+                            <input type="hidden" name="is_active" value="true"/>
+                            <button class="btn btn-outline-danger mt-2"
+                                    type="submit" th:text="#{unblock}"></button>
+                        </div>
+                        <div th:if="${account.active}">
+                            <input type="hidden" name="is_active" value="false"/>
+                            <button class="btn btn-outline-success mt-2"
+                                    type="submit" th:text="#{block}"></button>
+                        </div>
+                    </form>
+                </td>
+
+
+
+
             </tr>
             </tbody>
         </table>

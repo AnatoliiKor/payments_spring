@@ -19,11 +19,11 @@
 
             <div th:insert="~{payment/payment_table :: payment_table}"></div>
 
-            <form method="post" th:action="@{/payment/confirm}">
+            <form method="post" th:action="@{/transaction/confirm}">
                 <button class="btn btn-outline-success mt-2" type="submit" th:text="#{confirm_payment}"></button>
             </form>
 
-            <form method="post" th:action="@{/payment/cancel}">
+            <form method="post" th:action="@{/transaction/cancel}">
                 <button class="btn btn-outline-warning mt-2" type="submit" th:text="#{cancel_payment}"></button>
             </form>
 

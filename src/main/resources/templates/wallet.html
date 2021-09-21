@@ -16,9 +16,9 @@
         </div>
 
         <div class="col-sm-3">
-            <div><a class="btn btn-success m-2" th:href="@{/payment/form}" th:text="#{make_payment}"></a></div>
-            <div><a class="btn btn-outline-success m-2" th:href="@{/wallet/transactions?user_id=${user_auth.id}&account_type=payer}" th:text="#{payments}"></a></div>
-            <div><a class="btn btn-outline-success m-2" th:href="@{/wallet/transactions?user_id=${user_auth.id}&account_type=receiver}" th:text="#{inflows}"></a></div>
+            <div><a class="btn btn-success m-2" th:href="@{/transaction/form}" th:text="#{make_payment}"></a></div>
+            <div><a class="btn btn-outline-success m-2" th:href="@{/transactions/{path}/payments(path=${session.user_auth.id})}" th:text="#{payments}"></a></div>
+            <div><a class="btn btn-outline-success m-2" th:href="@{/transactions/{path}/inflows(path=${session.user_auth.id})}" th:text="#{inflows}"></a></div>
             <div><a class="btn btn-outline-primary m-2" th:href="@{/accounts/{path}(path=${session.user_auth.id})}" th:text="#{my_accounts}"></a></div>
 
             <div>

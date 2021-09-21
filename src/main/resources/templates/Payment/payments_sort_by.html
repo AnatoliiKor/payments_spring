@@ -7,26 +7,25 @@
 <body>
 <div th:fragment="sort">
 
-    <form class="m-2" method="get" th:action="@{/accounts/sort}">
+    <form class="m-2" method="get" th:action="@{/transactions/sort}">
         <div class="row">
         <div class="mx-2 mt-1" th:text="#{sort_by}"></div>
         <select name="sort" size="1" required>
             <option class="text-danger fw-bold" th:text="${sort}" selected></option>
 
-            <option value="id" th:text="#{account_number}" ></option>
-            <option value="accountName" th:text="#{account_name}"></option>
-            <option value="balance" th:text="#{balance}"></option>
+            <option value="payer" th:text="#{payer}" ></option>
+            <option value="receiver" th:text="#{receiver}"></option>
+            <option value="registered" th:text="#{date}"></option>
+            <option value="amount" th:text="#{amount}"></option>
             <option value="currency" th:text="#{currency}"></option>
-            <option value="registered" th:text="#{registered}"></option>
-            <option value="user" th:text="#{user}"></option>
-            <option value="active" th:text="#{is_active}"></option>
+<!--            <option value="payer" th:text="#{payer_account}"></option>-->
+<!--            <option value="receiver" th:text="#{receiver_account}"></option>-->
         </select>
 
         <div class="mx-2" th:text="#{order_by}"></div>
 
         <select name="order" size="1" required>
             <option class="text-info fw-bold" th:text="${order}" selected></option>
-
             <option value="ASC" th:text="#{ascending}"></option>
             <option value="DESC" th:text="#{descending}"></option>
         </select>

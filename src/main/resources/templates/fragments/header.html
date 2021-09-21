@@ -33,13 +33,13 @@
                                 <a class="btn btn-outline-primary mx-1" th:href="@{/admin}" th:text="#{admin_nav}"></a>
                                 <a class="btn btn-outline-primary mx-1" th:href="@{/admin/users}" th:text="#{users_list}"></a>
                                 <a class="btn btn-outline-primary mx-1" th:href="@{/accounts/page(p=0)}" th:text="#{accounts}"></a>
-                                <a class="btn btn-outline-primary mx-1" th:href="@{/admin/transactions}"
+                                <a class="btn btn-outline-primary mx-1" th:href="@{/transactions}"
                                    th:text="#{payments}"></a>
                             </span>
-                            <span th:case="'CLIENT'">
-                            <a class="btn btn-outline-secondary mx-1" th:href="@{user}" role="button"
-                               th:text="#{profile_nav}"></a>
-                            </span>
+<!--                            <span th:case="'CLIENT'">-->
+<!--                            <a class="btn btn-outline-secondary mx-1" th:href="@{user}" role="button"-->
+<!--                               th:text="#{profile_nav}"></a>-->
+<!--                            </span>-->
                         </div>
                     </ul>
                 </div>
