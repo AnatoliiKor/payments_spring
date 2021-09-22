@@ -1,6 +1,7 @@
 package com.kor.payments.repository;
 
 import com.kor.payments.domain.Account;
+import com.kor.payments.domain.Currency;
 import com.kor.payments.domain.Transaction;
 import com.kor.payments.domain.User;
 import org.springframework.data.domain.Page;
@@ -15,16 +16,17 @@ public interface TransactionRepository extends JpaRepository<Transaction, Long> 
 
     Page<Transaction> findAll(Pageable pageable);
 
-    //    Page<Transaction> findByReceiver(Pageable pageable);
     List<Transaction> findByReceiver_User(User user);
 
     Page<Transaction> findByReceiver_User(User user, Pageable pageable);
 
-    //    Page<Transaction> findByPayer(Pageable pageable);
     Page<Transaction> findByPayer_User(User user, Pageable pageable);
 
     List<Transaction> findByPayer_User(User user);
 
-//    List<Account> findAccountsByUser (User user);
+    Transaction findTopByOrderByIdDesc();
 
+    Transaction findTopByCurrencyByIdDesc (Currency currency);
+
+    Transaction findTopByCurrencyOrderByIdDesc(Currency currency);
 }

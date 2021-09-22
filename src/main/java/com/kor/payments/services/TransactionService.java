@@ -1,9 +1,6 @@
 package com.kor.payments.services;
 
-import com.kor.payments.domain.Account;
-import com.kor.payments.domain.Currency;
-import com.kor.payments.domain.Transaction;
-import com.kor.payments.domain.User;
+import com.kor.payments.domain.*;
 import com.kor.payments.repository.AccountRepository;
 import com.kor.payments.repository.TransactionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,13 +38,16 @@ public class TransactionService {
         return true;
     }
 
-
     public List<Transaction> findAllPage(int page, String sort, String order) {
         return transactionRepository.findAll(PageRequest.of(page, 10, Sort.by(Sort.Direction.valueOf(order), sort))).getContent();
     }
 
     public List<Transaction> findPayerTransactionsPage(User user, int page, String sort, String order) {
         return transactionRepository.findByPayer_User(user, PageRequest.of(page, 10, Sort.by(Sort.Direction.valueOf(order), sort))).getContent();
+    }
+
+    public List<Transaction> findReceiverTransactionsPage(User user, int page, String sort, String order) {
+        return transactionRepository.findByReceiver_User(user, PageRequest.of(page, 10, Sort.by(Sort.Direction.valueOf(order), sort))).getContent();
     }
 
     public List<Transaction> findPayerTransactions(User user) {

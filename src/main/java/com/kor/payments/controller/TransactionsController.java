@@ -20,10 +20,6 @@ import java.util.List;
 @RequestMapping("transactions")
 public class TransactionsController {
     private static final Logger log = LogManager.getLogger(TransactionsController.class);
-    //    int page = 0;
-//    int maxPage = 1000;
-//    String sort = "registered";
-//    String order = "ASC";
     List<Transaction> transactions;
 
     @Autowired
@@ -39,6 +35,7 @@ public class TransactionsController {
             @RequestParam(required = false, defaultValue = "registered") String sort,
             @RequestParam(required = false, defaultValue = "DESC") String order,
             @RequestParam(required = false, defaultValue = "0") int page,
+            @RequestParam(required = false) String inflows,
             Model model) {
         boolean lastPage = false;
         if (!user.getEmail().equals(userDetails.getUsername()) && !userDetails.getAuthorities().contains(Role.ADMIN)) {
@@ -49,8 +46,13 @@ public class TransactionsController {
         }
         if (userDetails.getAuthorities().contains(Role.ADMIN)) {
             transactions = transactionService.findAllPage(page, sort, order);
+            model.addAttribute("title", "transactions");
+        } else if (inflows != null) {
+            transactions = transactionService.findReceiverTransactionsPage(user, page, sort, order);
+            model.addAttribute("title", "inflows");
         } else {
             transactions = transactionService.findPayerTransactionsPage(user, page, sort, order);
+            model.addAttribute("title", "payments");
         }
         if (transactions.size() < 10) {
             lastPage = true;
@@ -60,27 +62,8 @@ public class TransactionsController {
         model.addAttribute("page", page);
         model.addAttribute("last_page", lastPage);
         model.addAttribute("transactions", transactions);
-        if (!userDetails.getAuthorities().contains(Role.ADMIN)) {
-            model.addAttribute("title", "payments");
-        } else {model.addAttribute("title", "transactions");}
         log.info("Payments are requested for user {}", user.getId());
         return "user_payments_list_sorted";
-    }
-
-
-    @GetMapping("{user}/inflows")
-    public String getUserInflows(
-            @AuthenticationPrincipal UserDetails userDetails,
-            @PathVariable User user,
-            Model model) {
-        if (!user.getEmail().equals(userDetails.getUsername())) {
-            return "accessDenied";
-        }
-        List<Transaction> transactions = transactionService.findReceiverTransactions(user);
-        model.addAttribute("transactions", transactions);
-        model.addAttribute("title", "inflows");
-        log.info("Inflows are requested for user {}", user.getId());
-        return "-user_payments_list";
     }
 
 }

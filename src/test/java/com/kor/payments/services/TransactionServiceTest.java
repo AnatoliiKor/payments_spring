@@ -1,12 +1,14 @@
 package com.kor.payments.services;
 
 import com.kor.payments.domain.Account;
+import com.kor.payments.domain.Currency;
 import com.kor.payments.domain.Transaction;
 import com.kor.payments.domain.User;
 import com.kor.payments.repository.AccountRepository;
 import com.kor.payments.repository.TransactionRepository;
 import com.kor.payments.repository.UserRepository;
 import org.junit.After;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -50,4 +52,11 @@ public class TransactionServiceTest {
         List<Transaction> transactions =  transactionService.findReceiverTransactions(user);
         assertTrue(transactions.size() != 0);
     }
+
+    @Test
+    public void Last() {
+        Transaction transaction = transactionRepository.findTopByCurrencyByIdDesc(Currency.USD);
+        Assert.assertEquals(Currency.USD, transaction.getCurrency());
+    }
+
 }
