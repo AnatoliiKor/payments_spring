@@ -24,9 +24,4 @@ public interface TransactionRepository extends JpaRepository<Transaction, Long> 
 
     List<Transaction> findByPayer_User(User user);
 
-    Transaction findTopByOrderByIdDesc();
-
-    Transaction findTopByCurrencyByIdDesc (Currency currency);
-
-    Transaction findTopByCurrencyOrderByIdDesc(Currency currency);
 }

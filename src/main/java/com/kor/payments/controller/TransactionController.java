@@ -4,6 +4,7 @@ import com.kor.payments.domain.Account;
 import com.kor.payments.domain.Transaction;
 import com.kor.payments.domain.User;
 import com.kor.payments.services.AccountService;
+import com.kor.payments.services.CurrencyRateService;
 import com.kor.payments.services.TransactionService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -26,6 +27,8 @@ public class TransactionController {
     private AccountService accountService;
     @Autowired
     private TransactionService transactionService;
+    @Autowired
+    private CurrencyRateService currencyRateService;
 
 
     @GetMapping("payment/{transaction}")
@@ -66,12 +69,14 @@ public class TransactionController {
         if (amountInt <= 0) {
             return "redirect:/transaction/form";
         }
+        if (!receiverAccount.getCurrency().equals(payerAccount.getCurrency())) {
+            amountInt = currencyRateService.doExchange(payerAccount.getCurrency(), receiverAccount.getCurrency(), amountInt);
+            model.addAttribute("warn", "pay attention");
+//            return "redirect:/transaction/form?warn=not_currency&message=" + receiverAccount.getCurrency().name() + "&receiver=" +
+//                    receiver + "&amount=" + amountInt;
+        }
         if (amountInt >= payerAccount.getBalance()) {
             return "redirect:/transaction/form?warn=not_enough&receiver=" +
-                    receiver + "&amount=" + amountInt;
-        }
-        if (!receiverAccount.getCurrency().equals(payerAccount.getCurrency())) {
-            return "redirect:/transaction/form?warn=not_currency&message=" + receiverAccount.getCurrency().name() + "&receiver=" +
                     receiver + "&amount=" + amountInt;
         }
         Transaction payment = new Transaction();

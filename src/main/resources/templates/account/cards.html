@@ -6,19 +6,20 @@
 </head>
 <body>
 <div th:fragment="cards">
-<!--    <div th:if="${accounts != null and !accounts.isEmpty()}">-->
     <div th:if="${accounts != null and not #lists.isEmpty(accounts)}">
         <div class="row row-cols-auto">
-        <div class="card text-dark bg-light border-info m-1  height: 200px;" style="width: 20rem;" th:each="account : ${accounts}">
-            <div class="card-header text-info fw-bold" th:text="#{credit_card} + ': ' + ${account.card.getCardNumberSpaces()}"></div>
-    <div class="card-body">
-        <h6 class="card-title lh-1" th:text="${account.balance}/100 + ' '+ ${account.currency}"></h6>
-        <div class="card-text lh-1" th:text="${account.accountName} + ', UA' + ${account.id}"></div>
+            <div class="card text-dark bg-light border-info m-1  height: 200px;" style="width: 20rem;"
+                 th:each="account : ${accounts}">
+                <div class="card-header text-info fw-bold"
+                     th:text="#{credit_card} + ': ' + ${account.card.getCardNumberSpaces()}"></div>
+                <div class="card-body">
+                    <h6 class="card-title lh-1" th:text="${account.balance}/100 + ' '+ ${account.currency}"></h6>
+                    <div class="card-text lh-1" th:text="${account.accountName} + ', UA' + ${account.id}"></div>
+                </div>
+            </div>
+        </div>
     </div>
-    </div>
-</div>
-</div>
-<h3 th:if="${accounts == null or #lists.isEmpty(accounts)}">You have no cards</h3>
+    <h3 th:if="${accounts == null or #lists.isEmpty(accounts)}">You have no cards</h3>
 </div>
 </body>
 </html>

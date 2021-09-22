@@ -3,6 +3,7 @@ package com.kor.payments.controller;
 import com.kor.payments.domain.User;
 import com.kor.payments.repository.UserRepository;
 import com.kor.payments.services.AccountService;
+import com.kor.payments.services.CurrencyRateService;
 import com.kor.payments.services.UserService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -26,11 +27,15 @@ public class WalletController {
     private UserService userService;
     @Autowired
     UserRepository userRepository;
+    @Autowired
+    CurrencyRateService currencyRateService;
+
 
     @GetMapping
     public String getWallet(@AuthenticationPrincipal UserDetails userDetails, Model model) {
         User user = (User) userDetails;
         model.addAttribute("accounts", accountService.findAccountsByUser(user));
+        model.addAttribute("rates", currencyRateService.findAllSorted());
         return "wallet";
     }
 

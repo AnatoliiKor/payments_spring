@@ -53,10 +53,4 @@ public class TransactionServiceTest {
         assertTrue(transactions.size() != 0);
     }
 
-    @Test
-    public void Last() {
-        Transaction transaction = transactionRepository.findTopByCurrencyByIdDesc(Currency.USD);
-        Assert.assertEquals(Currency.USD, transaction.getCurrency());
-    }
-
 }

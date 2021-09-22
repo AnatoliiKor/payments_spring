@@ -43,9 +43,22 @@
                 </div>
             </div>
 
-
-
-
+            <div class="card text-info bg-light border-warning m-1  height: 200px;" style="width: 20rem;">
+                <div class="card-header text-info fw-bold" th:text="#{exchange_rate}"></div>
+                <div class="card-body">
+                    <table class="table auto__table table-condensed text-center mt-2">
+                        <tbody>
+                        <tr>
+                            <td th:each="rate : ${rates}">
+                                <p th:text="${T(com.kor.payments.domain.Utils).getFormatedDate(rate.updated)}"></p>
+                                <p th:text="'1 ' + #{${rate.currency.name()}}"></p>
+                                <p th:text="${rate.exchangeRate} + ' ' + #{UAH}"></p>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
     </div>
 

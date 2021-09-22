@@ -1,9 +1,11 @@
 package com.kor.payments.controller;
 
 import com.kor.payments.domain.Account;
+import com.kor.payments.domain.CurrencyRate;
 import com.kor.payments.domain.User;
 import com.kor.payments.services.AccountRequestService;
 import com.kor.payments.services.AccountService;
+import com.kor.payments.services.CurrencyRateService;
 import com.kor.payments.services.UserService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -25,6 +27,8 @@ public class AdminController {
     private AccountRequestService accountRequestService;
     @Autowired
     private AccountService accountService;
+    @Autowired
+    private CurrencyRateService currencyRateService;
 
     private final Logger log = LogManager.getLogger(AdminController.class);
     int page = 0;
@@ -32,6 +36,16 @@ public class AdminController {
     String sort = "email";
     String order = "ASC";
     List<User> users;
+
+
+    @GetMapping
+    public String adminPage(Model model) {
+        model.addAttribute("requests", accountRequestService.findAll());
+        model.addAttribute("rates", currencyRateService.findAllSorted());
+        log.info("requests and rates requested by admin");
+        return "admin";
+    }
+
 
     @GetMapping("/users")
     public String getAllUsers(Model model) {
@@ -74,15 +88,6 @@ public class AdminController {
         return "accounts_list";
     }
 
-    @GetMapping
-    public String adminPage(
-            Model model
-    ) {
-        model.addAttribute("requests", accountRequestService.findAll());
-        log.info("requests requested by admin");
-        return "admin";
-    }
-
     @PostMapping("/action/{account}")
     public String changeAccountStatus(@PathVariable Account account, @RequestParam(name = "is_active") boolean action, Model model) {
         String message;
@@ -108,5 +113,17 @@ public class AdminController {
         }
         return "redirect:/admin/users" + message;
     }
+
+    @PostMapping("/update_exchange_rate/{currencyRate}")
+    public String updateExchangeRate(@PathVariable CurrencyRate currencyRate,
+                                     @RequestParam double rate) {
+        if (currencyRateService.update(currencyRate, rate)) {
+            return "redirect:/admin?message=updated";
+        }
+        return "redirect:/admin?warn=not_updated";
+    }
+
+
+
 
 }

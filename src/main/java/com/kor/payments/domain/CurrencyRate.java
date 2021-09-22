@@ -18,7 +18,7 @@ public class CurrencyRate {
     private long id;
     @Enumerated(EnumType.STRING)
     private Currency currency;
-    private int exchangeRate;
+    private double exchangeRate;
     private LocalDateTime updated = LocalDateTime.now();
 
 }
