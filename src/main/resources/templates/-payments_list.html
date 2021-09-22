@@ -36,10 +36,10 @@
         <tr th:each="transaction,iter : ${transactions}">
             <td th:text="${page}*10+${iter.index}+1"> </td>
             <td th:attr="class=${sort.equals('registered')? 'text-info fw-bold' : ''}" th:text="${T(com.kor.payments.domain.Utils).getFormatedDate(transaction.registered)}"></td>
-            <td th:attr="class=${sort.equals('payer')? 'text-info fw-bold' : ''}" th:text="${transaction.payer.id + '/' + transaction.payer.user.lastName}"></td>
+            <td th:attr="class=${sort.equals('payer')? 'text-info fw-bold' : ''}" th:text="${'UA' + transaction.payer.id + '/' + transaction.payer.user.lastName}"></td>
             <td th:attr="class=${sort.equals('amount')? 'text-info fw-bold' : ''}" th:text="${transaction.amount}/100"></td>
             <td th:attr="class=${sort.equals('currency')? 'text-info fw-bold' : ''}" th:text="${transaction.currency}"></td>
-            <td th:attr="class=${sort.equals('receiver')? 'text-info fw-bold' : ''}" th:text="${transaction.receiver.id + '/' + transaction.receiver.user.lastName}"></td>
+            <td th:attr="class=${sort.equals('receiver')? 'text-info fw-bold' : ''}" th:text="${'UA' + transaction.receiver.id + '/' + transaction.receiver.user.lastName}"></td>
             <td>
                 <a class="btn btn-outline-info" th:href="@{/transaction/payment/{path}(path=${transaction.id})}" th:text="#{details}"></a>
             </td>

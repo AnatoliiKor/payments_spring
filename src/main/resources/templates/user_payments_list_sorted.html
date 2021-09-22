@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:insert="~{fragments/header :: head}"/>
+
+<body class="transactions_list">
+
+<div th:insert="~{fragments/header :: navbar}"></div>
+
+<div class="container mt-1">
+    <h3 class="my-1" th:text="#{${title}}"></h3><br/>
+
+    <div class="mt-2" th:unless="${transactions == null and #lists.isEmpty(transactions)}">
+
+        <div th:insert="~{payment/payments_sort_page :: sort}"></div>
+
+        <div th:insert="~{fragments/pagination :: pagination}"></div>
+
+        <table class="table table-striped auto__table table-condensed text-center mt-2">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th th:text="#{date}"><</th>
+            <th th:unless="${title.equals('payments')}" th:text="#{payer}"><</th>
+            <th th:text="#{amount}"><</th>
+            <th th:if="${title.equals('payments')}" th:text="#{payment_balance_after}"><</th>
+            <th th:text="#{currency}"><</th>
+            <th th:unless="${title.equals('inflows')}" th:text="#{receiver}"><</th>
+            <th></th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="transaction,iter : ${transactions}">
+            <td th:text="${page}*10 + ${iter.index}+1"> </td>
+            <td th:text="${T(com.kor.payments.domain.Utils).getFormatedDate(transaction.registered)}"></td>
+            <td th:unless="${title.equals('payments')}" th:text="${transaction.payer.id + '/' + transaction.payer.user.lastName}"></td>
+            <td th:text="${transaction.amount}/100"></td>
+            <td th:if="${title.equals('payments')}" th:text="${transaction.balanceAfter}/100"></td>
+            <td th:text="${transaction.currency}"></td>
+            <td th:unless="${title.equals('inflows')}" th:text="${transaction.receiver.id + '/' + transaction.receiver.user.lastName}"></td>
+            <td>
+                <a class="btn btn-outline-info" th:href="@{/transaction/payment/{path}(path=${transaction.id})}" th:text="#{details}"></a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    </div>
+    <p th:if="${transactions == null and #lists.isEmpty(transactions)}" th:text="#{no_payments}"></p>
+    <br/>
+    <a href="/" th:text="#{home_page}"></a>
+</div>
+</body>
+</html>

@@ -31,8 +31,8 @@ public class Transaction implements Serializable {
     @Enumerated(EnumType.STRING)
     private Currency currency;
 
-    public String getFormatedDate() {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy, HH:mm");
-        return this.registered.format(formatter);
-    }
+//    public String getFormatedDate() {
+//        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy, HH:mm");
+//        return this.registered.format(formatter);
+//    }
 }

@@ -46,9 +46,9 @@ public class TransactionService {
         return transactionRepository.findAll(PageRequest.of(page, 10, Sort.by(Sort.Direction.valueOf(order), sort))).getContent();
     }
 
-//    public List<Transaction> findPayerTransactionsPage(User user, int page, String sort, String order) {
-//        return transactionRepository.findByPayer_User(user, PageRequest.of(page, 10, Sort.by(Sort.Direction.valueOf(order), sort))).getContent();
-//    }
+    public List<Transaction> findPayerTransactionsPage(User user, int page, String sort, String order) {
+        return transactionRepository.findByPayer_User(user, PageRequest.of(page, 10, Sort.by(Sort.Direction.valueOf(order), sort))).getContent();
+    }
 
     public List<Transaction> findPayerTransactions(User user) {
         return transactionRepository.findByPayer_User(user);

@@ -33,8 +33,7 @@
                                 <a class="btn btn-outline-primary mx-1" th:href="@{/admin}" th:text="#{admin_nav}"></a>
                                 <a class="btn btn-outline-primary mx-1" th:href="@{/admin/users}" th:text="#{users_list}"></a>
                                 <a class="btn btn-outline-primary mx-1" th:href="@{/accounts/page(p=0)}" th:text="#{accounts}"></a>
-                                <a class="btn btn-outline-primary mx-1" th:href="@{/transactions}"
-                                   th:text="#{payments}"></a>
+                                <a class="btn btn-outline-primary mx-1" th:href="@{/transactions/{path}/payments_sorted(path=${session.user_auth.id})}" th:text="#{payments}"></a>
                             </span>
 <!--                            <span th:case="'CLIENT'">-->
 <!--                            <a class="btn btn-outline-secondary mx-1" th:href="@{user}" role="button"-->
@@ -64,31 +63,18 @@
 </div>
 
 
-<!--<ul th:fragment="pagination" class="pagination">-->
-<!--    <li class="page-item ${pg == 1 ? 'active' : ''}">-->
-<!--        <a class="page-link" th:href="${#httpServletRequest.requestURI + '?pg=' + (pg>1?pg-1:1)}"> < </a>-->
-<!--    </li>-->
-<!--    <li class="page-item">-->
-<!--        <p class="page-link" th:text="${pg}"></p>-->
-<!--    </li>-->
-<!--    <li class="page-item ${pg == 3 ? 'active' : ''}">-->
-<!--        <a class="page-link" th:href="${#httpServletRequest.requestURI + '?pg=' + (pg+1)}"> > </a>-->
-<!--    </li>-->
-<!--</ul>-->
-
-
-<div th:fragment="lang_buttons">
-    <nav class="navbar navbar-light bg-light">
-        <form class="form-inline">
-            <button class="btn btn-outline-primary" type="button"
-                    onclick="window.location.href='?localeData=en'">en_button
-            </button>
-            <button class="btn btn-outline-warning" type="button"
-                    onclick="window.location.href='?localeData=uk'">uk_button
-            </button>
-        </form>
-    </nav>
-</div>
+<!--<div th:fragment="lang_buttons">-->
+<!--    <nav class="navbar navbar-light bg-light">-->
+<!--        <form class="form-inline">-->
+<!--            <button class="btn btn-outline-primary" type="button"-->
+<!--                    onclick="window.location.href='?localeData=en'">en_button-->
+<!--            </button>-->
+<!--            <button class="btn btn-outline-warning" type="button"-->
+<!--                    onclick="window.location.href='?localeData=uk'">uk_button-->
+<!--            </button>-->
+<!--        </form>-->
+<!--    </nav>-->
+<!--</div>-->
 
 </body>
 </html>

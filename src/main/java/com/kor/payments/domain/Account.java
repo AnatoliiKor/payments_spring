@@ -1,6 +1,5 @@
 package com.kor.payments.domain;
 
-import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -9,7 +8,6 @@ import javax.persistence.*;
 import javax.validation.constraints.PositiveOrZero;
 import java.io.Serializable;
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 @Entity
@@ -46,9 +44,9 @@ public class Account implements Serializable {
     private List<Transaction> payments;
 
 
-    public String getFormatedDate() {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy, HH:mm");
-        return this.registered.format(formatter);
-    }
+//    public String getFormatedDate() {
+//        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy, HH:mm");
+//        return this.registered.format(formatter);
+//    }
 
 }
