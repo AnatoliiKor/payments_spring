@@ -60,31 +60,32 @@ public class TransactionController {
             @RequestParam double amount,
             @RequestParam(required = false, defaultValue = "-") String destination,
             Model model) {
-        int amountInt = (int) (amount * 100);
+        int amountReceiver = (int) (amount * 100);
+        int amountPayer = amountReceiver;
         Account payerAccount = accountService.findByNumberId(Long.parseLong(payer));
         Account receiverAccount = accountService.findByNumberId(receiver);
         if (receiverAccount == null || !receiverAccount.isActive()) {
             return "redirect:/transaction/form?warn=payment_receiver_not_found";
         }
-        if (amountInt <= 0) {
+        if (amountReceiver <= 0) {
             return "redirect:/transaction/form";
         }
         if (!receiverAccount.getCurrency().equals(payerAccount.getCurrency())) {
-            amountInt = currencyRateService.doExchange(payerAccount.getCurrency(), receiverAccount.getCurrency(), amountInt);
+            amountPayer = currencyRateService.doExchange(payerAccount.getCurrency(), receiverAccount.getCurrency(), amountReceiver);
             model.addAttribute("warn", "pay attention");
 //            return "redirect:/transaction/form?warn=not_currency&message=" + receiverAccount.getCurrency().name() + "&receiver=" +
 //                    receiver + "&amount=" + amountInt;
         }
-        if (amountInt >= payerAccount.getBalance()) {
+        if (amountPayer >= payerAccount.getBalance()) {
             return "redirect:/transaction/form?warn=not_enough&receiver=" +
-                    receiver + "&amount=" + amountInt;
+                    receiver + "&amount=" + amountReceiver;
         }
         Transaction payment = new Transaction();
         payment.setPayer(payerAccount);
         payment.setReceiver(receiverAccount);
         payment.setCurrency(payerAccount.getCurrency());
-        payment.setAmount(amountInt);
-        payment.setBalanceAfter((int) payerAccount.getBalance() - amountInt);
+        payment.setAmount(amountPayer);
+        payment.setBalanceAfter(amountReceiver);
         payment.setDestination(destination);
         httpSession.setAttribute("payment", payment);
         log.info("Payment to receiver {} is prepared for payer {}", receiver, payer);

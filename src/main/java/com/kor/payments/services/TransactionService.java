@@ -32,7 +32,7 @@ public class TransactionService {
         payer.setBalance(payer.getBalance()-payment.getAmount());
         accountRepository.save(payer);
         Account receiver = payment.getReceiver();
-        receiver.setBalance(receiver.getBalance()+payment.getAmount());
+        receiver.setBalance(receiver.getBalance()+payment.getBalanceAfter());
         accountRepository.save(receiver);
         transactionRepository.save(payment);
         return true;

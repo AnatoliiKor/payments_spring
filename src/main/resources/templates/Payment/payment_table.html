@@ -18,16 +18,12 @@
             <td th:text="${session.payment.receiver.user.name + ' ' + session.payment.receiver.user.lastName + ' ' + session.payment.receiver.user.middleName}"></td>
         </tr>
         <tr>
-            <td th:text="#{payment_amount}"></td>
-            <td th:text="${session.payment.amount}/100"></td>
-        </tr>
-        <tr>
-            <td th:text="#{currency}"></td>
-            <td th:text="${session.payment.currency}"></td>
-        </tr>
-        <tr>
-            <td th:text="#{payment_balance_after}"></td>
+            <td th:text="#{payment_receiver_amount}"></td>
             <td th:text="${session.payment.balanceAfter}/100"></td>
+        </tr>
+        <tr>
+            <td th:text="#{receiver} + ', ' + #{currency}"></td>
+            <td th:text="${session.payment.receiver.currency}"></td>
         </tr>
         <tr>
             <td th:text="#{payer}"></td>
@@ -40,6 +36,14 @@
         <tr>
             <td th:text="#{account_name}"></td>
             <td th:text="${session.payment.payer.accountName}"></td>
+        </tr>
+        <tr>
+            <td th:text="#{payment_amount}"></td>
+            <td th:text="${session.payment.amount}/100"></td>
+        </tr>
+        <tr>
+            <td th:text="#{payer} + ', ' + #{currency}"></td>
+            <td th:text="${session.payment.currency}"></td>
         </tr>
         <tr>
             <td th:text="#{payment_destination}"></td>
