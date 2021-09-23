@@ -19,20 +19,13 @@ public class TransactionService {
     @Autowired
     AccountRepository accountRepository;
 
-
-//   public int doCurrencyExchange(int amount, Currency available, Currency necessary) {
-////       int available = int getExchangeRateByCurrency (available);
-////       int necessary = getExchangeRateByCurrency (necessary);
-//       return 0;
-//   }
-
     @Transactional
     public boolean makeTransaction(Transaction payment) {
         Account payer = payment.getPayer();
         payer.setBalance(payer.getBalance()-payment.getAmount());
         accountRepository.save(payer);
         Account receiver = payment.getReceiver();
-        receiver.setBalance(receiver.getBalance()+payment.getBalanceAfter());
+        receiver.setBalance(receiver.getBalance()+payment.getAccrual());
         accountRepository.save(receiver);
         transactionRepository.save(payment);
         return true;

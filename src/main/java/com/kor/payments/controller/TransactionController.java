@@ -52,7 +52,7 @@ public class TransactionController {
         return "make_payment";
     }
 
-    @PostMapping("/prepare")
+    @GetMapping("/prepare")
     public String preparePayment(
             HttpSession httpSession,
             @RequestParam String payer,
@@ -72,9 +72,7 @@ public class TransactionController {
         }
         if (!receiverAccount.getCurrency().equals(payerAccount.getCurrency())) {
             amountPayer = currencyRateService.doExchange(payerAccount.getCurrency(), receiverAccount.getCurrency(), amountReceiver);
-            model.addAttribute("warn", "pay attention");
-//            return "redirect:/transaction/form?warn=not_currency&message=" + receiverAccount.getCurrency().name() + "&receiver=" +
-//                    receiver + "&amount=" + amountInt;
+            model.addAttribute("warn", "payment_attention_currency");
         }
         if (amountPayer >= payerAccount.getBalance()) {
             return "redirect:/transaction/form?warn=not_enough&receiver=" +
@@ -85,7 +83,7 @@ public class TransactionController {
         payment.setReceiver(receiverAccount);
         payment.setCurrency(payerAccount.getCurrency());
         payment.setAmount(amountPayer);
-        payment.setBalanceAfter(amountReceiver);
+        payment.setAccrual(amountReceiver);
         payment.setDestination(destination);
         httpSession.setAttribute("payment", payment);
         log.info("Payment to receiver {} is prepared for payer {}", receiver, payer);
@@ -103,7 +101,6 @@ public class TransactionController {
         Transaction payment = (Transaction) httpSession.getAttribute("payment");
         if (payment != null && transactionService.makeTransaction(payment)) {
             httpSession.removeAttribute("payment");
-//            return "redirect:transactions?message=payment_success&account_type=payer&user_id=" + userId;
             log.info("Amount {} is deducted from the account {}", payment.getAmount(), payment.getPayer().getId());
             return "redirect:/wallet?message=payment_success";
         } else {

@@ -14,42 +14,47 @@
     <table class="table table-striped auto__table table-condensed ">
         <tbody>
         <tr>
+            <td th:text="#{date}"></td>
+            <td th:text="${T(com.kor.payments.domain.Utils).getFormatedDate(transaction.registered)}"></td>
+        </tr>
+        <tr>
             <td th:text="#{receiver_account}"></td>
             <td th:text="${'UA' + transaction.receiver.id}"></td>
         </tr>
         <tr>
             <td th:text="#{receiver}"></td>
-            <td th:text="${transaction.receiver.user.name + ' ' + transaction.receiver.user.lastName + ' ' + transaction.receiver.user.middleName}"></td>
+            <td th:text="${transaction.receiver.user.lastName + ' ' + transaction.receiver.user.name + ' ' + transaction.receiver.user.middleName}"></td>
+        </tr>
+        <tr>
+            <td th:text="#{payment_receiver_amount}"></td>
+            <td th:text="${transaction.accrual}/100"></td>
+        </tr>
+        <tr>
+            <td th:text="#{receiver} + ', ' + #{currency}"></td>
+            <td th:text="${transaction.receiver.currency}"></td>
+        </tr>
+
+        <tr>
+            <td th:text="#{payer}"></td>
+            <td th:text="${transaction.payer.user.lastName + ' ' + transaction.payer.user.name + ' ' + transaction.payer.user.middleName}"></td>
+        </tr>
+        <tr>
+            <td th:text="#{payer_account}"></td>
+            <td th:text="${'UA' + transaction.payer.id}"></td>
+        </tr>
+        <tr>
+            <td th:text="#{payer} + ', ' + #{currency}"></td>
+            <td th:text="${transaction.currency}"></td>
         </tr>
         <tr>
             <td th:text="#{payment_amount}"></td>
             <td th:text="${transaction.amount}/100"></td>
         </tr>
         <tr>
-            <td th:text="#{currency}"></td>
-            <td th:text="${transaction.currency}"></td>
-        </tr>
-<!--        <tr>-->
-<!--            <td th:text="#{payment_balance_after}"></td>-->
-<!--            <td th:text="${transaction.balanceAfter}/100"></td>-->
-<!--        </tr>-->
-        <tr>
-            <td th:text="#{payer}"></td>
-            <td th:text="${transaction.payer.user.name + ' ' + transaction.payer.user.lastName + ' ' + transaction.payer.user.middleName}"></td>
-        </tr>
-        <tr>
-            <td th:text="#{account_number}"></td>
-            <td th:text="${'UA' + transaction.payer.id}"></td>
-        </tr>
-        <tr>
             <td th:text="#{payment_destination}"></td>
             <td th:text="${transaction.destination}"></td>
         </tr>
 
-        <tr>
-            <td th:text="#{date}"></td>
-            <td th:text="${T(com.kor.payments.domain.Utils).getFormatedDate(transaction.registered)}"></td>
-        </tr>
         </tbody>
     </table>
 

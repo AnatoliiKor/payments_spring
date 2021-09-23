@@ -47,7 +47,7 @@ public class TransactionsController {
         if (userDetails.getAuthorities().contains(Role.ADMIN)) {
             transactions = transactionService.findAllPage(page, sort, order);
             model.addAttribute("title", "transactions");
-        } else if (inflows != null) {
+        } else if ("inflows".equals(inflows)) {
             transactions = transactionService.findReceiverTransactionsPage(user, page, sort, order);
             model.addAttribute("title", "inflows");
         } else {
@@ -63,7 +63,7 @@ public class TransactionsController {
         model.addAttribute("last_page", lastPage);
         model.addAttribute("transactions", transactions);
         log.info("Payments are requested for user {}", user.getId());
-        return "user_payments_list_sorted";
+        return "payments_list_sorted";
     }
 
 }

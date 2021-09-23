@@ -15,11 +15,11 @@
         </tr>
         <tr>
             <td th:text="#{receiver}"></td>
-            <td th:text="${session.payment.receiver.user.name + ' ' + session.payment.receiver.user.lastName + ' ' + session.payment.receiver.user.middleName}"></td>
+            <td th:text="${session.payment.receiver.user.lastName + ' ' + session.payment.receiver.user.name + ' ' + session.payment.receiver.user.middleName}"></td>
         </tr>
         <tr>
             <td th:text="#{payment_receiver_amount}"></td>
-            <td th:text="${session.payment.balanceAfter}/100"></td>
+            <td th:text="${session.payment.accrual}/100"></td>
         </tr>
         <tr>
             <td th:text="#{receiver} + ', ' + #{currency}"></td>
@@ -27,7 +27,7 @@
         </tr>
         <tr>
             <td th:text="#{payer}"></td>
-            <td th:text="${session.payment.payer.user.name + ' ' + session.payment.payer.user.lastName + ' ' + session.payment.payer.user.middleName}"></td>
+            <td th:text="${session.payment.payer.user.lastName + ' ' + session.payment.payer.user.name + ' ' + session.payment.payer.user.middleName}"></td>
         </tr>
         <tr>
             <td th:text="#{account_number}"></td>

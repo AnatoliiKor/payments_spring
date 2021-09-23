@@ -20,12 +20,13 @@
         <thead>
         <tr>
             <th>#</th>
-            <th th:text="#{date}"><</th>
-            <th th:unless="${title.equals('payments')}" th:text="#{payer}"><</th>
-            <th th:text="#{amount}"><</th>
-            <th th:if="${title.equals('payments')}" th:text="#{payment_balance_after}"><</th>
-            <th th:text="#{currency}"><</th>
-            <th th:unless="${title.equals('inflows')}" th:text="#{receiver}"><</th>
+            <th th:text="#{date}"></th>
+            <th th:text="#{payer}"></th>
+            <th th:unless="${title.equals('inflows')}" th:text="#{amount}"></th>
+            <th th:unless="${title.equals('inflows')}" th:text="#{payer} + ', ' + #{currency}"></th>
+            <th th:text="#{receiver}"></th>
+            <th th:text="#{payment_receiver_amount}"></th>
+            <th th:text="#{receiver} + ', ' + #{currency}"></th>
             <th></th>
             <th></th>
         </tr>
@@ -34,11 +35,12 @@
         <tr th:each="transaction,iter : ${transactions}">
             <td th:text="${page}*10 + ${iter.index}+1"> </td>
             <td th:text="${T(com.kor.payments.domain.Utils).getFormatedDate(transaction.registered)}"></td>
-            <td th:unless="${title.equals('payments')}" th:text="${transaction.payer.id + '/' + transaction.payer.user.lastName}"></td>
-            <td th:text="${transaction.amount}/100"></td>
-            <td th:if="${title.equals('payments')}" th:text="${transaction.balanceAfter}/100"></td>
-            <td th:text="${transaction.currency}"></td>
-            <td th:unless="${title.equals('inflows')}" th:text="${transaction.receiver.id + '/' + transaction.receiver.user.lastName}"></td>
+            <td th:text="'UA' + ${transaction.payer.id + '/' + transaction.payer.user.lastName}"></td>
+            <td th:unless="${title.equals('inflows')}" th:text="${transaction.amount}/100"></td>
+            <td th:unless="${title.equals('inflows')}" th:text="${transaction.currency}"></td>
+            <td th:text="'UA' + ${transaction.receiver.id + '/' + transaction.receiver.user.lastName}"></td>
+            <td th:text="${transaction.accrual}/100"></td>
+            <td th:text="${transaction.receiver.currency}"></td>
             <td>
                 <a class="btn btn-outline-info" th:href="@{/transaction/payment/{path}(path=${transaction.id})}" th:text="#{details}"></a>
             </td>

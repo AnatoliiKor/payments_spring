@@ -6,11 +6,9 @@
 </head>
 <body>
 <div th:fragment="pagination">
-    <!--        <a th:href="@{payments_sorted(page=${page}-1,sort=${sort},order=${order})}" th:text="#{previous_main}"></a>-->
-    <a th:href="@{${#httpServletRequest.requestURI}(page=${page}-1,sort=${sort},order=${order})}" th:text="#{previous_main}"></a>
+    <a th:href="@{${#httpServletRequest.requestURI}(page=${page}-1,sort=${sort},order=${order},inflows=${title})}" th:text="#{previous_main}"></a>
     <span class="mx-3" th:text="${page}+1"></span>
-    <a th:unless="${last_page}" th:href="@{${#httpServletRequest.requestURI}(page=${page + 1},sort=${sort},order=${order})}" th:text="#{next_main}"></a>
-    <!--        <a th:unless="${last_page}" th:href="@{payments_sorted(page=${page + 1},sort=${sort},order=${order})}" th:text="#{next_main}"></a>-->
+    <a th:unless="${last_page}" th:href="@{${#httpServletRequest.requestURI}(page=${page + 1},sort=${sort},order=${order},inflows=${title})}" th:text="#{next_main}"></a>
 </div>
 </body>
 </html>

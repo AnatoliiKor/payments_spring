@@ -26,13 +26,8 @@ public class Transaction implements Serializable {
     private LocalDateTime registered = LocalDateTime.now();
     private String destination;
     private int amount;
-    private int balanceAfter;
+    private int accrual;
 
     @Enumerated(EnumType.STRING)
     private Currency currency;
-
-//    public String getFormatedDate() {
-//        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy, HH:mm");
-//        return this.registered.format(formatter);
-//    }
 }
