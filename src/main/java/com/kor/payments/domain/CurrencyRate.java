@@ -5,6 +5,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import javax.validation.constraints.Positive;
 import java.time.LocalDateTime;
 
 @Entity
@@ -18,6 +19,7 @@ public class CurrencyRate {
     private long id;
     @Enumerated(EnumType.STRING)
     private Currency currency;
+    @Positive(message = "Must be positive")
     private double exchangeRate;
     private LocalDateTime updated = LocalDateTime.now();
 

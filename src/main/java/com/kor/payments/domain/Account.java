@@ -5,6 +5,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.PositiveOrZero;
 import java.io.Serializable;
 import java.time.LocalDateTime;
@@ -19,12 +21,12 @@ public class Account implements Serializable {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "number_generator")
     @SequenceGenerator(name="number_generator", sequenceName = "number_seq", allocationSize = 1, initialValue = 1000000000)
     private Long id;
-
     @ManyToOne
     @JoinColumn(name = "user_id", referencedColumnName = "id")
     private User user;
     @PositiveOrZero
     private long balance;
+    @NotBlank(message = "Cannot be empty")
     private String accountName;
 
     @Enumerated(EnumType.STRING)

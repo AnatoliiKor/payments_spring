@@ -8,8 +8,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
-import javax.validation.constraints.Email;
-import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.*;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -26,26 +25,24 @@ public class User implements UserDetails {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     private Long id;
-    @NotBlank
+    @NotBlank(message = "Cannot be empty")
     @Length(max = 20, message = "Too long (more then 20 chracters)")
     private String lastName;
-    @NotBlank
+    @NotBlank(message = "Cannot be empty")
     @Length(max = 20, message = "Too long (more then 20 chracters)")
     private String name;
     @Length(max = 20, message = "Too long (more then 20 chracters)")
     private String middleName;
-    @NotBlank
+    @NotBlank(message = "Cannot be empty")
     private String password;
-    @NotBlank
-    @Email
+    @NotBlank(message = "Cannot be empty")
+    @Email(message = "Email is not correct")
     @Column(unique = true)
     private String email;
-//    @NotBlank
+    @Positive(message = "Must be positive")
     @Column(unique = true)
     private long phoneNumber;
-//    @NotBlank
     private LocalDateTime registered = LocalDateTime.now();
-//    @NotBlank
     private boolean active;
 
     @Enumerated(EnumType.STRING)
