@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" lang="${#locale.language}">
+<head>
+    <meta charset="UTF-8">
+    <title>Chamge email</title>
+</head>
+<body>
+<div th:fragment="change_email">
+    <button class="btn btn-outline-primary " type="button" data-bs-toggle="collapse"
+            data-bs-target="#change_email" aria-expanded="false" aria-controls="change_email"
+            th:text="#{edit} + ' email'">
+    </button>
+    <div class="collapse collapse-horizontal" id="change_email">
+        <div class="card card-body" style="width: 300px;">
+            <form class="m-2" method="post" th:action="@{/user/{path}/change_email(path=${session.user_auth.id})}">
+                <div class="mx-2 mt-1" th:text="#{new} + ' email'"></div>
+                <input type="email" name="email" required>
+                <button class="btn btn-outline-success m-1" type="submit" th:text="#{apply}"></button>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

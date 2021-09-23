@@ -39,7 +39,6 @@ public class AccountController {
             @AuthenticationPrincipal UserDetails userDetails,
             @PathVariable User user,
             Model model) {
-//        model.addAttribute("accounts", user.getAccounts());
         if (!user.getEmail().equals(userDetails.getUsername()) && !userDetails.getAuthorities().contains(Role.ADMIN)) {
             return "accessDenied";
         }

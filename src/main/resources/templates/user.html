@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:insert="~{fragments/header :: head}"/>
+
+<body class="user">
+
+<div th:insert="~{fragments/header :: navbar}"></div>
+<div th:insert="~{fragments/messages :: messages}"></div>
+
+
+<div class="container mt-4" th:if="${user.active}">
+
+    <table class="table table-striped auto__table table-condensed text-center">
+        <tbody>
+        <tr>
+            <td th:text="#{last_name}"></td>
+            <td th:text="${user.lastName}"></td>
+        </tr>
+        <tr>
+            <td th:text="#{name}"></td>
+            <td th:text="${user.name}"></td>
+        </tr>
+        <tr>
+            <td th:text="#{middle_name}"></td>
+            <td th:text="${user.middleName}"></td>
+        </tr>
+        <tr>
+            <td th:text="#{email}"></td>
+            <td>
+                    <p class="mx-2" th:text="${user.email}"></p>
+                    <div th:insert="~{user/change_email :: change_email}"></div>
+            </td>
+        </tr>
+        <tr>
+            <td th:text="#{phone_number}"></td>
+            <td th:text="'+38' + ${user.phoneNumber}"></td>
+        </tr>
+        <tr>
+            <td th:text="#{registered}"></td>
+            <td th:text="${T(com.kor.payments.domain.Utils).getFormatedDate(user.registered)}"></td>
+        </tr>
+        <td></td>
+        <td>
+                <div th:insert="~{user/change_password :: change_password}"></div>
+        </td>
+        </tr>
+
+        </tbody>
+    </table>
+
+
+</div>
+</body>
+</html>
