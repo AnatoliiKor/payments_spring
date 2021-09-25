@@ -18,36 +18,37 @@ import java.util.Map;
 public class RegistrationController {
     @Autowired
     private UserService userService;
+    BindingResult bindingResult;
 
     @GetMapping("/registration")
-    public String registration() {
+    public String registration(Model model) {
+        model.addAttribute("user", new User());
         return "registration";
     }
 
+    @PostMapping("/registration")
+    public String addUser(@Valid User user, BindingResult bindingResult, Model model) {
+        if (bindingResult.hasErrors()) {
+            Map<String, String> errorMap = ControllerUtils.getErrors(bindingResult);
+            model.mergeAttributes(errorMap);
+            model.addAttribute("user", user);
+            return "registration";
+        } else {
+            if (!userService.addUser(user)) {
+                model.addAttribute("warn", "registration_user_exist");
+                return "registration";
+            }
+        }
+        return "redirect:login";
+    }
+
 //    @PostMapping("/registration")
-//    public String addUser(
-//            Model model) {
-//        if (bindingResult.hasErrors()) {
-//            Map<String, String> errorMap = ControllerUtils.getErrors(bindingResult);
-//            model.mergeAttributes(errorMap);
-//            model.addAttribute("user", user);
+//    public String addUser(User user, Model model) {
+//        if (!userService.addUser(user)) {
+//            model.addAttribute("warn", "registration_user_exist");
 //            return "registration";
-//        } else {
-//            if (!userService.addUser(user)) {
-//                model.addAttribute("usernameError", "User exists! Try another User name");
-//                return "registration";
-//            }
 //        }
 //        return "redirect:login";
 //    }
-
-    @PostMapping("/registration")
-    public String addUser(User user, Model model){
-       if (!userService.addUser(user)) {
-           model.addAttribute("warn", "registration_user_exist");
-           return "registration";
-       }
-       return "redirect:login";
-    }
 
 }

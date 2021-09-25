@@ -8,9 +8,8 @@
 <div th:fragment="payment_form">
 
     <form method="get" th:action="@{prepare/}">
-<!--TODO change get-->
         UA<input class="m-2" type="tel" name="receiver" pattern="[0-9]{10}" minlength="10" maxlength="10"
-                 size="11" placeholder="0000000000" th:attr="value=${receiver != null ? receiver : ''}" required>
+                 size="11" placeholder="0000000000" th:attr="value=${receiver != null} ? ${receiver}" required>
         <label th:text="#{receiver_account}"></label>
         <br/>
 

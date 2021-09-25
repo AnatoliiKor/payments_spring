@@ -6,6 +6,7 @@ import com.kor.payments.domain.Role;
 import com.kor.payments.domain.User;
 import com.kor.payments.repository.AccountRepository;
 import com.kor.payments.repository.UserRepository;
+import org.checkerframework.checker.units.qual.A;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -47,37 +48,30 @@ public class AccountServiceTest {
         user.setPhoneNumber(2121212122L);
         userService.addUser(user);
         user = userService.findUserByEmail("account@test.ua");
-        accountService.newAccount(test, "USD", user);
-        account = accountRepository.findAccountByAccountName("test");
     }
 
     @After
     public void deleteUser() {
-        accountRepository.delete(account);
         userRepository.delete(user);
     }
 
-    @Test
-    public void findAllAccounts() {
-        List<Account> accounts = accountService.findAllAccounts();
-        assertNotNull(accounts);
-        assertNotEquals(1L, accounts.size());
-    }
+//    @Test
+//    public void findAllAccounts() {
+//        List<Account> accounts = accountService.findAllAccounts();
+//        assertNotNull(accounts);
+//        assertNotEquals(1L, accounts.size());
+//    }
 
-    @Test
-    public void findAccountByAccountName() {
-        assertEquals("test", accountService.findAccountByAccountName("test").getAccountName());
-    }
-
-    @Test
-    public void findAccountsByUser() {
-        assertEquals(1, accountService.findAccountsByUser(user).size());
-    }
     @Test
     public void newAccount() {
-        assertTrue(accountService.newAccount("test new account", "USD", user));
-        Account newAccount = accountService.findAccountByAccountName("test new account");
-        assertEquals("test new account", newAccount.getAccountName());
-        accountRepository.delete(newAccount);
+        Account account = new Account();
+        account.setUser(user);
+        account.setAccountName(test);
+        account.setCurrency(Currency.valueOf("USD"));
+        assertTrue(accountService.newAccount(account));
+        List<Account> accounts = accountService.findAccountsByUser(user);
+        assertEquals(1, accounts.size());
+        account = accounts.get(0);
+        accountRepository.delete(account);
     }
 }

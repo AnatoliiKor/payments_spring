@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:insert="~{fragments/header :: head}"/>
+
+<body class="new_account">
+
+<div th:insert="~{fragments/header :: navbar}"></div>
+
+<div class="container mt-5">
+    <h1 th:text="#{new_account}"></h1><br/>
+
+    <div class="card card-body" style="width: 300px;">
+        <form method="post" action="#" th:action="@{/new_account}">
+            <label th:text="#{account_name}"></label>
+            <input type="text" th:attr="class=${accountNameError != null ? 'form-control is-invalid': ''}" name="accountName">
+            <div class="invalid-feedback" th:if="${accountNameError != null}">
+                <p th:text="${accountNameError}"></p>
+            </div>
+            <br/>
+            <div class="m-1" th:text="#{currency}"></div>
+            <select name="currency" size="1" required>
+                <option value="UAH" th:text="#{uah}" selected></option>
+                <option value="USD" th:text="#{usd}"></option>
+                <option value="EURO" th:text="#{euro}"></option>
+            </select>
+            <br/>
+            <button class="mt-3" type="submit" th:text="#{send_request}"></button>
+        </form>
+    </div>
+
+    <br/>
+
+    <a href="/" th:text="#{home_page}"></a>
+</div>
+</body>
+</html>

@@ -3,6 +3,7 @@ package com.kor.payments.domain;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
@@ -27,6 +28,7 @@ public class Account implements Serializable {
     @PositiveOrZero
     private long balance;
     @NotBlank(message = "Cannot be empty")
+    @Length(max = 20, message = "Too long (more then 20 characters)")
     private String accountName;
 
     @Enumerated(EnumType.STRING)

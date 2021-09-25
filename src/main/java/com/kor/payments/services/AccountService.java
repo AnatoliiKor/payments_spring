@@ -39,11 +39,7 @@ public class AccountService {
     }
 
     @Transactional(rollbackFor = {SQLException.class})
-    public boolean newAccount(String accountName, String currency, User user) {
-        Account account = new Account();
-        account.setAccountName(accountName);
-        account.setCurrency(Currency.valueOf(currency));
-        account.setUser(user);
+    public boolean newAccount(Account account) {
         account = accountRepository.save(account);
         account.setCard(creditCardService.getNewCard(account.getId()));
         accountRepository.save(account);
@@ -75,10 +71,6 @@ public class AccountService {
             log.info("Action is not changed to {} for account {}", isActive, account.getId());
             return false;
         }
-    }
-
-    public Account findAccountByAccountName(String accountName) {
-        return accountRepository.findAccountByAccountName(accountName);
     }
 
     public List<Account> findAccountsByUser(User user) {

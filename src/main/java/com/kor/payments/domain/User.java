@@ -29,9 +29,10 @@ public class User implements UserDetails {
     @Length(max = 20, message = "Too long (more then 20 chracters)")
     private String lastName;
     @NotBlank(message = "Cannot be empty")
-    @Length(max = 20, message = "Too long (more then 20 chracters)")
+    @Length(max = 20, message = "Too long (more then 20 characters)")
     private String name;
-    @Length(max = 20, message = "Too long (more then 20 chracters)")
+    @NotBlank(message = "Cannot be empty")
+    @Length(max = 20, message = "Too long (more then 20 characters)")
     private String middleName;
     @NotBlank(message = "Cannot be empty")
     private String password;
