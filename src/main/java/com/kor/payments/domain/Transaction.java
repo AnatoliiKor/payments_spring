@@ -32,8 +32,8 @@ public class Transaction implements Serializable {
     private String destination;
     @Positive(message = "Must be positive")
     private int amount;
-    private int accrual;
 
+    private int accrual;
     @Enumerated(EnumType.STRING)
     private Currency currency;
 }

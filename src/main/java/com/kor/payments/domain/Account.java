@@ -28,7 +28,7 @@ public class Account implements Serializable {
     @PositiveOrZero
     private long balance;
     @NotBlank(message = "Cannot be empty")
-    @Length(max = 20, message = "Too long (more then 20 characters)")
+    @Length(max = 30, message = "Too long (more then 30 characters)")
     private String accountName;
 
     @Enumerated(EnumType.STRING)

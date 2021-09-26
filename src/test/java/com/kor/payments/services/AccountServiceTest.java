@@ -27,16 +27,16 @@ import static org.junit.Assert.*;
 @SpringBootTest
 public class AccountServiceTest {
     @Autowired
-    AccountService accountService;
+    private AccountService accountService;
     @Autowired
-    UserService userService;
+    private UserService userService;
     @Autowired
-    AccountRepository accountRepository;
+    private AccountRepository accountRepository;
     @Autowired
-    UserRepository userRepository;
+    private UserRepository userRepository;
     private String test = "test";
-    User user;
-    Account account;
+    private User user;
+    private Account account;
 
     @Before
     public void addUser(){
@@ -44,6 +44,7 @@ public class AccountServiceTest {
         user.setPassword(test);
         user.setName(test);
         user.setLastName(test);
+        user.setMiddleName(test);
         user.setEmail("account@test.ua");
         user.setPhoneNumber(2121212122L);
         userService.addUser(user);

@@ -24,10 +24,10 @@ import static org.junit.Assert.*;
 @SpringBootTest
 public class TransactionServiceTest {
     @Autowired
-    TransactionRepository transactionRepository;
+    private TransactionRepository transactionRepository;
     @Autowired
-    TransactionService transactionService;
-    User user;
+    private TransactionService transactionService;
+    private User user;
 
     @Before
     public void newUser () {

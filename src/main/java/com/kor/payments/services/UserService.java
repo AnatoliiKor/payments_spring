@@ -81,12 +81,12 @@ public class UserService implements UserDetailsService {
         return false;
     }
 
-    public boolean changePassword(User user, String oldPassword, String password) {
-        if (!passwordEncoder.matches(oldPassword, user.getPassword()) || passwordEncoder.matches(password, user.getPassword())) {
+    public boolean changePassword(User user, String oldPassword, String newPassword) {
+        if (!passwordEncoder.matches(oldPassword, user.getPassword()) || passwordEncoder.matches(newPassword, user.getPassword())) {
             return false;
         }
-         user.setPassword(passwordEncoder.encode(password));
-        if (passwordEncoder.matches(password, userRepository.save(user).getPassword())) {
+        user.setPassword(passwordEncoder.encode(newPassword));
+        if (passwordEncoder.matches(newPassword, userRepository.save(user).getPassword())) {
             return true;
         }
         return false;

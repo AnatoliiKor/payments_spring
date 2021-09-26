@@ -16,7 +16,7 @@
             <img src="/static/images/payments.png">
         </div>
 
-        <div class="col" th:if="${user_auth == null}">
+        <div class="col" th:if="${session.user_auth == null}">
 
             <div th:if="${param.error}">
                 <div class="text-danger" th:text="#{user_not_found_check}"></div>

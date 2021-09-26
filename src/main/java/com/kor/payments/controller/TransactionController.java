@@ -9,6 +9,7 @@ import com.kor.payments.services.TransactionService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
@@ -55,14 +56,14 @@ public class TransactionController {
     @GetMapping("/prepare")
     public String preparePayment(
             HttpSession httpSession,
-            @RequestParam String payer,
-            @RequestParam Long receiver,
+            @RequestParam long payer,
+            @RequestParam long receiver,
             @RequestParam double amount,
             @RequestParam(required = false, defaultValue = "-") String destination,
             Model model) {
         int amountReceiver = (int) (amount * 100);
         int amountPayer = amountReceiver;
-        Account payerAccount = accountService.findByNumberId(Long.parseLong(payer));
+        Account payerAccount = accountService.findByNumberId(payer);
         Account receiverAccount = accountService.findByNumberId(receiver);
         if (receiverAccount == null || !receiverAccount.isActive()) {
             return "redirect:/transaction/form?warn=payment_receiver_not_found";
@@ -89,6 +90,7 @@ public class TransactionController {
         log.info("Payment to receiver {} is prepared for payer {}", receiver, payer);
         return "make_payment";
     }
+
 
     @PostMapping("/cancel")
     public String cancelPayment(HttpSession httpSession) {
