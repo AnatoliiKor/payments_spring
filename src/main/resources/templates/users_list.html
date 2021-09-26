@@ -46,14 +46,13 @@
             <td th:attr="class=${sort.equals('email')? 'text-info fw-bold' : ''}" th:text="${user.email}"></td>
             <td th:attr="class=${sort.equals('phoneNumber')? 'text-info fw-bold' : ''}" th:text="'+38 0'+ ${user.phoneNumber}"></td>
             <td th:attr="class=${sort.equals('registered')? 'text-info fw-bold' : ''}" th:text="${T(com.kor.payments.domain.Utils).getFormatedDate(user.registered)}"></td>
-<!--            <td th:attr="class=${sort.equals('registered')? 'text-info fw-bold' : ''}" th:text="${user.getFormatedDate()}"></td>-->
             <td th:text="${user.role}"></td>
             <td th:attr="class=${sort.equals('active')? 'text-info fw-bold' : ''}" th:text="${user.active}? #{is_active} : #{blocked}"></td>
             <td th:unless="${user.role.name().equals('ADMIN')}">
                 <a class="btn btn-outline-primary" th:href="@{/accounts/{path}(path=${user.id})}" th:text="#{accounts}"></a>
             </td>
             <td th:unless="${user.role.name().equals('ADMIN')}">
-                <div><a class="btn btn-outline-info" th:href="@{/transactions/{path}/payments(path=${user.id})}" th:text="#{payments}"></a></div>
+                <div><a class="btn btn-outline-info" th:href="@{/transactions/{path}/payments_sorted(path=${user.id})}" th:text="#{payments}"></a></div>
             </td>
 
             <td th:unless="${user.role.name().equals('ADMIN')}">
@@ -77,5 +76,6 @@
     <p th:if="${users.size() == 0}" th:text="#{no_accounts}"></p>
     <br/>
     <a href="/" th:text="#{home_page}"></a>
+</div>
 </body>
 </html>

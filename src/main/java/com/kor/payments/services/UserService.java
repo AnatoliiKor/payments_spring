@@ -49,7 +49,11 @@ public class UserService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-        return userRepository.findByEmail(email);
+        UserDetails userDb = userRepository.findByEmail(email);
+        if (userDb == null) {
+            throw new UsernameNotFoundException("User not authorized.");
+        }
+        return userDb;
     }
 
     public boolean setIsActive(User user, boolean isActive) {

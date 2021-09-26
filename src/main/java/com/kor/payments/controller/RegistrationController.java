@@ -8,7 +8,6 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.validation.Valid;
 import java.util.Map;
@@ -18,7 +17,6 @@ import java.util.Map;
 public class RegistrationController {
     @Autowired
     private UserService userService;
-    BindingResult bindingResult;
 
     @GetMapping("/registration")
     public String registration(Model model) {
@@ -41,14 +39,5 @@ public class RegistrationController {
         }
         return "redirect:login";
     }
-
-//    @PostMapping("/registration")
-//    public String addUser(User user, Model model) {
-//        if (!userService.addUser(user)) {
-//            model.addAttribute("warn", "registration_user_exist");
-//            return "registration";
-//        }
-//        return "redirect:login";
-//    }
 
 }

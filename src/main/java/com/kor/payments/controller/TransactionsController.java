@@ -31,20 +31,20 @@ public class TransactionsController {
     @GetMapping("{user}/payments_sorted")
     public String getUserPaymentsSorted(
             @AuthenticationPrincipal UserDetails userDetails,
-            @PathVariable User user,
+            @PathVariable (required = false) User user,
             @RequestParam(required = false, defaultValue = "registered") String sort,
             @RequestParam(required = false, defaultValue = "DESC") String order,
             @RequestParam(required = false, defaultValue = "0") int page,
             @RequestParam(required = false) String inflows,
             Model model) {
         boolean lastPage = false;
-        if (!user.getEmail().equals(userDetails.getUsername()) && !userDetails.getAuthorities().contains(Role.ADMIN)) {
+        if (user == null || (!user.getEmail().equals(userDetails.getUsername()) && !userDetails.getAuthorities().contains(Role.ADMIN))) {
             return "accessDenied";
         }
         if (page < 0) {
             page = 0;
         }
-        if (userDetails.getAuthorities().contains(Role.ADMIN)) {
+        if (user.getRole().equals(Role.ADMIN)) {
             transactions = transactionService.findAllPage(page, sort, order);
             model.addAttribute("title", "transactions");
         } else if ("inflows".equals(inflows)) {

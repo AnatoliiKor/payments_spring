@@ -1,34 +1,38 @@
-2021-09-25 13:36:29,597 INFO o.h.v.i.u.Version [background-preinit] HV000001: Hibernate Validator 6.1.7.Final
-2021-09-25 13:36:29,622 INFO o.s.b.StartupInfoLogger [restartedMain] Starting Application using Java 1.8.0_261 on A-PC with PID 1336 (D:\JAVA\Spring\payments-spring\target\classes started by Anatolii in D:\JAVA\Spring\payments-spring)
-2021-09-25 13:36:29,626 INFO o.s.b.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
-2021-09-25 13:36:29,687 INFO o.s.b.l.DeferredLog [restartedMain] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2021-09-25 13:36:29,688 INFO o.s.b.l.DeferredLog [restartedMain] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2021-09-25 13:36:30,171 INFO o.s.d.r.c.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2021-09-25 13:36:30,222 INFO o.s.d.r.c.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 44 ms. Found 6 JPA repository interfaces.
-2021-09-25 13:36:30,475 INFO o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [restartedMain] Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@2fc681e1' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2021-09-25 13:36:30,479 INFO o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [restartedMain] Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2021-09-25 13:36:30,725 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8089 (http)
-2021-09-25 13:36:30,731 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-8089"]
-2021-09-25 13:36:30,731 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting service [Tomcat]
-2021-09-25 13:36:30,731 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.41]
-2021-09-25 13:36:30,792 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
-2021-09-25 13:36:30,792 INFO o.s.b.w.s.c.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 1104 ms
-2021-09-25 13:36:30,871 INFO c.z.h.HikariDataSource [restartedMain] HikariPool-1 - Starting...
-2021-09-25 13:36:31,087 INFO c.z.h.HikariDataSource [restartedMain] HikariPool-1 - Start completed.
-2021-09-25 13:36:31,117 INFO o.h.j.i.u.LogHelper [restartedMain] HHH000204: Processing PersistenceUnitInfo [name: default]
-2021-09-25 13:36:31,151 INFO o.h.Version [restartedMain] HHH000412: Hibernate ORM core version 5.4.27.Final
-2021-09-25 13:36:31,243 INFO o.h.a.c.r.j.JavaReflectionManager [restartedMain] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2021-09-25 13:36:31,329 INFO o.h.d.Dialect [restartedMain] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
-2021-09-25 13:36:32,282 INFO o.h.e.t.j.p.i.JtaPlatformInitiator [restartedMain] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2021-09-25 13:36:32,295 INFO o.s.o.j.AbstractEntityManagerFactoryBean [restartedMain] Initialized JPA EntityManagerFactory for persistence unit 'default'
-2021-09-25 13:36:32,398 WARN o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration [restartedMain] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2021-09-25 13:36:33,020 INFO o.s.s.w.DefaultSecurityFilterChain [restartedMain] Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@62f05528, org.springframework.security.web.context.SecurityContextPersistenceFilter@40233b34, org.springframework.security.web.header.HeaderWriterFilter@4e845f00, org.springframework.security.web.csrf.CsrfFilter@eb61bf4, org.springframework.security.web.authentication.logout.LogoutFilter@5f23df18, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@59d025f6, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6704c462, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4e94f1ee, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@2b5db0d1, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1bca386a, org.springframework.security.web.session.SessionManagementFilter@73bbf66, org.springframework.security.web.access.ExceptionTranslationFilter@14a6dd05, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@4241369]
-2021-09-25 13:36:33,135 INFO o.s.s.c.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
-2021-09-25 13:36:33,406 INFO o.s.b.d.a.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
-2021-09-25 13:36:33,424 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-8089"]
-2021-09-25 13:36:33,437 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat started on port(s): 8089 (http) with context path ''
-2021-09-25 13:36:33,447 INFO o.s.s.a.ScheduledAnnotationBeanPostProcessor [restartedMain] No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
-2021-09-25 13:36:33,454 INFO o.s.b.StartupInfoLogger [restartedMain] Started Application in 4.163 seconds (JVM running for 4.91)
-2021-09-25 13:36:36,553 INFO o.a.j.l.DirectJDKLog [http-nio-8089-exec-1] Initializing Spring DispatcherServlet 'dispatcherServlet'
-2021-09-25 13:36:36,553 INFO o.s.w.s.FrameworkServlet [http-nio-8089-exec-1] Initializing Servlet 'dispatcherServlet'
-2021-09-25 13:36:36,554 INFO o.s.w.s.FrameworkServlet [http-nio-8089-exec-1] Completed initialization in 1 ms
+2021-09-26 14:02:23,320 INFO o.h.v.i.u.Version [background-preinit] HV000001: Hibernate Validator 6.1.7.Final
+2021-09-26 14:02:23,347 INFO o.s.b.StartupInfoLogger [restartedMain] Starting Application using Java 1.8.0_261 on A-PC with PID 12252 (D:\JAVA\Spring\payments-spring\target\classes started by Anatolii in D:\JAVA\Spring\payments-spring)
+2021-09-26 14:02:23,353 INFO o.s.b.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2021-09-26 14:02:23,426 INFO o.s.b.l.DeferredLog [restartedMain] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-09-26 14:02:23,426 INFO o.s.b.l.DeferredLog [restartedMain] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-09-26 14:02:23,948 INFO o.s.d.r.c.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-09-26 14:02:23,999 INFO o.s.d.r.c.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 45 ms. Found 6 JPA repository interfaces.
+2021-09-26 14:02:24,253 INFO o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [restartedMain] Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@3bf96bb6' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-09-26 14:02:24,256 INFO o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [restartedMain] Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-09-26 14:02:24,499 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8089 (http)
+2021-09-26 14:02:24,505 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-8089"]
+2021-09-26 14:02:24,505 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2021-09-26 14:02:24,506 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.41]
+2021-09-26 14:02:24,565 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2021-09-26 14:02:24,565 INFO o.s.b.w.s.c.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 1138 ms
+2021-09-26 14:02:24,643 INFO c.z.h.HikariDataSource [restartedMain] HikariPool-1 - Starting...
+2021-09-26 14:02:24,980 INFO c.z.h.HikariDataSource [restartedMain] HikariPool-1 - Start completed.
+2021-09-26 14:02:25,010 INFO o.h.j.i.u.LogHelper [restartedMain] HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-09-26 14:02:25,044 INFO o.h.Version [restartedMain] HHH000412: Hibernate ORM core version 5.4.27.Final
+2021-09-26 14:02:25,137 INFO o.h.a.c.r.j.JavaReflectionManager [restartedMain] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-09-26 14:02:25,225 INFO o.h.d.Dialect [restartedMain] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2021-09-26 14:02:26,192 INFO o.h.e.t.j.p.i.JtaPlatformInitiator [restartedMain] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-09-26 14:02:26,204 INFO o.s.o.j.AbstractEntityManagerFactoryBean [restartedMain] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-09-26 14:02:26,311 WARN o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration [restartedMain] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-09-26 14:02:29,589 INFO o.s.s.w.DefaultSecurityFilterChain [restartedMain] Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@287d7fe6, org.springframework.security.web.context.SecurityContextPersistenceFilter@66b6b650, org.springframework.security.web.header.HeaderWriterFilter@4b5d707a, org.springframework.security.web.csrf.CsrfFilter@1c46e515, org.springframework.security.web.authentication.logout.LogoutFilter@527bfbd4, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@14a847, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6da6dd0, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@a7e0c84, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@103ec7a9, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@3451c569, org.springframework.security.web.session.SessionManagementFilter@6ae156fd, org.springframework.security.web.access.ExceptionTranslationFilter@5cff561f, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@7e06bf6e]
+2021-09-26 14:02:29,702 INFO o.s.s.c.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
+2021-09-26 14:02:29,968 INFO o.s.b.d.a.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2021-09-26 14:02:29,986 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-8089"]
+2021-09-26 14:02:29,998 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat started on port(s): 8089 (http) with context path ''
+2021-09-26 14:02:30,008 INFO o.s.s.a.ScheduledAnnotationBeanPostProcessor [restartedMain] No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
+2021-09-26 14:02:30,014 INFO o.s.b.StartupInfoLogger [restartedMain] Started Application in 7.059 seconds (JVM running for 7.935)
+2021-09-26 14:02:34,569 INFO o.a.j.l.DirectJDKLog [http-nio-8089-exec-1] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-09-26 14:02:34,570 INFO o.s.w.s.FrameworkServlet [http-nio-8089-exec-1] Initializing Servlet 'dispatcherServlet'
+2021-09-26 14:02:34,571 INFO o.s.w.s.FrameworkServlet [http-nio-8089-exec-1] Completed initialization in 1 ms
+2021-09-26 14:19:43,688 INFO o.s.s.c.ExecutorConfigurationSupport [SpringContextShutdownHook] Shutting down ExecutorService 'applicationTaskExecutor'
+2021-09-26 14:19:43,691 INFO o.s.o.j.AbstractEntityManagerFactoryBean [SpringContextShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-09-26 14:19:43,694 INFO c.z.h.HikariDataSource [SpringContextShutdownHook] HikariPool-1 - Shutdown initiated...
+2021-09-26 14:19:43,697 INFO c.z.h.HikariDataSource [SpringContextShutdownHook] HikariPool-1 - Shutdown completed.
