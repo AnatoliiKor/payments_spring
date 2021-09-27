@@ -5,8 +5,10 @@ import com.kor.payments.repository.CreditCardRepository;
 import org.junit.After;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import static org.junit.Assert.*;
@@ -17,15 +19,14 @@ import static org.junit.Assert.*;
 public class CreditCardServiceTest {
     @Autowired
     private CreditCardService creditCardService;
-    @Autowired
+    @MockBean
     private CreditCardRepository creditCardRepository;
 
 
     @Test
     public void getNewCard() {
-        CreditCard card = creditCardService.getNewCard(1000L);
-        assertEquals(2604000000001000L, card.getCardNumber());
-        assertNotNull(card.getId());
-        creditCardRepository.delete(card);
+        CreditCard card = creditCardService.getNewCard(1L);
+        assertEquals(2604000000000001L, card.getCardNumber());
+        Mockito.verify(creditCardRepository, Mockito.times(1)).save(card);
     }
 }
