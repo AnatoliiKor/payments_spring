@@ -1,5 +1,6 @@
 package com.kor.payments.controller;
 
+import com.itextpdf.text.DocumentException;
 import com.kor.payments.domain.Account;
 import com.kor.payments.domain.Transaction;
 import com.kor.payments.domain.User;
@@ -17,6 +18,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
+import java.io.IOException;
+import java.net.URISyntaxException;
 import java.util.List;
 
 @Controller
@@ -111,4 +114,22 @@ public class TransactionController {
             return "redirect:/wallet?warn=payment_fail";
         }
     }
+
+    @GetMapping("check/{transaction}")
+    public String getCheck(@PathVariable Transaction transaction, Model model) {
+
+        try {
+            ControllerUtils.getCheck(transaction);
+        } catch (IOException e) {
+            model.addAttribute("warn", "failed");
+        } catch (DocumentException e) {
+            model.addAttribute("warn", "failed");
+        } catch (URISyntaxException e) {
+            model.addAttribute("warn", "failed");
+        }
+        model.addAttribute("message", "successfully");
+        return "payment_details";
+    }
+
+
 }

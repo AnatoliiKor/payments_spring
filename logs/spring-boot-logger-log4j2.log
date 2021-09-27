@@ -1,91 +1,92 @@
-2021-09-27 22:42:04,059 INFO o.h.v.i.u.Version [background-preinit] HV000001: Hibernate Validator 6.1.7.Final
-2021-09-27 22:42:04,072 INFO o.s.b.StartupInfoLogger [main] Starting AccountServiceTest using Java 1.8.0_261 on A-PC with PID 12636 (started by Anatolii in D:\JAVA\Spring\payments-spring)
-2021-09-27 22:42:04,076 INFO o.s.b.SpringApplication [main] No active profile set, falling back to default profiles: default
-2021-09-27 22:42:04,584 INFO o.s.d.r.c.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2021-09-27 22:42:04,632 INFO o.s.d.r.c.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 42 ms. Found 6 JPA repository interfaces.
-2021-09-27 22:42:05,243 INFO o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [main] Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@86d6bf7' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2021-09-27 22:42:05,252 INFO o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [main] Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2021-09-27 22:42:05,374 INFO c.z.h.HikariDataSource [main] HikariPool-1 - Starting...
-2021-09-27 22:42:05,715 INFO c.z.h.HikariDataSource [main] HikariPool-1 - Start completed.
-2021-09-27 22:42:05,763 INFO o.h.j.i.u.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
-2021-09-27 22:42:05,800 INFO o.h.Version [main] HHH000412: Hibernate ORM core version 5.4.27.Final
-2021-09-27 22:42:05,829 INFO o.h.a.c.r.j.JavaReflectionManager [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2021-09-27 22:42:05,925 INFO o.h.d.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
-2021-09-27 22:42:06,874 INFO o.h.e.t.j.p.i.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2021-09-27 22:42:06,881 INFO o.s.o.j.AbstractEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
-2021-09-27 22:42:06,933 WARN o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration [main] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2021-09-27 22:42:07,514 INFO o.s.s.w.DefaultSecurityFilterChain [main] Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@37753b69, org.springframework.security.web.context.SecurityContextPersistenceFilter@3d2b13b1, org.springframework.security.web.header.HeaderWriterFilter@29ba63f0, org.springframework.security.web.csrf.CsrfFilter@7e1fb22c, org.springframework.security.web.authentication.logout.LogoutFilter@54caeadc, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@47ffa248, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@2524d07a, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3c46e6f6, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@5d77be8e, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@602c167e, org.springframework.security.web.session.SessionManagementFilter@516b84d1, org.springframework.security.web.access.ExceptionTranslationFilter@25e796fe, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@4f9213d2]
-2021-09-27 22:42:07,805 INFO o.s.s.c.ExecutorConfigurationSupport [main] Initializing ExecutorService 'applicationTaskExecutor'
-2021-09-27 22:42:08,294 INFO o.s.s.a.ScheduledAnnotationBeanPostProcessor [main] No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
-2021-09-27 22:42:08,300 INFO o.s.b.StartupInfoLogger [main] Started AccountServiceTest in 4.472 seconds (JVM running for 5.467)
-2021-09-27 22:42:08,340 INFO c.k.p.s.AccountService [main] Account null is refilled with 100
-2021-09-27 22:42:08,376 INFO c.k.p.s.AccountService [main] Action is changed to true for account null
-2021-09-27 22:42:08,392 INFO o.s.b.StartupInfoLogger [main] Starting TransactionServiceTest using Java 1.8.0_261 on A-PC with PID 12636 (started by Anatolii in D:\JAVA\Spring\payments-spring)
-2021-09-27 22:42:08,393 INFO o.s.b.SpringApplication [main] No active profile set, falling back to default profiles: default
-2021-09-27 22:42:08,499 INFO o.s.d.r.c.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2021-09-27 22:42:08,511 INFO o.s.d.r.c.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 11 ms. Found 6 JPA repository interfaces.
-2021-09-27 22:42:08,575 INFO o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [main] Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@6f6c6c70' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2021-09-27 22:42:08,579 INFO o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [main] Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2021-09-27 22:42:08,616 INFO c.z.h.HikariDataSource [main] HikariPool-2 - Starting...
-2021-09-27 22:42:08,654 INFO c.z.h.HikariDataSource [main] HikariPool-2 - Start completed.
-2021-09-27 22:42:08,663 INFO o.h.j.i.u.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
-2021-09-27 22:42:08,667 INFO o.h.d.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
-2021-09-27 22:42:09,166 INFO o.h.e.t.j.p.i.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2021-09-27 22:42:09,166 INFO o.s.o.j.AbstractEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
-2021-09-27 22:42:09,196 WARN o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration [main] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2021-09-27 22:42:09,420 INFO o.s.s.w.DefaultSecurityFilterChain [main] Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@356ab368, org.springframework.security.web.context.SecurityContextPersistenceFilter@6de4071b, org.springframework.security.web.header.HeaderWriterFilter@3f1e18b1, org.springframework.security.web.csrf.CsrfFilter@571903ff, org.springframework.security.web.authentication.logout.LogoutFilter@6f30d0eb, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@43cf97a8, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@7077ae9c, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3fe3ebb3, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@5c1ea00, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@3398ed12, org.springframework.security.web.session.SessionManagementFilter@727de450, org.springframework.security.web.access.ExceptionTranslationFilter@689ea211, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@19d3f4fb]
-2021-09-27 22:42:09,514 INFO o.s.s.c.ExecutorConfigurationSupport [main] Initializing ExecutorService 'applicationTaskExecutor'
-2021-09-27 22:42:09,716 INFO o.s.s.a.ScheduledAnnotationBeanPostProcessor [main] No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
-2021-09-27 22:42:09,717 INFO o.s.b.StartupInfoLogger [main] Started TransactionServiceTest in 1.336 seconds (JVM running for 6.884)
-2021-09-27 22:42:10,034 INFO c.k.p.s.UserService [main] Action is changed to false for user user@test.ua
-2021-09-27 22:42:10,061 INFO o.s.b.StartupInfoLogger [main] Starting CreditCardServiceTest using Java 1.8.0_261 on A-PC with PID 12636 (started by Anatolii in D:\JAVA\Spring\payments-spring)
-2021-09-27 22:42:10,062 INFO o.s.b.SpringApplication [main] No active profile set, falling back to default profiles: default
-2021-09-27 22:42:10,156 INFO o.s.d.r.c.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2021-09-27 22:42:10,180 INFO o.s.d.r.c.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 22 ms. Found 6 JPA repository interfaces.
-2021-09-27 22:42:10,261 INFO o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [main] Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@6023b54f' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2021-09-27 22:42:10,265 INFO o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [main] Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2021-09-27 22:42:10,294 INFO c.z.h.HikariDataSource [main] HikariPool-3 - Starting...
-2021-09-27 22:42:10,333 INFO c.z.h.HikariDataSource [main] HikariPool-3 - Start completed.
-2021-09-27 22:42:10,341 INFO o.h.j.i.u.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
-2021-09-27 22:42:10,344 INFO o.h.d.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
-2021-09-27 22:42:10,827 INFO o.h.e.t.j.p.i.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2021-09-27 22:42:10,828 INFO o.s.o.j.AbstractEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
-2021-09-27 22:42:10,857 WARN o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration [main] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2021-09-27 22:42:11,035 INFO o.s.s.w.DefaultSecurityFilterChain [main] Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7a6078d, org.springframework.security.web.context.SecurityContextPersistenceFilter@3577e37c, org.springframework.security.web.header.HeaderWriterFilter@735d7b99, org.springframework.security.web.csrf.CsrfFilter@7ed6e557, org.springframework.security.web.authentication.logout.LogoutFilter@6a90b5e8, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@48e1e18a, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@16ac67e3, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@eb5471c, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@74997ca6, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@372c428, org.springframework.security.web.session.SessionManagementFilter@7c424dfe, org.springframework.security.web.access.ExceptionTranslationFilter@766ab25b, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@504a9352]
-2021-09-27 22:42:11,143 INFO o.s.s.c.ExecutorConfigurationSupport [main] Initializing ExecutorService 'applicationTaskExecutor'
-2021-09-27 22:42:11,334 INFO o.s.s.a.ScheduledAnnotationBeanPostProcessor [main] No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
-2021-09-27 22:42:11,334 INFO o.s.b.StartupInfoLogger [main] Started CreditCardServiceTest in 1.289 seconds (JVM running for 8.502)
-2021-09-27 22:42:11,350 INFO o.s.b.StartupInfoLogger [main] Starting UserServiceTest using Java 1.8.0_261 on A-PC with PID 12636 (started by Anatolii in D:\JAVA\Spring\payments-spring)
-2021-09-27 22:42:11,351 INFO o.s.b.SpringApplication [main] No active profile set, falling back to default profiles: default
-2021-09-27 22:42:11,449 INFO o.s.d.r.c.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2021-09-27 22:42:11,459 INFO o.s.d.r.c.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 10 ms. Found 6 JPA repository interfaces.
-2021-09-27 22:42:11,537 INFO o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [main] Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@7b842e79' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2021-09-27 22:42:11,544 INFO o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [main] Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2021-09-27 22:42:11,573 INFO c.z.h.HikariDataSource [main] HikariPool-4 - Starting...
-2021-09-27 22:42:11,714 INFO c.z.h.HikariDataSource [main] HikariPool-4 - Start completed.
-2021-09-27 22:42:11,722 INFO o.h.j.i.u.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
-2021-09-27 22:42:11,726 INFO o.h.d.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
-2021-09-27 22:42:12,211 INFO o.h.e.t.j.p.i.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2021-09-27 22:42:12,212 INFO o.s.o.j.AbstractEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
-2021-09-27 22:42:12,241 WARN o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration [main] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2021-09-27 22:42:12,418 INFO o.s.s.w.DefaultSecurityFilterChain [main] Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@246701d5, org.springframework.security.web.context.SecurityContextPersistenceFilter@24e6bd00, org.springframework.security.web.header.HeaderWriterFilter@3a89f2a0, org.springframework.security.web.csrf.CsrfFilter@21288943, org.springframework.security.web.authentication.logout.LogoutFilter@2ab91b65, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@44f86613, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5522f9b, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@70bbc163, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@5e05dd42, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1ac8f29c, org.springframework.security.web.session.SessionManagementFilter@41e156ee, org.springframework.security.web.access.ExceptionTranslationFilter@68893394, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@39e0fe23]
-2021-09-27 22:42:12,519 INFO o.s.s.c.ExecutorConfigurationSupport [main] Initializing ExecutorService 'applicationTaskExecutor'
-2021-09-27 22:42:12,701 INFO o.s.s.a.ScheduledAnnotationBeanPostProcessor [main] No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
-2021-09-27 22:42:12,701 INFO o.s.b.StartupInfoLogger [main] Started UserServiceTest in 1.361 seconds (JVM running for 9.869)
-2021-09-27 22:42:12,743 INFO c.k.p.s.AccountRequestService [main] New request UNBLOCK for account 1000000159 is created
-2021-09-27 22:42:12,783 INFO o.s.s.c.ExecutorConfigurationSupport [SpringContextShutdownHook] Shutting down ExecutorService 'applicationTaskExecutor'
-2021-09-27 22:42:12,783 INFO o.s.s.c.ExecutorConfigurationSupport [SpringContextShutdownHook] Shutting down ExecutorService 'applicationTaskExecutor'
-2021-09-27 22:42:12,783 INFO o.s.s.c.ExecutorConfigurationSupport [SpringContextShutdownHook] Shutting down ExecutorService 'applicationTaskExecutor'
-2021-09-27 22:42:12,784 INFO o.s.s.c.ExecutorConfigurationSupport [SpringContextShutdownHook] Shutting down ExecutorService 'applicationTaskExecutor'
-2021-09-27 22:42:12,789 INFO o.s.o.j.AbstractEntityManagerFactoryBean [SpringContextShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
-2021-09-27 22:42:12,790 INFO o.s.o.j.AbstractEntityManagerFactoryBean [SpringContextShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
-2021-09-27 22:42:12,790 INFO o.s.o.j.AbstractEntityManagerFactoryBean [SpringContextShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
-2021-09-27 22:42:12,791 INFO o.s.o.j.AbstractEntityManagerFactoryBean [SpringContextShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
-2021-09-27 22:42:12,792 INFO c.z.h.HikariDataSource [SpringContextShutdownHook] HikariPool-1 - Shutdown initiated...
-2021-09-27 22:42:12,792 INFO c.z.h.HikariDataSource [SpringContextShutdownHook] HikariPool-3 - Shutdown initiated...
-2021-09-27 22:42:12,792 INFO c.z.h.HikariDataSource [SpringContextShutdownHook] HikariPool-4 - Shutdown initiated...
-2021-09-27 22:42:12,792 INFO c.z.h.HikariDataSource [SpringContextShutdownHook] HikariPool-2 - Shutdown initiated...
-2021-09-27 22:42:12,797 INFO c.z.h.HikariDataSource [SpringContextShutdownHook] HikariPool-1 - Shutdown completed.
-2021-09-27 22:42:12,805 INFO c.z.h.HikariDataSource [SpringContextShutdownHook] HikariPool-4 - Shutdown completed.
-2021-09-27 22:42:12,805 INFO c.z.h.HikariDataSource [SpringContextShutdownHook] HikariPool-2 - Shutdown completed.
-2021-09-27 22:42:12,805 INFO c.z.h.HikariDataSource [SpringContextShutdownHook] HikariPool-3 - Shutdown completed.
+2021-09-28 01:06:53,341 INFO o.h.v.i.u.Version [background-preinit] HV000001: Hibernate Validator 6.1.7.Final
+2021-09-28 01:06:53,364 INFO o.s.b.StartupInfoLogger [restartedMain] Starting Application using Java 1.8.0_261 on A-PC with PID 3732 (D:\JAVA\Spring\payments-spring\target\classes started by Anatolii in D:\JAVA\Spring\payments-spring)
+2021-09-28 01:06:53,367 INFO o.s.b.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2021-09-28 01:06:53,403 INFO o.s.b.l.DeferredLog [restartedMain] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-09-28 01:06:53,404 INFO o.s.b.l.DeferredLog [restartedMain] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-09-28 01:06:53,916 INFO o.s.d.r.c.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-09-28 01:06:53,964 INFO o.s.d.r.c.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 43 ms. Found 6 JPA repository interfaces.
+2021-09-28 01:06:54,210 INFO o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [restartedMain] Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@2dadd914' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-09-28 01:06:54,213 INFO o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [restartedMain] Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-09-28 01:06:54,455 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8089 (http)
+2021-09-28 01:06:54,461 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-8089"]
+2021-09-28 01:06:54,461 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2021-09-28 01:06:54,461 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.41]
+2021-09-28 01:06:54,522 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2021-09-28 01:06:54,523 INFO o.s.b.w.s.c.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 1118 ms
+2021-09-28 01:06:54,603 INFO c.z.h.HikariDataSource [restartedMain] HikariPool-1 - Starting...
+2021-09-28 01:06:54,818 INFO c.z.h.HikariDataSource [restartedMain] HikariPool-1 - Start completed.
+2021-09-28 01:06:54,848 INFO o.h.j.i.u.LogHelper [restartedMain] HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-09-28 01:06:54,882 INFO o.h.Version [restartedMain] HHH000412: Hibernate ORM core version 5.4.27.Final
+2021-09-28 01:06:54,972 INFO o.h.a.c.r.j.JavaReflectionManager [restartedMain] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-09-28 01:06:55,060 INFO o.h.d.Dialect [restartedMain] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2021-09-28 01:06:56,009 INFO o.h.e.t.j.p.i.JtaPlatformInitiator [restartedMain] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-09-28 01:06:56,016 INFO o.s.o.j.AbstractEntityManagerFactoryBean [restartedMain] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-09-28 01:06:56,115 WARN o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration [restartedMain] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-09-28 01:06:56,727 INFO o.s.s.w.DefaultSecurityFilterChain [restartedMain] Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2f778023, org.springframework.security.web.context.SecurityContextPersistenceFilter@6aee5074, org.springframework.security.web.header.HeaderWriterFilter@619a6cbc, org.springframework.security.web.csrf.CsrfFilter@7e6546e8, org.springframework.security.web.authentication.logout.LogoutFilter@2be9443c, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@3a6bd9a5, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@625ccf23, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@16af544e, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@257790fb, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@575b7d3a, org.springframework.security.web.session.SessionManagementFilter@389d8f04, org.springframework.security.web.access.ExceptionTranslationFilter@8b144c, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@72538781]
+2021-09-28 01:06:56,840 INFO o.s.s.c.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
+2021-09-28 01:06:57,118 INFO o.s.b.d.a.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2021-09-28 01:06:57,136 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-8089"]
+2021-09-28 01:06:57,149 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat started on port(s): 8089 (http) with context path ''
+2021-09-28 01:06:57,160 INFO o.s.s.a.ScheduledAnnotationBeanPostProcessor [restartedMain] No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
+2021-09-28 01:06:57,166 INFO o.s.b.StartupInfoLogger [restartedMain] Started Application in 4.116 seconds (JVM running for 4.86)
+2021-09-28 01:07:08,453 INFO o.a.j.l.DirectJDKLog [http-nio-8089-exec-1] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-09-28 01:07:08,454 INFO o.s.w.s.FrameworkServlet [http-nio-8089-exec-1] Initializing Servlet 'dispatcherServlet'
+2021-09-28 01:07:08,455 INFO o.s.w.s.FrameworkServlet [http-nio-8089-exec-1] Completed initialization in 1 ms
+2021-09-28 01:07:08,489 INFO c.k.p.c.RequestResponseLoggingFilter [http-nio-8089-exec-1] Logging Request  GET : /
+2021-09-28 01:07:08,524 INFO c.k.p.c.RequestResponseLoggingFilter [http-nio-8089-exec-1] Logging Response :null
+2021-09-28 01:07:08,531 INFO c.k.p.c.RequestResponseLoggingFilter [http-nio-8089-exec-2] Logging Request  GET : /wallet
+2021-09-28 01:07:08,956 INFO c.k.p.c.RequestResponseLoggingFilter [http-nio-8089-exec-2] Logging Response :text/html;charset=UTF-8
+2021-09-28 01:07:09,877 INFO c.k.p.c.RequestResponseLoggingFilter [http-nio-8089-exec-3] Logging Request  GET : /user/181
+2021-09-28 01:07:09,916 INFO c.k.p.c.RequestResponseLoggingFilter [http-nio-8089-exec-3] Logging Response :text/html;charset=UTF-8
+2021-09-28 01:07:11,758 INFO c.k.p.c.RequestResponseLoggingFilter [http-nio-8089-exec-4] Logging Request  GET : /
+2021-09-28 01:07:11,762 INFO c.k.p.c.RequestResponseLoggingFilter [http-nio-8089-exec-4] Logging Response :null
+2021-09-28 01:07:11,768 INFO c.k.p.c.RequestResponseLoggingFilter [http-nio-8089-exec-5] Logging Request  GET : /wallet
+2021-09-28 01:07:11,795 INFO c.k.p.c.RequestResponseLoggingFilter [http-nio-8089-exec-5] Logging Response :text/html;charset=UTF-8
+2021-09-28 01:07:16,790 INFO c.k.p.c.RequestResponseLoggingFilter [http-nio-8089-exec-6] Logging Request  GET : /transactions/181/payments_sorted
+2021-09-28 01:07:16,824 INFO c.k.p.c.TransactionsController [http-nio-8089-exec-6] Payments are requested for user 181
+2021-09-28 01:07:16,853 INFO c.k.p.c.RequestResponseLoggingFilter [http-nio-8089-exec-6] Logging Response :text/html;charset=UTF-8
+2021-09-28 01:07:19,363 INFO c.k.p.c.RequestResponseLoggingFilter [http-nio-8089-exec-7] Logging Request  GET : /transaction/payment/432
+2021-09-28 01:07:19,381 INFO c.k.p.c.RequestResponseLoggingFilter [http-nio-8089-exec-7] Logging Response :text/html;charset=UTF-8
+2021-09-28 01:07:21,394 INFO c.k.p.c.RequestResponseLoggingFilter [http-nio-8089-exec-9] Logging Request  GET : /transaction/check/432
+2021-09-28 01:07:21,554 INFO c.k.p.c.RequestResponseLoggingFilter [http-nio-8089-exec-9] Logging Response :text/html;charset=UTF-8
+2021-09-28 01:08:40,855 INFO c.k.p.c.RequestResponseLoggingFilter [http-nio-8089-exec-1] Logging Request  GET : /
+2021-09-28 01:08:40,862 INFO c.k.p.c.RequestResponseLoggingFilter [http-nio-8089-exec-1] Logging Response :null
+2021-09-28 01:08:40,867 INFO c.k.p.c.RequestResponseLoggingFilter [http-nio-8089-exec-2] Logging Request  GET : /wallet
+2021-09-28 01:08:40,886 INFO c.k.p.c.RequestResponseLoggingFilter [http-nio-8089-exec-2] Logging Response :text/html;charset=UTF-8
+2021-09-28 01:08:42,695 INFO c.k.p.c.RequestResponseLoggingFilter [http-nio-8089-exec-3] Logging Request  GET : /transactions/181/payments_sorted
+2021-09-28 01:08:42,706 INFO c.k.p.c.TransactionsController [http-nio-8089-exec-3] Payments are requested for user 181
+2021-09-28 01:08:42,725 INFO c.k.p.c.RequestResponseLoggingFilter [http-nio-8089-exec-3] Logging Response :text/html;charset=UTF-8
+2021-09-28 01:08:47,713 INFO c.k.p.c.RequestResponseLoggingFilter [http-nio-8089-exec-4] Logging Request  GET : /transaction/payment/496
+2021-09-28 01:08:47,727 INFO c.k.p.c.RequestResponseLoggingFilter [http-nio-8089-exec-4] Logging Response :text/html;charset=UTF-8
+2021-09-28 01:08:54,548 INFO c.k.p.c.RequestResponseLoggingFilter [http-nio-8089-exec-5] Logging Request  GET : /transaction/check/496
+2021-09-28 01:08:54,593 INFO c.k.p.c.RequestResponseLoggingFilter [http-nio-8089-exec-5] Logging Response :text/html;charset=UTF-8
+2021-09-28 01:10:15,946 INFO c.k.p.c.RequestResponseLoggingFilter [http-nio-8089-exec-9] Logging Request  GET : /
+2021-09-28 01:10:15,951 INFO c.k.p.c.RequestResponseLoggingFilter [http-nio-8089-exec-9] Logging Response :null
+2021-09-28 01:10:15,957 INFO c.k.p.c.RequestResponseLoggingFilter [http-nio-8089-exec-8] Logging Request  GET : /wallet
+2021-09-28 01:10:15,973 INFO c.k.p.c.RequestResponseLoggingFilter [http-nio-8089-exec-8] Logging Response :text/html;charset=UTF-8
+2021-09-28 01:10:17,074 INFO c.k.p.c.RequestResponseLoggingFilter [http-nio-8089-exec-1] Logging Request  GET : /login
+2021-09-28 01:10:17,085 INFO c.k.p.c.RequestResponseLoggingFilter [http-nio-8089-exec-1] Logging Response :text/html;charset=UTF-8
+2021-09-28 01:10:17,104 INFO c.k.p.c.RequestResponseLoggingFilter [http-nio-8089-exec-2] Logging Request  GET : /static/images/payments.png
+2021-09-28 01:10:17,118 INFO c.k.p.c.RequestResponseLoggingFilter [http-nio-8089-exec-2] Logging Response :image/png
+2021-09-28 01:10:22,290 INFO c.k.p.c.RequestResponseLoggingFilter [http-nio-8089-exec-4] Logging Request  GET : /
+2021-09-28 01:10:22,293 INFO c.k.p.c.RequestResponseLoggingFilter [http-nio-8089-exec-4] Logging Response :null
+2021-09-28 01:10:22,297 INFO c.k.p.c.RequestResponseLoggingFilter [http-nio-8089-exec-5] Logging Request  GET : /wallet
+2021-09-28 01:10:22,312 INFO c.k.p.c.RequestResponseLoggingFilter [http-nio-8089-exec-5] Logging Response :text/html;charset=UTF-8
+2021-09-28 01:10:24,270 INFO c.k.p.c.RequestResponseLoggingFilter [http-nio-8089-exec-6] Logging Request  GET : /transactions/2/payments_sorted
+2021-09-28 01:10:24,278 INFO c.k.p.c.TransactionsController [http-nio-8089-exec-6] Payments are requested for user 2
+2021-09-28 01:10:24,292 INFO c.k.p.c.RequestResponseLoggingFilter [http-nio-8089-exec-6] Logging Response :text/html;charset=UTF-8
+2021-09-28 01:10:25,698 INFO c.k.p.c.RequestResponseLoggingFilter [http-nio-8089-exec-7] Logging Request  GET : /transaction/payment/437
+2021-09-28 01:10:25,711 INFO c.k.p.c.RequestResponseLoggingFilter [http-nio-8089-exec-7] Logging Response :text/html;charset=UTF-8
+2021-09-28 01:10:31,492 INFO c.k.p.c.RequestResponseLoggingFilter [http-nio-8089-exec-9] Logging Request  GET : /transaction/check/437
+2021-09-28 01:10:31,536 INFO c.k.p.c.RequestResponseLoggingFilter [http-nio-8089-exec-9] Logging Response :text/html;charset=UTF-8
+2021-09-28 01:13:06,911 INFO c.k.p.c.RequestResponseLoggingFilter [http-nio-8089-exec-1] Logging Request  GET : /transaction/check/437
+2021-09-28 01:13:06,925 INFO c.k.p.c.RequestResponseLoggingFilter [http-nio-8089-exec-1] Logging Response :text/html;charset=UTF-8
+2021-09-28 01:13:10,616 INFO c.k.p.c.RequestResponseLoggingFilter [http-nio-8089-exec-2] Logging Request  GET : /transaction/check/437
+2021-09-28 01:13:10,630 INFO c.k.p.c.RequestResponseLoggingFilter [http-nio-8089-exec-2] Logging Response :text/html;charset=UTF-8
+2021-09-28 01:13:14,903 INFO c.k.p.c.RequestResponseLoggingFilter [http-nio-8089-exec-3] Logging Request  GET : /transaction/check/437
+2021-09-28 01:15:48,078 WARN c.z.h.p.HikariPool$HouseKeeper [HikariPool-1 housekeeper] HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2m13s883ms524µs).
+2021-09-28 01:15:48,093 INFO c.k.p.c.RequestResponseLoggingFilter [http-nio-8089-exec-3] Logging Response :text/html;charset=UTF-8
+2021-09-28 01:16:05,270 INFO o.s.s.c.ExecutorConfigurationSupport [SpringContextShutdownHook] Shutting down ExecutorService 'applicationTaskExecutor'
+2021-09-28 01:16:05,272 INFO o.s.o.j.AbstractEntityManagerFactoryBean [SpringContextShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-09-28 01:16:05,275 INFO c.z.h.HikariDataSource [SpringContextShutdownHook] HikariPool-1 - Shutdown initiated...
+2021-09-28 01:16:05,277 INFO c.z.h.HikariDataSource [SpringContextShutdownHook] HikariPool-1 - Shutdown completed.

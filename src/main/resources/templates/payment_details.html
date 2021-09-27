@@ -8,7 +8,7 @@
 <div th:insert="~{fragments/header :: navbar}"></div>
 
 <div class="container mt-1">
-
+    <div th:insert="~{fragments/messages :: messages}"></div>
     <h3 class="my-1" th:text="#{details}"></h3><br/>
 
     <table class="table table-striped auto__table table-condensed ">
@@ -54,9 +54,10 @@
             <td th:text="#{payment_destination}"></td>
             <td th:text="${transaction.destination}"></td>
         </tr>
-
         </tbody>
     </table>
+
+        <a class="btn btn-outline-info" th:href="@{/transaction/check/{path}(path=${transaction.id})}" th:text="#{payment_check}"></a>
 
 </div>
 </body>
