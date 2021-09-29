@@ -32,7 +32,10 @@ public class UserController {
     @PostMapping("/{user}/change_email")
     public String changeEmail(@PathVariable User user, @RequestParam String email) {
         if (userService.changeEmail(user, email)) {
-            return "redirect:/user/" + user.getId() + "?message=updated";
+            if (user.getRole().equals(Role.ADMIN)) {
+                return "redirect:/user/" + user.getId() + "?message=updated&warn=sign_in_email";
+            }
+            return "redirect:/wallet?message=updated&warn=sign_in_email";
         }
         return "redirect:/user/" + user.getId() + "?warn=not_updated";
     }

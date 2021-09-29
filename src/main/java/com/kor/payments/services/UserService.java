@@ -76,6 +76,7 @@ public class UserService implements UserDetailsService {
         }
         user.setEmail(email);
         if (userRepository.save(user).getEmail().equals(email)) {
+            log.info("Email is chenged for user {}", user.getId());
             return true;
         }
         return false;
@@ -87,6 +88,7 @@ public class UserService implements UserDetailsService {
         }
         user.setPassword(passwordEncoder.encode(newPassword));
         if (passwordEncoder.matches(newPassword, userRepository.save(user).getPassword())) {
+            log.info("Password is changed for user {}", user.getId());
             return true;
         }
         return false;

@@ -1,6 +1,7 @@
 package com.kor.payments.controller;
 
 import com.itextpdf.text.*;
+import com.itextpdf.text.pdf.BaseFont;
 import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
@@ -9,7 +10,6 @@ import com.kor.payments.domain.Utils;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.URISyntaxException;
@@ -19,7 +19,6 @@ import java.time.LocalDateTime;
 import java.util.Map;
 import java.util.stream.Collector;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class ControllerUtils {
 
@@ -32,7 +31,6 @@ public class ControllerUtils {
     }
 
     static boolean getCheck(Transaction payment) throws IOException, DocumentException, URISyntaxException {
-
         Document document = new Document();
         PdfWriter.getInstance(document, new FileOutputStream("check.pdf"));
         document.open();
@@ -47,55 +45,38 @@ public class ControllerUtils {
         document.add(paragraph);
         document.add(chunk);
         PdfPTable table = new PdfPTable(2);
-//        addTableHeader(table);
         addRows(table, payment);
         document.add(table);
         document.add(paragraph);
         document.close();
-
         return true;
     }
 
-//    private static void addTableHeader(PdfPTable table) {
-//        Stream.of("column header 1", "column header 2", "column header 3")
-//                .forEach(columnTitle -> {
-//                    PdfPCell header = new PdfPCell();
-//                    header.setBackgroundColor(BaseColor.LIGHT_GRAY);
-//                    header.setBorderWidth(2);
-//                    header.setPhrase(new Phrase(columnTitle));
-//                    table.addCell(header);
-//                });
-//    }
-
     private static void addRows(PdfPTable table, Transaction payment) {
+        Font font = FontFactory.getFont("HelveticaRegular.ttf", BaseFont.IDENTITY_H, true);
+        PdfPCell cell;
         table.addCell("recipient's account");
         table.addCell("UA " + payment.getReceiver().getId());
         table.addCell("receiver");
-        table.addCell(payment.getReceiver().getUser().getLastName() + " " +
+        cell = new PdfPCell(new Phrase(payment.getReceiver().getUser().getLastName() + " " +
                 payment.getReceiver().getUser().getName() + " " +
-                payment.getReceiver().getUser().getMiddleName());
+                payment.getReceiver().getUser().getMiddleName(), font));
+        table.addCell(cell);
         table.addCell("accrual to the recipient");
-        table.addCell(payment.getAccrual()/100 + " " + payment.getReceiver().getCurrency().name());
-//        table.addCell("receiver, currency");
-//        table.addCell(payment.getReceiver().getCurrency().name());
+        table.addCell((double) payment.getAccrual()/100 + " " + payment.getReceiver().getCurrency().name());
         table.addCell("payer");
-        table.addCell(payment.getPayer().getUser().getLastName() + " " +
+        cell = new PdfPCell(new Phrase(payment.getPayer().getUser().getLastName() + " " +
                 payment.getPayer().getUser().getName() + " " +
-                payment.getPayer().getUser().getMiddleName());
+                payment.getPayer().getUser().getMiddleName(), font));
+        table.addCell(cell);
         table.addCell("payer`s account");
         table.addCell("UA " + payment.getPayer().getId());
-//        table.addCell("payer, currency");
-//        table.addCell(payment.getCurrency().name());
         table.addCell("payment amount");
-        table.addCell(payment.getAmount()/100 + " " + payment.getCurrency().name());
+        table.addCell((double) payment.getAmount()/100 + " " + payment.getCurrency().name());
         table.addCell("payment destination");
-        table.addCell(String.valueOf(payment.getDestination()));
+        cell = new PdfPCell(new Phrase(String.valueOf(payment.getDestination()), font));
+        table.addCell(cell);
         table.addCell("date");
         table.addCell(Utils.getFormatedDate(payment.getRegistered()));
     }
-
-
-
-
-
 }
