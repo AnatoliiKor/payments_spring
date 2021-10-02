@@ -1,5 +1,6 @@
 package com.kor.payments.controller;
 
+import com.kor.payments.utils.ControllerUtils;
 import com.kor.payments.domain.Account;
 import com.kor.payments.domain.Role;
 import com.kor.payments.domain.User;
@@ -138,7 +139,4 @@ public class AccountController {
         log.debug("New request {} for account {} is not created", request, account.getId());
         return "redirect:/account/" + account.getId() + "?warn=not_updated";
     }
-
-
-
 }

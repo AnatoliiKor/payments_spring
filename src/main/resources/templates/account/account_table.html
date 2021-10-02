@@ -30,11 +30,12 @@
         </tr>
         <tr>
             <td th:text="#{opened}"></td>
-            <td th:text="${T(com.kor.payments.domain.Utils).getFormatedDate(account.registered)}"></td>
+            <td th:text="${T(com.kor.payments.utils.Utils).getFormatedDate(account.registered)}"></td>
         </tr>
         <tr>
             <td th:text="#{is_active}"></td>
-            <td th:text="${account.active}? #{is_active} : #{blocked}"/></td>
+            <td th:text="${account.active}? #{is_active} : #{blocked}">
+            </td>
         </tr>
         <tr th:if="${account.accountRequest != null}">
             <td></td>

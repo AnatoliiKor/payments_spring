@@ -42,11 +42,11 @@ public class CurrencyRateService {
         } else {
             receiverRate = getExchangeRateByCurrency(receiver);
         }
-        int amountForPayer = (int) (amountForReceiver*receiverRate/payerRate);
+        int amountForPayer = (int) (amountForReceiver * receiverRate / payerRate);
         return amountForPayer;
     }
 
-    public double getExchangeRateByCurrency (Currency currency) {
+    public double getExchangeRateByCurrency(Currency currency) {
         return currencyRateRepository.findByCurrency(currency).getExchangeRate();
     }
 }

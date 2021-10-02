@@ -20,7 +20,7 @@ public class AccountServiceTest {
     @MockBean
     private AccountRepository accountRepository;
     @MockBean
-    private  CreditCardService creditCardService;
+    private CreditCardService creditCardService;
     @MockBean
     private AccountRequestService accountRequestService;
 

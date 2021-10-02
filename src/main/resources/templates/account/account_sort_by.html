@@ -9,29 +9,29 @@
 
     <form class="m-2" method="get" th:action="@{/accounts/sort}">
         <div class="row">
-        <div class="mx-2 mt-1" th:text="#{sort_by}"></div>
-        <select name="sort" size="1" required>
-            <option class="text-danger fw-bold" th:text="${sort}" selected></option>
+            <div class="mx-2 mt-1" th:text="#{sort_by}"></div>
+            <select name="sort" size="1" required>
+                <option class="text-danger fw-bold" th:text="${sort}" selected></option>
 
-            <option value="id" th:text="#{account_number}" ></option>
-            <option value="balance" th:text="#{balance}"></option>
-            <option value="currency" th:text="#{currency}"></option>
-            <option value="registered" th:text="#{registered}"></option>
-            <option value="user" th:text="#{user}"></option>
-            <option value="active" th:text="#{is_active}"></option>
-        </select>
+                <option value="id" th:text="#{account_number}"></option>
+                <option value="balance" th:text="#{balance}"></option>
+                <option value="currency" th:text="#{currency}"></option>
+                <option value="registered" th:text="#{registered}"></option>
+                <option value="user" th:text="#{user}"></option>
+                <option value="active" th:text="#{is_active}"></option>
+            </select>
 
-        <div class="mx-2" th:text="#{order_by}"></div>
+            <div class="mx-2" th:text="#{order_by}"></div>
 
-        <select name="order" size="1" required>
-            <option class="text-info fw-bold" th:text="${order}" selected></option>
+            <select name="order" size="1" required>
+                <option class="text-info fw-bold" th:text="${order}" selected></option>
 
-            <option value="ASC" th:text="#{ascending}"></option>
-            <option value="DESC" th:text="#{descending}"></option>
-        </select>
+                <option value="ASC" th:text="#{ascending}"></option>
+                <option value="DESC" th:text="#{descending}"></option>
+            </select>
 
-        <button class="btn btn-outline-success mx-2"
-                type="submit" th:text="#{apply}"></button>
+            <button class="btn btn-outline-success mx-2"
+                    type="submit" th:text="#{apply}"></button>
 
         </div>
     </form>

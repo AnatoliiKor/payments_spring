@@ -7,7 +7,6 @@ import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.PositiveOrZero;
 import java.io.Serializable;
 import java.time.LocalDateTime;
@@ -20,7 +19,7 @@ import java.util.List;
 public class Account implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "number_generator")
-    @SequenceGenerator(name="number_generator", sequenceName = "number_seq", allocationSize = 1, initialValue = 1000000000)
+    @SequenceGenerator(name = "number_generator", sequenceName = "number_seq", allocationSize = 1, initialValue = 1000000000)
     private Long id;
     @ManyToOne
     @JoinColumn(name = "user_id", referencedColumnName = "id")

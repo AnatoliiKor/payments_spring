@@ -91,7 +91,7 @@ public class AdminController {
     @PostMapping("/action/{account}")
     public String changeAccountStatus(@PathVariable Account account, @RequestParam(name = "is_active") boolean action, Model model) {
         String message;
-        if(accountService.setIsActive(account, action)) {
+        if (accountService.setIsActive(account, action)) {
             message = "?message=updated";
             if (account.getAccountRequest() == null) {
                 return "redirect:/accounts" + message;
@@ -106,7 +106,7 @@ public class AdminController {
     @PostMapping("/user_active/{user}")
     public String changeUserStatus(@PathVariable User user, @RequestParam(name = "is_active") boolean action, Model model) {
         String message;
-        if(userService.setIsActive(user, action)) {
+        if (userService.setIsActive(user, action)) {
             message = "?message=updated";
         } else {
             message = "?warn=not_updated";
@@ -122,8 +122,4 @@ public class AdminController {
         }
         return "redirect:/admin?warn=not_updated";
     }
-
-
-
-
 }

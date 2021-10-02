@@ -15,7 +15,7 @@
         <tbody>
         <tr>
             <td th:text="#{date}"></td>
-            <td th:text="${T(com.kor.payments.domain.Utils).getFormatedDate(transaction.registered)}"></td>
+            <td th:text="${T(com.kor.payments.utils.Utils).getFormatedDate(transaction.registered)}"></td>
         </tr>
         <tr>
             <td th:text="#{receiver_account}"></td>
@@ -57,7 +57,8 @@
         </tbody>
     </table>
 
-        <a class="btn btn-outline-info" th:href="@{/transaction/check/{path}(path=${transaction.id})}" th:text="#{payment_check}"></a>
+    <a class="btn btn-outline-info" th:href="@{/transaction/check/{path}(path=${transaction.id})}"
+       th:text="#{payment_check}"></a>
 
 </div>
 </body>

@@ -28,8 +28,8 @@
         <tr>
             <td th:text="#{email}"></td>
             <td>
-                    <p class="mx-2" th:text="${user.email}"></p>
-                    <div th:insert="~{user/change_email :: change_email}"></div>
+                <p class="mx-2" th:text="${user.email}"></p>
+                <div th:insert="~{user/change_email :: change_email}"></div>
             </td>
         </tr>
         <tr>
@@ -38,11 +38,12 @@
         </tr>
         <tr>
             <td th:text="#{registered}"></td>
-            <td th:text="${T(com.kor.payments.domain.Utils).getFormatedDate(user.registered)}"></td>
+            <td th:text="${T(com.kor.payments.utils.Utils).getFormatedDate(user.registered)}"></td>
         </tr>
+        <tr>
         <td></td>
         <td>
-                <div th:insert="~{user/change_password :: change_password}"></div>
+            <div th:insert="~{user/change_password :: change_password}"></div>
         </td>
         </tr>
 

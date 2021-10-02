@@ -15,7 +15,7 @@ import java.time.LocalDateTime;
 public class CurrencyRate {
 
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     @Enumerated(EnumType.STRING)
     private Currency currency;

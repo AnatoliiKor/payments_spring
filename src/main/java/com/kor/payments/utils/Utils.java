@@ -1,4 +1,4 @@
-package com.kor.payments.domain;
+package com.kor.payments.utils;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;

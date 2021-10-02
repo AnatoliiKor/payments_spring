@@ -19,11 +19,11 @@ public class CreditCard implements Serializable {
     @Column(unique = true)
     private long cardNumber;
 
-    @OneToOne(mappedBy = "card",fetch = FetchType.LAZY)
+    @OneToOne(mappedBy = "card", fetch = FetchType.LAZY)
     private Account account;
 
 
-        public String getCardNumberSpaces() {
+    public String getCardNumberSpaces() {
         String number = String.valueOf(this.cardNumber);
         if (number == null) return "no card";
         char delimiter = ' ';

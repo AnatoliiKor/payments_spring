@@ -18,7 +18,8 @@
                 <option value="receiver" th:text="#{receiver}"></option>
                 <option value="registered" th:text="#{date}"></option>
                 <option th:unless="${title.equals('inflows')}" value="amount" th:text="#{amount}"></option>
-                <option th:if="${title.equals('inflows')}" value="accrual" th:text="#{payment_receiver_amount}"></option>
+                <option th:if="${title.equals('inflows')}" value="accrual"
+                        th:text="#{payment_receiver_amount}"></option>
                 <option th:unless="${title.equals('inflows')}" value="currency" th:text="#{currency}"></option>
             </select>
 

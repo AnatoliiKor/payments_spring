@@ -34,7 +34,7 @@
                         <td th:text="${request.account.id}"></td>
                         <td th:text="${request.account.balance/100}"></td>
                         <td th:text="${request.account.currency}"></td>
-                        <td th:text="${T(com.kor.payments.domain.Utils).getFormatedDate(request.account.registered)}"></td>
+                        <td th:text="${T(com.kor.payments.utils.Utils).getFormatedDate(request.account.registered)}"></td>
                         <td th:text="${request.account.active}? #{is_active} : #{blocked}"></td>
                         <td>
                             <form th:action="@{/admin/action/{path}(path=${request.account.id})}" method="post">
@@ -66,11 +66,12 @@
                         <tbody>
                         <tr>
                             <td th:each="rate : ${rates}">
-                                <p th:text="${T(com.kor.payments.domain.Utils).getFormatedDate(rate.updated)}"></p>
+                                <p th:text="${T(com.kor.payments.utils.Utils).getFormatedDate(rate.updated)}"></p>
                                 <p th:text="'1 ' + #{${rate.currency.name()}}"></p>
-                                <form method="post" action="#" th:action="@{/admin/update_exchange_rate/{path}(path=${rate.id})}">
+                                <form method="post" action="#"
+                                      th:action="@{/admin/update_exchange_rate/{path}(path=${rate.id})}">
                                     <input type="number" th:max="100" th:value="${rate.exchangeRate}" step=".01"
-                                    min="0.01" name="rate" required>
+                                           min="0.01" name="rate" required>
                                     <p th:text="#{UAH}"></p>
                                     <button class="mt-1" type="submit" th:text="#{update}"></button>
                                 </form>

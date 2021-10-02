@@ -30,7 +30,7 @@ public class TransactionServiceTest {
     private User user;
 
     @Before
-    public void newUser () {
+    public void newUser() {
         user = new User();
         user.setId(2L);
     }
@@ -43,13 +43,13 @@ public class TransactionServiceTest {
 
     @Test
     public void findPayerTransactions() {
-        List<Transaction> transactions =  transactionService.findPayerTransactions(user);
+        List<Transaction> transactions = transactionService.findPayerTransactions(user);
         assertTrue(transactions.size() != 0);
     }
 
     @Test
     public void findReceiverTransactions() {
-        List<Transaction> transactions =  transactionService.findReceiverTransactions(user);
+        List<Transaction> transactions = transactionService.findReceiverTransactions(user);
         assertTrue(transactions.size() != 0);
     }
 

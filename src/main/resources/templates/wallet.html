@@ -35,7 +35,7 @@
                         <tbody>
                         <tr>
                             <td th:each="rate : ${rates}">
-                                <p th:text="${T(com.kor.payments.domain.Utils).getFormatedDate(rate.updated)}"></p>
+                                <p th:text="${T(com.kor.payments.utils.Utils).getFormatedDate(rate.updated)}"></p>
                                 <p th:text="'1 ' + #{${rate.currency.name()}}"></p>
                                 <p th:text="${rate.exchangeRate} + ' ' + #{UAH}"></p>
                             </td>

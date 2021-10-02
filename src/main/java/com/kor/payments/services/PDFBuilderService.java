@@ -1,14 +1,12 @@
-package com.kor.payments.controller;
+package com.kor.payments.services;
 
 import com.itextpdf.text.*;
 import com.itextpdf.text.pdf.BaseFont;
 import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
+import com.kor.payments.utils.Utils;
 import com.kor.payments.domain.Transaction;
-import com.kor.payments.domain.Utils;
-import org.springframework.validation.BindingResult;
-import org.springframework.validation.FieldError;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -16,21 +14,10 @@ import java.net.URISyntaxException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.time.LocalDateTime;
-import java.util.Map;
-import java.util.stream.Collector;
-import java.util.stream.Collectors;
 
-public class ControllerUtils {
+public class PDFBuilderService {
 
-    static Map<String, String> getErrors(BindingResult bindingResult) {
-//        TODO stream
-        Collector<FieldError, ?, Map<String, String>> collector = Collectors.toMap(
-                fieldError -> fieldError.getField() + "Error",
-                FieldError::getDefaultMessage);
-        return bindingResult.getFieldErrors().stream().collect(collector);
-    }
-
-    static boolean getCheck(Transaction payment) throws IOException, DocumentException, URISyntaxException {
+    public static boolean getCheck(Transaction payment) throws IOException, DocumentException, URISyntaxException {
         Document document = new Document();
         PdfWriter.getInstance(document, new FileOutputStream("check.pdf"));
         document.open();
@@ -63,7 +50,7 @@ public class ControllerUtils {
                 payment.getReceiver().getUser().getMiddleName(), font));
         table.addCell(cell);
         table.addCell("accrual to the recipient");
-        table.addCell((double) payment.getAccrual()/100 + " " + payment.getReceiver().getCurrency().name());
+        table.addCell((double) payment.getAccrual() / 100 + " " + payment.getReceiver().getCurrency().name());
         table.addCell("payer");
         cell = new PdfPCell(new Phrase(payment.getPayer().getUser().getLastName() + " " +
                 payment.getPayer().getUser().getName() + " " +
@@ -72,7 +59,7 @@ public class ControllerUtils {
         table.addCell("payer`s account");
         table.addCell("UA " + payment.getPayer().getId());
         table.addCell("payment amount");
-        table.addCell((double) payment.getAmount()/100 + " " + payment.getCurrency().name());
+        table.addCell((double) payment.getAmount() / 100 + " " + payment.getCurrency().name());
         table.addCell("payment destination");
         cell = new PdfPCell(new Phrase(String.valueOf(payment.getDestination()), font));
         table.addCell(cell);

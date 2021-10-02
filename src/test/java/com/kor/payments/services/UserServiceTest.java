@@ -37,7 +37,7 @@ public class UserServiceTest {
     }
 
     @Test
-    public void addUserFailedTest(){
+    public void addUserFailedTest() {
         User user = new User();
         user.setEmail("test@test.ua");
         Mockito.doReturn(new User())
@@ -49,7 +49,7 @@ public class UserServiceTest {
     }
 
     @Test
-    public void changeEmailTest(){
+    public void changeEmailTest() {
         User user = new User();
         String oldEmail = "old@test.ua";
         String newEmail = "new@test.ua";
@@ -65,7 +65,7 @@ public class UserServiceTest {
     }
 
     @Test
-    public void changeEmailFailedTest(){
+    public void changeEmailFailedTest() {
         User user = new User();
         String email = "test@test.ua";
         user.setEmail(email);
@@ -79,7 +79,7 @@ public class UserServiceTest {
     }
 
     @Test
-    public void changePasswordTest(){
+    public void changePasswordTest() {
         User user = new User();
         String oldPassword = "1";
         String newPassword = "2";

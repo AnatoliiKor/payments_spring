@@ -1,5 +1,6 @@
 package com.kor.payments.controller;
 
+import com.kor.payments.utils.ControllerUtils;
 import com.kor.payments.domain.User;
 import com.kor.payments.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,5 +40,4 @@ public class RegistrationController {
         }
         return "redirect:login";
     }
-
 }

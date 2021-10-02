@@ -13,7 +13,8 @@
     <div class="card card-body" style="width: 300px;">
         <form method="post" action="#" th:action="@{/new_account}">
             <label th:text="#{account_name}"></label>
-            <input type="text" th:attr="class=${accountNameError != null ? 'form-control is-invalid': ''}" name="accountName">
+            <input type="text" th:attr="class=${accountNameError != null ? 'form-control is-invalid': ''}"
+                   name="accountName">
             <div class="invalid-feedback" th:if="${accountNameError != null}">
                 <p th:text="${accountNameError}"></p>
             </div>

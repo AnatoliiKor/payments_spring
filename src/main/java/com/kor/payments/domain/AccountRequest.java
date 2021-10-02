@@ -14,7 +14,7 @@ import java.time.LocalDateTime;
 public class AccountRequest {
 
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     @OneToOne
     @JoinColumn(name = "account")

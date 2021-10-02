@@ -17,36 +17,37 @@
         <div th:insert="~{fragments/pagination :: pagination}"></div>
 
         <table class="table table-striped auto__table table-condensed text-center mt-2">
-        <thead>
-        <tr>
-            <th>#</th>
-            <th th:text="#{date}"></th>
-            <th th:text="#{payer}"></th>
-            <th th:unless="${title.equals('inflows')}" th:text="#{amount}"></th>
-            <th th:unless="${title.equals('inflows')}" th:text="#{payer} + ', ' + #{currency}"></th>
-            <th th:text="#{receiver}"></th>
-            <th th:text="#{payment_receiver_amount}"></th>
-            <th th:text="#{receiver} + ', ' + #{currency}"></th>
-            <th></th>
-            <th></th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr th:each="transaction,iter : ${transactions}">
-            <td th:text="${page}*10 + ${iter.index}+1"> </td>
-            <td th:text="${T(com.kor.payments.domain.Utils).getFormatedDate(transaction.registered)}"></td>
-            <td th:text="'UA' + ${transaction.payer.id + '/' + transaction.payer.user.lastName}"></td>
-            <td th:unless="${title.equals('inflows')}" th:text="${transaction.amount}/100"></td>
-            <td th:unless="${title.equals('inflows')}" th:text="${transaction.currency}"></td>
-            <td th:text="'UA' + ${transaction.receiver.id + '/' + transaction.receiver.user.lastName}"></td>
-            <td th:text="${transaction.accrual}/100"></td>
-            <td th:text="${transaction.receiver.currency}"></td>
-            <td>
-                <a class="btn btn-outline-info" th:href="@{/transaction/payment/{path}(path=${transaction.id})}" th:text="#{details}"></a>
-            </td>
-        </tr>
-        </tbody>
-    </table>
+            <thead>
+            <tr>
+                <th>#</th>
+                <th th:text="#{date}"></th>
+                <th th:text="#{payer}"></th>
+                <th th:unless="${title.equals('inflows')}" th:text="#{amount}"></th>
+                <th th:unless="${title.equals('inflows')}" th:text="#{payer} + ', ' + #{currency}"></th>
+                <th th:text="#{receiver}"></th>
+                <th th:text="#{payment_receiver_amount}"></th>
+                <th th:text="#{receiver} + ', ' + #{currency}"></th>
+                <th></th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="transaction,iter : ${transactions}">
+                <td th:text="${page}*10 + ${iter.index}+1"></td>
+                <td th:text="${T(com.kor.payments.utils.Utils).getFormatedDate(transaction.registered)}"></td>
+                <td th:text="'UA' + ${transaction.payer.id + '/' + transaction.payer.user.lastName}"></td>
+                <td th:unless="${title.equals('inflows')}" th:text="${transaction.amount}/100"></td>
+                <td th:unless="${title.equals('inflows')}" th:text="${transaction.currency}"></td>
+                <td th:text="'UA' + ${transaction.receiver.id + '/' + transaction.receiver.user.lastName}"></td>
+                <td th:text="${transaction.accrual}/100"></td>
+                <td th:text="${transaction.receiver.currency}"></td>
+                <td>
+                    <a class="btn btn-outline-info" th:href="@{/transaction/payment/{path}(path=${transaction.id})}"
+                       th:text="#{details}"></a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
     </div>
     <p th:if="${transactions == null and #lists.isEmpty(transactions)}" th:text="#{no_payments}"></p>
     <br/>

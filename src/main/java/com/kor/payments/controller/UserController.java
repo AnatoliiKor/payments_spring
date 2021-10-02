@@ -3,7 +3,6 @@ package com.kor.payments.controller;
 import com.kor.payments.domain.Role;
 import com.kor.payments.domain.User;
 import com.kor.payments.repository.UserRepository;
-import com.kor.payments.services.AccountService;
 import com.kor.payments.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;

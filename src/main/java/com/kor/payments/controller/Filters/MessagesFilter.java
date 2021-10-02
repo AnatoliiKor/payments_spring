@@ -1,18 +1,14 @@
-package com.kor.payments.controller;
+package com.kor.payments.controller.Filters;
 
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Component;
 
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @Component
-public class RequestResponseLoggingFilter implements Filter {
-    public static Logger logger = LogManager.getLogger(RequestResponseLoggingFilter.class);
+public class MessagesFilter implements Filter {
 
     @Override
     public void init(FilterConfig filterConfig) {
@@ -25,10 +21,13 @@ public class RequestResponseLoggingFilter implements Filter {
             FilterChain chain) throws IOException, ServletException {
 
         HttpServletRequest req = (HttpServletRequest) request;
-        HttpServletResponse res = (HttpServletResponse) response;
-        logger.info("Logging Request  {} : {}", req.getMethod(), req.getRequestURI());
+        if (req.getParameter("message") != null) {
+            req.setAttribute("message", req.getParameter("message"));
+        }
+        if (req.getParameter("warn") != null) {
+            req.setAttribute("warn", req.getParameter("warn"));
+        }
         chain.doFilter(request, response);
-        logger.info("Logging Response :{}", res.getContentType());
     }
 
     @Override

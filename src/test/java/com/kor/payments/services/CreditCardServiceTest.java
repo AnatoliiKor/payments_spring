@@ -2,7 +2,6 @@ package com.kor.payments.services;
 
 import com.kor.payments.domain.CreditCard;
 import com.kor.payments.repository.CreditCardRepository;
-import org.junit.After;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mockito;

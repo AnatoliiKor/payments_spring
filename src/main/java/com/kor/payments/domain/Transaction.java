@@ -18,7 +18,7 @@ import java.time.format.DateTimeFormatter;
 @Setter
 public class Transaction implements Serializable {
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     @NotNull(message = "Cannot be empty")
     @ManyToOne
@@ -32,7 +32,6 @@ public class Transaction implements Serializable {
     private String destination;
     @Positive(message = "Must be positive")
     private int amount;
-
     private int accrual;
     @Enumerated(EnumType.STRING)
     private Currency currency;

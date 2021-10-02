@@ -34,7 +34,7 @@ public class AccountServiceTestRepo {
     private Account account;
 
     @Before
-    public void addUser(){
+    public void addUser() {
         user = new User();
         user.setPassword(test);
         user.setName(test);

@@ -13,13 +13,12 @@ import java.util.List;
 public interface AccountRepository extends JpaRepository<Account, Long> {
     Account findById(long id);
 
-    List<Account> findAll ();
+    List<Account> findAll();
 
-    List<Account> findAccountsByActiveTrue ();
-    List<Account> findAccountsByActiveTrueAndUser (User user);
+    List<Account> findAccountsByActiveTrueAndUser(User user);
 
     Page<Account> findAll(Pageable pageable);
 
-    List<Account> findAccountsByUser (User user);
+    List<Account> findAccountsByUser(User user);
 
 }

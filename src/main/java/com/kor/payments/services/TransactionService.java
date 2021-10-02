@@ -22,10 +22,10 @@ public class TransactionService {
     @Transactional
     public boolean makeTransaction(Transaction payment) {
         Account payer = payment.getPayer();
-        payer.setBalance(payer.getBalance()-payment.getAmount());
+        payer.setBalance(payer.getBalance() - payment.getAmount());
         accountRepository.save(payer);
         Account receiver = payment.getReceiver();
-        receiver.setBalance(receiver.getBalance()+payment.getAccrual());
+        receiver.setBalance(receiver.getBalance() + payment.getAccrual());
         accountRepository.save(receiver);
         transactionRepository.save(payment);
         return true;

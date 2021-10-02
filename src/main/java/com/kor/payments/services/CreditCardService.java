@@ -10,7 +10,7 @@ public class CreditCardService {
     @Autowired
     private CreditCardRepository creditCardRepository;
 
-    public CreditCard getNewCard (long accountId) {
+    public CreditCard getNewCard(long accountId) {
         CreditCard card = new CreditCard();
         card.setCardNumber(2604000000000000L + accountId);
         creditCardRepository.save(card);

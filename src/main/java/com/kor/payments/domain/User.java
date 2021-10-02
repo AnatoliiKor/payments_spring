@@ -20,10 +20,10 @@ import java.util.List;
 @Getter
 @Setter
 @NoArgsConstructor
-@Table(name= "usr")
+@Table(name = "usr")
 public class User implements UserDetails {
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     @NotBlank(message = "Cannot be empty")
     @Length(max = 20, message = "Too long (more then 20 chracters)")

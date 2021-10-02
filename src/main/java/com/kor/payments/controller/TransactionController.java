@@ -6,11 +6,11 @@ import com.kor.payments.domain.Transaction;
 import com.kor.payments.domain.User;
 import com.kor.payments.services.AccountService;
 import com.kor.payments.services.CurrencyRateService;
+import com.kor.payments.services.PDFBuilderService;
 import com.kor.payments.services.TransactionService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.repository.query.Param;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
@@ -98,7 +98,7 @@ public class TransactionController {
     @PostMapping("/cancel")
     public String cancelPayment(HttpSession httpSession) {
         httpSession.removeAttribute("payment");
-            return "redirect:/wallet?message=canceled";
+        return "redirect:/wallet?message=canceled";
     }
 
     @PostMapping("/confirm")
@@ -119,15 +119,10 @@ public class TransactionController {
     public String getCheck(@PathVariable Transaction transaction, Model model) {
 
         try {
-            ControllerUtils.getCheck(transaction);
-        } catch (IOException e) {
-            model.addAttribute("warn", "failed");
-        } catch (DocumentException e) {
-            model.addAttribute("warn", "failed");
-        } catch (URISyntaxException e) {
+            if (PDFBuilderService.getCheck(transaction)) model.addAttribute("message", "successfully");
+        } catch (IOException | DocumentException | URISyntaxException e) {
             model.addAttribute("warn", "failed");
         }
-        model.addAttribute("message", "successfully");
         return "payment_details";
     }
 
