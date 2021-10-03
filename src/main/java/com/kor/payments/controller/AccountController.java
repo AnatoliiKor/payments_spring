@@ -1,5 +1,6 @@
 package com.kor.payments.controller;
 
+import com.kor.payments.constants.Constant;
 import com.kor.payments.utils.ControllerUtils;
 import com.kor.payments.domain.Account;
 import com.kor.payments.domain.Role;
@@ -29,8 +30,8 @@ public class AccountController {
     private static final Logger log = LogManager.getLogger(AccountController.class);
     int page = 0;
     int maxPage = 1000;
-    String sort = "user";
-    String order = "ASC";
+    String sort = Constant.ID;
+    String order = Constant.ASC;
     List<Account> accounts;
 
     @Autowired
@@ -46,7 +47,7 @@ public class AccountController {
         if (!user.getEmail().equals(userDetails.getUsername()) && !userDetails.getAuthorities().contains(Role.ADMIN)) {
             return "accessDenied";
         }
-        model.addAttribute("accounts", accountService.findAccountsByUser(user));
+        model.addAttribute(Constant.ACCOUNTS, accountService.findAccountsByUser(user));
         String userDate = user.getLastName() + " " + user.getName() + " " + user.getMiddleName() + " (" + user.getEmail() + ")";
         model.addAttribute("user_date", userDate);
         log.info("Accounts are requested for user {}", user.getId());
@@ -60,15 +61,19 @@ public class AccountController {
             --page;
         }
         accounts = accountService.findAllPage(page, sort, order);
-        model.addAttribute("accounts", accounts);
-        model.addAttribute("sort", sort);
-        model.addAttribute("order", order);
-        model.addAttribute("page", page);
+        fillModel(model);
         if (accounts.size() < 10) {
             maxPage = page;
         }
         log.info("Accounts are requested by Admin, page {}, sort {}, order {}", page, sort, order);
         return "accounts_list";
+    }
+
+    private void fillModel(Model model) {
+        model.addAttribute(Constant.ACCOUNTS, accounts);
+        model.addAttribute(Constant.SORT, sort);
+        model.addAttribute(Constant.ORDER, order);
+        model.addAttribute(Constant.PAGE, page);
     }
 
     @GetMapping("/accounts/page")
@@ -110,7 +115,7 @@ public class AccountController {
                 return "redirect:/";
             } else {
                 log.info("Account {} is not added to DB", account.getAccountName());
-                model.addAttribute("warn", "account_not_opened");
+                model.addAttribute(Constant.WARN, "account_not_opened");
                 return "wallet";
             }
         }
@@ -118,7 +123,7 @@ public class AccountController {
 
     @GetMapping("/account/{account}")
     public String getAccount(@PathVariable Account account, Model model) {
-        model.addAttribute("account", account);
+        model.addAttribute(Constant.ACCOUNT, account);
         return "account";
     }
 

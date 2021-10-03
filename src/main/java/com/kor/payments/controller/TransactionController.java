@@ -1,6 +1,7 @@
 package com.kor.payments.controller;
 
 import com.itextpdf.text.DocumentException;
+import com.kor.payments.constants.Constant;
 import com.kor.payments.domain.Account;
 import com.kor.payments.domain.Transaction;
 import com.kor.payments.domain.User;
@@ -33,13 +34,15 @@ public class TransactionController {
     private TransactionService transactionService;
     @Autowired
     private CurrencyRateService currencyRateService;
+    @Autowired
+    private PDFBuilderService pdfBuilderService;
 
 
     @GetMapping("payment/{transaction}")
     public String getTransaction(
             @PathVariable Transaction transaction,
             Model model) {
-        model.addAttribute("transaction", transaction);
+        model.addAttribute(Constant.TRANSACTION, transaction);
         return "payment_details";
     }
 
@@ -47,12 +50,11 @@ public class TransactionController {
     public String newAccount(
             @AuthenticationPrincipal UserDetails userDetails,
             Model model) {
-        User user = (User) userDetails;
-        List<Account> accounts = accountService.findAllActiveAccountsByUser(user);
+        List<Account> accounts = accountService.findAllActiveAccountsByUser((User) userDetails);
         if (accounts.isEmpty()) {
             return "redirect:/wallet?message=no_accounts";
         }
-        model.addAttribute("accounts", accounts);
+        model.addAttribute(Constant.ACCOUNTS, accounts);
         return "make_payment";
     }
 
@@ -65,18 +67,16 @@ public class TransactionController {
             @RequestParam(required = false, defaultValue = "-") String destination,
             Model model) {
         int amountReceiver = (int) (amount * 100);
-        int amountPayer = amountReceiver;
-        Account payerAccount = accountService.findByNumberId(payer);
         Account receiverAccount = accountService.findByNumberId(receiver);
-        if (receiverAccount == null || !receiverAccount.isActive()) {
-            return "redirect:/transaction/form?warn=payment_receiver_not_found";
-        }
-        if (amountReceiver <= 0) {
-            return "redirect:/transaction/form";
-        }
+
+        String redirect = transactionService.checkReceiver(amountReceiver, receiverAccount);
+        if (!Constant.CHECKED.equals(redirect)) return redirect;
+
+        Account payerAccount = accountService.findByNumberId(payer);
+        int amountPayer = amountReceiver;
         if (!receiverAccount.getCurrency().equals(payerAccount.getCurrency())) {
             amountPayer = currencyRateService.doExchange(payerAccount.getCurrency(), receiverAccount.getCurrency(), amountReceiver);
-            model.addAttribute("warn", "payment_attention_currency");
+            model.addAttribute(Constant.WARN, "payment_attention_currency");
         }
         if (amountPayer >= payerAccount.getBalance()) {
             return "redirect:/transaction/form?warn=not_enough&receiver=" +
@@ -89,15 +89,14 @@ public class TransactionController {
         payment.setAmount(amountPayer);
         payment.setAccrual(amountReceiver);
         payment.setDestination(destination);
-        httpSession.setAttribute("payment", payment);
+        httpSession.setAttribute(Constant.PAYMENT, payment);
         log.info("Payment to receiver {} is prepared for payer {}", receiver, payer);
         return "make_payment";
     }
 
-
     @PostMapping("/cancel")
     public String cancelPayment(HttpSession httpSession) {
-        httpSession.removeAttribute("payment");
+        httpSession.removeAttribute(Constant.PAYMENT);
         return "redirect:/wallet?message=canceled";
     }
 
@@ -105,11 +104,11 @@ public class TransactionController {
     public String confirmPayment(HttpSession httpSession) {
         Transaction payment = (Transaction) httpSession.getAttribute("payment");
         if (payment != null && transactionService.makeTransaction(payment)) {
-            httpSession.removeAttribute("payment");
+            httpSession.removeAttribute(Constant.PAYMENT);
             log.info("Amount {} is deducted from the account {}", payment.getAmount(), payment.getPayer().getId());
             return "redirect:/wallet?message=payment_success";
         } else {
-            httpSession.removeAttribute("payment");
+            httpSession.removeAttribute(Constant.PAYMENT);
             log.info("Transaction is failed");
             return "redirect:/wallet?warn=payment_fail";
         }
@@ -119,12 +118,11 @@ public class TransactionController {
     public String getCheck(@PathVariable Transaction transaction, Model model) {
 
         try {
-            if (PDFBuilderService.getCheck(transaction)) model.addAttribute("message", "successfully");
+            if (pdfBuilderService.getCheck(transaction)) model.addAttribute(Constant.MESSAGE, "successfully");
         } catch (IOException | DocumentException | URISyntaxException e) {
-            model.addAttribute("warn", "failed");
+            log.debug("Check is not created due to {}", e.getMessage());
+            model.addAttribute(Constant.WARN, "failed");
         }
         return "payment_details";
     }
-
-
 }

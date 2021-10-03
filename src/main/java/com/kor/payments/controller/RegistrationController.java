@@ -1,5 +1,6 @@
 package com.kor.payments.controller;
 
+import com.kor.payments.constants.Constant;
 import com.kor.payments.utils.ControllerUtils;
 import com.kor.payments.domain.User;
 import com.kor.payments.services.UserService;
@@ -21,7 +22,7 @@ public class RegistrationController {
 
     @GetMapping("/registration")
     public String registration(Model model) {
-        model.addAttribute("user", new User());
+        model.addAttribute(Constant.USER, new User());
         return "registration";
     }
 
@@ -30,14 +31,14 @@ public class RegistrationController {
         if (bindingResult.hasErrors()) {
             Map<String, String> errorMap = ControllerUtils.getErrors(bindingResult);
             model.mergeAttributes(errorMap);
-            model.addAttribute("user", user);
+            model.addAttribute(Constant.USER, user);
             return "registration";
         } else {
             if (!userService.addUser(user)) {
-                model.addAttribute("warn", "registration_user_exist");
+                model.addAttribute(Constant.WARN, "registration_user_exist");
                 return "registration";
             }
         }
-        return "redirect:login";
+        return "redirect:/login";
     }
 }

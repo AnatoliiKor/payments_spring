@@ -32,10 +32,6 @@ public class AccountRequestService {
     public boolean removeRequest(Account account) {
         AccountRequest accountRequest = account.getAccountRequest();
         accountRequestRepository.delete(accountRequest);
-        if (accountRequestRepository.findById(accountRequest.getId()) != null) {
-            return true;
-        } else {
-            return false;
-        }
+        return !accountRequestRepository.findById(accountRequest.getId()).isPresent();
     }
 }

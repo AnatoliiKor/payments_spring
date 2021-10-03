@@ -1,5 +1,6 @@
 package com.kor.payments.controller;
 
+import com.kor.payments.constants.Constant;
 import com.kor.payments.domain.Role;
 import com.kor.payments.domain.Transaction;
 import com.kor.payments.domain.User;
@@ -35,8 +36,8 @@ public class TransactionsController {
     public String getUserPaymentsSorted(
             @AuthenticationPrincipal UserDetails userDetails,
             @PathVariable(required = false) User user,
-            @RequestParam(required = false, defaultValue = "registered") String sort,
-            @RequestParam(required = false, defaultValue = "DESC") String order,
+            @RequestParam(required = false, defaultValue = Constant.REGISTERED) String sort,
+            @RequestParam(required = false, defaultValue = Constant.DESC) String order,
             @RequestParam(required = false, defaultValue = "0") int page,
             @RequestParam(required = false) String inflows,
             Model model) {
@@ -49,22 +50,22 @@ public class TransactionsController {
         }
         if (user.getRole().equals(Role.ADMIN)) {
             transactions = transactionService.findAllPage(page, sort, order);
-            model.addAttribute("title", "transactions");
+            model.addAttribute(Constant.TITLE, Constant.TRANSACTIONS);
         } else if ("inflows".equals(inflows)) {
             transactions = transactionService.findReceiverTransactionsPage(user, page, sort, order);
-            model.addAttribute("title", "inflows");
+            model.addAttribute(Constant.TITLE, "inflows");
         } else {
             transactions = transactionService.findPayerTransactionsPage(user, page, sort, order);
-            model.addAttribute("title", "payments");
+            model.addAttribute(Constant.TITLE, "payments");
         }
         if (transactions.size() < 10) {
             lastPage = true;
         }
-        model.addAttribute("sort", sort);
-        model.addAttribute("order", order);
-        model.addAttribute("page", page);
+        model.addAttribute(Constant.SORT, sort);
+        model.addAttribute(Constant.ORDER, order);
+        model.addAttribute(Constant.PAGE, page);
         model.addAttribute("last_page", lastPage);
-        model.addAttribute("transactions", transactions);
+        model.addAttribute(Constant.TRANSACTIONS, transactions);
         log.info("Payments are requested for user {}", user.getId());
         return "payments_list_sorted";
     }

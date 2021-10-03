@@ -16,7 +16,6 @@
         <table class="table table-striped auto__table table-condensed text-center">
             <thead>
             <tr>
-                <!--            <th>#</th>-->
                 <th th:text="#{number}"><</th>
                 <th th:text="#{balance}"><</th>
                 <th th:text="#{account_name}"><</th>
@@ -34,8 +33,6 @@
                 <td th:text="${account.accountName}"></td>
                 <td th:text="${account.currency}"></td>
                 <td th:text="${account.active}? #{is_active} : #{blocked}"></td>
-
-
                 <td th:unless="${session.user_auth.role.name().equals('ADMIN')}">
                     <a class="btn btn-outline-primary mx-1" th:href="@{/account/{path}(path=${account.id})}"
                        th:text="#{refill_balance}"></a>
@@ -55,8 +52,6 @@
                         </div>
                     </form>
                 </td>
-
-
             </tr>
             </tbody>
         </table>

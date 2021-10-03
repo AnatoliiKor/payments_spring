@@ -1,56 +1,42 @@
 package com.kor.payments.services;
 
 import com.kor.payments.domain.Account;
-import com.kor.payments.domain.Currency;
-import com.kor.payments.domain.Transaction;
-import com.kor.payments.domain.User;
-import com.kor.payments.repository.AccountRepository;
-import com.kor.payments.repository.TransactionRepository;
-import com.kor.payments.repository.UserRepository;
-import org.junit.After;
 import org.junit.Assert;
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import java.util.List;
-
-import static org.junit.Assert.*;
-
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class TransactionServiceTest {
     @Autowired
-    private TransactionRepository transactionRepository;
-    @Autowired
     private TransactionService transactionService;
-    private User user;
 
-    @Before
-    public void newUser() {
-        user = new User();
-        user.setId(2L);
+    @Test
+    public void checkReceiver_nullReceiver_returnsReceiverNotFound() {
+        String  redirect = transactionService.checkReceiver(100, null);
+        Assert.assertTrue(redirect.contains("not_found"));
     }
 
     @Test
-    public void findAllPage() {
-        List<Transaction> transactions = transactionService.findAllPage(1, "amount", "ASC");
-        assertEquals(10, transactions.size());
+    public void checkReceiver_ReceiverNotActive_returnsReceiverNotFound() {
+        Account receiver = new Account();
+        receiver.setActive(false);
+        String  redirect = transactionService.checkReceiver(100, receiver);
+        Assert.assertTrue(redirect.contains("not_found"));
     }
 
     @Test
-    public void findPayerTransactions() {
-        List<Transaction> transactions = transactionService.findPayerTransactions(user);
-        assertTrue(transactions.size() != 0);
+    public void checkReceiver_negativeAnount_returnsForm() {
+        String  redirect = transactionService.checkReceiver(-100, new Account());
+        Assert.assertTrue(redirect.contains("form"));
     }
 
     @Test
-    public void findReceiverTransactions() {
-        List<Transaction> transactions = transactionService.findReceiverTransactions(user);
-        assertTrue(transactions.size() != 0);
+    public void checkReceiver_correctParameters_returnsChecked() {
+        String  redirect = transactionService.checkReceiver(100, new Account());
+        Assert.assertTrue(redirect.contains("form"));
     }
-
 }

@@ -1,5 +1,6 @@
 package com.kor.payments.controller;
 
+import com.kor.payments.constants.Constant;
 import com.kor.payments.domain.Role;
 import com.kor.payments.domain.User;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -14,7 +15,7 @@ public class FirstController {
 
     @GetMapping
     public String main(@AuthenticationPrincipal UserDetails userDetails, HttpSession session) {
-        session.setAttribute("user_auth", userDetails);
+        session.setAttribute(Constant.USER_AUTH, userDetails);
         User user = (User) userDetails;
         if (user.getRole().equals(Role.ADMIN)) {
             return "redirect:admin";

@@ -1,5 +1,6 @@
 package com.kor.payments.controller;
 
+import com.kor.payments.constants.Constant;
 import com.kor.payments.domain.Role;
 import com.kor.payments.domain.User;
 import com.kor.payments.repository.UserRepository;
@@ -24,7 +25,7 @@ public class UserController {
         if (!user.getEmail().equals(userDetails.getUsername()) && !userDetails.getAuthorities().contains(Role.ADMIN)) {
             return "accessDenied";
         }
-        model.addAttribute("user", user);
+        model.addAttribute(Constant.USER, user);
         return "user";
     }
 

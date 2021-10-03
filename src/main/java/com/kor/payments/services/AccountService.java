@@ -1,7 +1,6 @@
 package com.kor.payments.services;
 
 import com.kor.payments.domain.Account;
-import com.kor.payments.domain.Currency;
 import com.kor.payments.domain.User;
 import com.kor.payments.repository.AccountRepository;
 import org.apache.logging.log4j.LogManager;
@@ -63,12 +62,12 @@ public class AccountService {
                 log.info("Action is changed to {} for account {}", isActive, account.getId());
                 return true;
             } else {
-                log.info("Action is changed to {} for account {} but request {} is not deleted", isActive,
+                log.debug("Action is changed to {} for account {} but request {} is not deleted", isActive,
                         account.getId(), account.getAccountRequest().getId());
                 return false;
             }
         } else {
-            log.info("Action is not changed to {} for account {}", isActive, account.getId());
+            log.debug("Action is not changed to {} for account {}", isActive, account.getId());
             return false;
         }
     }

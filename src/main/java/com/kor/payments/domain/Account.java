@@ -1,5 +1,6 @@
 package com.kor.payments.domain;
 
+import com.kor.payments.constants.Constant;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -26,7 +27,7 @@ public class Account implements Serializable {
     private User user;
     @PositiveOrZero
     private long balance;
-    @NotBlank(message = "Cannot be empty")
+    @NotBlank(message = Constant.CANNOT_BE_EMPTY)
     @Length(max = 30, message = "Too long (more then 30 characters)")
     private String accountName;
 
@@ -45,11 +46,4 @@ public class Account implements Serializable {
 
     @OneToMany(mappedBy = "payer", fetch = FetchType.LAZY)
     private List<Transaction> payments;
-
-
-//    public String getFormatedDate() {
-//        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy, HH:mm");
-//        return this.registered.format(formatter);
-//    }
-
 }

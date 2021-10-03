@@ -7,6 +7,7 @@ import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
 import com.kor.payments.utils.Utils;
 import com.kor.payments.domain.Transaction;
+import org.springframework.stereotype.Service;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -15,13 +16,17 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.time.LocalDateTime;
 
+@Service
 public class PDFBuilderService {
+    private static final String FILE = "check.pdf";
+    private static final String LOGO = "payments.png";
+    private static final String FONT = "HelveticaRegular.ttf";
 
-    public static boolean getCheck(Transaction payment) throws IOException, DocumentException, URISyntaxException {
+    public boolean getCheck(Transaction payment) throws IOException, DocumentException, URISyntaxException {
         Document document = new Document();
-        PdfWriter.getInstance(document, new FileOutputStream("check.pdf"));
+        PdfWriter.getInstance(document, new FileOutputStream(FILE));
         document.open();
-        Path path = Paths.get(ClassLoader.getSystemResource("payments.png").toURI());
+        Path path = Paths.get(ClassLoader.getSystemResource(LOGO).toURI());
         Image img = Image.getInstance(path.toAbsolutePath().toString());
         img.scalePercent(30);
         document.add(img);
@@ -39,8 +44,8 @@ public class PDFBuilderService {
         return true;
     }
 
-    private static void addRows(PdfPTable table, Transaction payment) {
-        Font font = FontFactory.getFont("HelveticaRegular.ttf", BaseFont.IDENTITY_H, true);
+    public void addRows(PdfPTable table, Transaction payment) {
+        Font font = FontFactory.getFont(FONT, BaseFont.IDENTITY_H, true);
         PdfPCell cell;
         table.addCell("recipient's account");
         table.addCell("UA " + payment.getReceiver().getId());

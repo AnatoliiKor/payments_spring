@@ -31,7 +31,6 @@ public class AccountServiceTestRepo {
     private UserRepository userRepository;
     private String test = "test";
     private User user;
-    private Account account;
 
     @Before
     public void addUser() {
@@ -50,13 +49,6 @@ public class AccountServiceTestRepo {
     public void deleteUser() {
         userRepository.delete(user);
     }
-
-//    @Test
-//    public void findAllAccounts() {
-//        List<Account> accounts = accountService.findAllAccounts();
-//        assertNotNull(accounts);
-//        assertNotEquals(1L, accounts.size());
-//    }
 
     @Test
     public void newAccount() {

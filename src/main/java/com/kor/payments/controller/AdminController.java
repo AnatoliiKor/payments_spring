@@ -1,5 +1,6 @@
 package com.kor.payments.controller;
 
+import com.kor.payments.constants.Constant;
 import com.kor.payments.domain.Account;
 import com.kor.payments.domain.CurrencyRate;
 import com.kor.payments.domain.User;
@@ -33,8 +34,8 @@ public class AdminController {
     private final Logger log = LogManager.getLogger(AdminController.class);
     int page = 0;
     int maxPage = 1000;
-    String sort = "email";
-    String order = "ASC";
+    String sort = Constant.EMAIL;
+    String order = Constant.ASC;
     List<User> users;
 
 
@@ -53,15 +54,15 @@ public class AdminController {
             --page;
         }
         users = userService.findAllPage(page, sort, order);
-        model.addAttribute("users", users);
-        model.addAttribute("sort", sort);
-        model.addAttribute("order", order);
-        model.addAttribute("page", page);
+        model.addAttribute(Constant.USERS, users);
+        model.addAttribute(Constant.SORT, sort);
+        model.addAttribute(Constant.ORDER, order);
+        model.addAttribute(Constant.PAGE, page);
 
         if (users.size() < 10) {
             maxPage = page;
         }
-        log.info("user list requested by admin");
+        log.info("users list requested by admin");
         return "users_list";
     }
 
@@ -83,13 +84,13 @@ public class AdminController {
 
     @GetMapping("/accounts")
     public String getAllAccounts(Model model) {
-        model.addAttribute("accounts", accountService.findAllAccounts());
+        model.addAttribute(Constant.ACCOUNTS, accountService.findAllAccounts());
         log.info("accounts list requested by admin");
         return "accounts_list";
     }
 
     @PostMapping("/action/{account}")
-    public String changeAccountStatus(@PathVariable Account account, @RequestParam(name = "is_active") boolean action, Model model) {
+    public String changeAccountStatus(@PathVariable Account account, @RequestParam(name = "is_active") boolean action) {
         String message;
         if (accountService.setIsActive(account, action)) {
             message = "?message=updated";
@@ -99,12 +100,12 @@ public class AdminController {
         } else {
             message = "?warn=not_updated";
         }
-        log.info("Action is changed for acount {}", account.getId());
+        log.info("Action is changed for account {}", account.getId());
         return "redirect:/admin" + message;
     }
 
     @PostMapping("/user_active/{user}")
-    public String changeUserStatus(@PathVariable User user, @RequestParam(name = "is_active") boolean action, Model model) {
+    public String changeUserStatus(@PathVariable User user, @RequestParam(name = "is_active") boolean action) {
         String message;
         if (userService.setIsActive(user, action)) {
             message = "?message=updated";

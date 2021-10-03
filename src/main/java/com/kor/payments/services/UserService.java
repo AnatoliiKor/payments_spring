@@ -44,7 +44,6 @@ public class UserService implements UserDetailsService {
         return userRepository.findById(id).orElse(null);
     }
 
-
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
         UserDetails userDb = userRepository.findByEmail(email);
@@ -60,7 +59,7 @@ public class UserService implements UserDetailsService {
             log.info("Action is changed to {} for user {}", isActive, user.getEmail());
             return true;
         }
-        log.info("Action is not changed to {} for user {}", isActive, user.getEmail());
+        log.debug("Action is not changed to {} for user {}", isActive, user.getEmail());
         return false;
     }
 
@@ -74,7 +73,7 @@ public class UserService implements UserDetailsService {
         }
         user.setEmail(email);
         if (userRepository.save(user).getEmail().equals(email)) {
-            log.info("Email is chenged for user {}", user.getId());
+            log.info("Email is changed for user {}", user.getId());
             return true;
         }
         return false;

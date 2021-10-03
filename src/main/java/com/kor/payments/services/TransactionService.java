@@ -1,5 +1,6 @@
 package com.kor.payments.services;
 
+import com.kor.payments.constants.Constant;
 import com.kor.payments.domain.*;
 import com.kor.payments.repository.AccountRepository;
 import com.kor.payments.repository.TransactionRepository;
@@ -18,6 +19,16 @@ public class TransactionService {
     TransactionRepository transactionRepository;
     @Autowired
     AccountRepository accountRepository;
+
+    public String checkReceiver(int amountReceiver, Account receiverAccount) {
+        if (receiverAccount == null || !receiverAccount.isActive()) {
+            return "redirect:/transaction/form?warn=payment_receiver_not_found";
+        }
+        if (amountReceiver <= 0) {
+            return "redirect:/transaction/form";
+        }
+        return Constant.CHECKED;
+    }
 
     @Transactional
     public boolean makeTransaction(Transaction payment) {
@@ -41,14 +52,6 @@ public class TransactionService {
 
     public List<Transaction> findReceiverTransactionsPage(User user, int page, String sort, String order) {
         return transactionRepository.findByReceiver_User(user, PageRequest.of(page, 10, Sort.by(Sort.Direction.valueOf(order), sort))).getContent();
-    }
-
-    public List<Transaction> findPayerTransactions(User user) {
-        return transactionRepository.findByPayer_User(user);
-    }
-
-    public List<Transaction> findReceiverTransactions(User user) {
-        return transactionRepository.findByReceiver_User(user);
     }
 
 }

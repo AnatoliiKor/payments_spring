@@ -1,5 +1,6 @@
 package com.kor.payments.domain;
 
+import com.kor.payments.constants.Constant;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -25,18 +26,18 @@ public class User implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    @NotBlank(message = "Cannot be empty")
-    @Length(max = 20, message = "Too long (more then 20 chracters)")
+    @NotBlank(message = Constant.CANNOT_BE_EMPTY)
+    @Length(max = 20, message = Constant.TOO_LONG_MORE_THEN_20_CHARACTERS)
     private String lastName;
-    @NotBlank(message = "Cannot be empty")
-    @Length(max = 20, message = "Too long (more then 20 characters)")
+    @NotBlank(message = Constant.CANNOT_BE_EMPTY)
+    @Length(max = 20, message = Constant.TOO_LONG_MORE_THEN_20_CHARACTERS)
     private String name;
-    @NotBlank(message = "Cannot be empty")
-    @Length(max = 20, message = "Too long (more then 20 characters)")
+    @NotBlank(message = Constant.CANNOT_BE_EMPTY)
+    @Length(max = 20, message = Constant.TOO_LONG_MORE_THEN_20_CHARACTERS)
     private String middleName;
-    @NotBlank(message = "Cannot be empty")
+    @NotBlank(message = Constant.CANNOT_BE_EMPTY)
     private String password;
-    @NotBlank(message = "Cannot be empty")
+    @NotBlank(message = Constant.CANNOT_BE_EMPTY)
     @Email(message = "Email is not correct")
     @Column(unique = true)
     private String email;
