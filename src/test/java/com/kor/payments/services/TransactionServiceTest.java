@@ -29,7 +29,7 @@ public class TransactionServiceTest {
     }
 
     @Test
-    public void checkReceiver_negativeAnount_returnsForm() {
+    public void checkReceiver_negativeAmount_returnsForm() {
         String  redirect = transactionService.checkReceiver(-100, new Account());
         Assert.assertTrue(redirect.contains("form"));
     }

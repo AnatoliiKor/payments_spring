@@ -43,20 +43,20 @@ public class AccountServiceTest {
     }
 
     @Test
-    public void setIsActive() {
+    public void setUserIsActiveSuccessful() {
         Account account = new Account();
         Account accountIsActive = new Account();
         accountIsActive.setActive(true);
         Mockito.doReturn(accountIsActive)
                 .when(accountRepository)
                 .save(account);
-        boolean isActiveChenged = accountService.setIsActive(account, true);
-        Assert.assertTrue(isActiveChenged);
+        boolean isActiveChanged = accountService.setIsActive(account, true);
+        Assert.assertTrue(isActiveChanged);
         Mockito.verify(accountRepository, Mockito.times(1)).save(account);
     }
 
     @Test
-    public void refill() {
+    public void accountRefillSuccessful() {
         Account account = new Account();
         account.setBalance(1000L);
         int amount = 100;
@@ -71,7 +71,7 @@ public class AccountServiceTest {
     }
 
     @Test
-    public void refillFailed() {
+    public void accountRefillFailed() {
         Account account = new Account();
         account.setBalance(1000L);
         int amount = 100;

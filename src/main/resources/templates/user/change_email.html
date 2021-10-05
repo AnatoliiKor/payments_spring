@@ -14,7 +14,7 @@
         <div class="card card-body" style="width: 300px;">
             <form class="m-2" method="post" th:action="@{/user/{path}/change_email(path=${session.user_auth.id})}">
                 <div class="mx-2 mt-1" th:text="#{new} + ' email'"></div>
-                <input type="email" name="email" required>
+                <input type="text" name="email" required>
                 <button class="btn btn-outline-success m-1" type="submit" th:text="#{apply}"></button>
             </form>
         </div>

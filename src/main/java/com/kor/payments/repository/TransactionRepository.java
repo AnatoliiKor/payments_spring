@@ -14,12 +14,8 @@ public interface TransactionRepository extends JpaRepository<Transaction, Long> 
 
     Page<Transaction> findAll(Pageable pageable);
 
-    List<Transaction> findByReceiver_User(User user);
-
     Page<Transaction> findByReceiver_User(User user, Pageable pageable);
 
     Page<Transaction> findByPayer_User(User user, Pageable pageable);
-
-    List<Transaction> findByPayer_User(User user);
 
 }

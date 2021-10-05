@@ -3,6 +3,7 @@ package com.kor.payments.services;
 import com.kor.payments.domain.Role;
 import com.kor.payments.domain.User;
 import com.kor.payments.repository.UserRepository;
+import com.kor.payments.utils.Utils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,10 +41,6 @@ public class UserService implements UserDetailsService {
         return userRepository.findByEmail(email);
     }
 
-    public User findById(Long id) {
-        return userRepository.findById(id).orElse(null);
-    }
-
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
         UserDetails userDb = userRepository.findByEmail(email);
@@ -68,7 +65,7 @@ public class UserService implements UserDetailsService {
     }
 
     public boolean changeEmail(User user, String email) {
-        if (user.getEmail().equals(email) || findUserByEmail(email) != null) {
+        if (!Utils.checkEmail(email) || user.getEmail().equals(email) || findUserByEmail(email) != null) {
             return false;
         }
         user.setEmail(email);
