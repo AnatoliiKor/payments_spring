@@ -72,27 +72,18 @@
                                 <form method="post" action="#"
                                       th:action="@{/admin/update_exchange_rate/{path}(path=${rate.id})}">
                                     <input type="number" th:max="100" th:value="${rate.exchangeRate}" step=".01"
-                                           min="0.01" name="rate" required>
+                                           min="0.01" name="rate" required="required"/>
                                     <p th:text="#{UAH}"></p>
                                     <button class="mt-1" type="submit" th:text="#{update}"></button>
                                 </form>
-
                             </td>
                         </tr>
                         </tbody>
                     </table>
                 </div>
-
-
             </div>
-
-
         </div>
-
-
     </div>
-
-
 </div>
 </body>
 </html>

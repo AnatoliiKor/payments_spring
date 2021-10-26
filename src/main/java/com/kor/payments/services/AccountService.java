@@ -12,7 +12,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.sql.SQLException;
+import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class AccountService {
@@ -26,7 +28,26 @@ public class AccountService {
 
 
     public List<Account> findAllAccounts() {
-        return accountRepository.findAll();
+        List<Account> accounts = accountRepository.findAll();
+        return accounts;
+    }
+
+    public List<Account> findAllAccountsPagesSorted(List<Account> accounts, int page, String sortBy, String order) {
+        long start = page * 10;
+        Comparator<Account> comparator = Comparator.comparingLong(Account::getId);
+            if("balance".equals(sortBy)) {
+                comparator = Comparator.comparingLong(Account::getBalance);
+            }
+            if("accountName".equals(sortBy)) {
+                comparator = Comparator.comparing(Account::getAccountName);
+            }
+            if("currency".equals(sortBy)) {
+                comparator = Comparator.comparing(Account::getCurrency);
+            }
+            if ("DESC".equals(order)) {
+                comparator = comparator.reversed();
+            }
+        return accounts.stream().sorted(comparator).skip(start).limit(10).collect(Collectors.toList());
     }
 
     public List<Account> findAllActiveAccountsByUser(User user) {

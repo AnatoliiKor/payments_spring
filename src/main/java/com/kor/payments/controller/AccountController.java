@@ -60,7 +60,8 @@ public class AccountController {
         if (page > maxPage) {
             --page;
         }
-        accounts = accountService.findAllPage(page, sort, order);
+//        accounts = accountService.findAllPage(page, sort, order);
+        accounts = accountService.findAllAccountsPagesSorted(accountService.findAllAccounts(), page, sort, order);
         fillModel(model);
         if (accounts.size() < 10) {
             maxPage = page;
